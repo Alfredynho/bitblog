@@ -1,0 +1,74 @@
+{% load static %}
+
+<section id="header">
+
+    <header>
+        <span class="image avatar">
+            <img src="/media/{{ blog.owner.photo }}"/>
+        </span>
+        <h1 id="logo">
+            <a href="#">
+                {% if blog.owner %}
+                    {% if blog.owner.first_name and blog.owner.last_name %}
+                        {{ blog.owner.first_name }} {{ blog.owner.last_name }}
+                    {% else %}
+                        {{ blog.owner.username }}
+                    {% endif %}
+                {% endif %}
+            </a>
+        </h1>
+        {% if  blog.owner and blog.owner.bio%}
+            <p>{{ blog.owner.bio }}</p>
+        {% endif %}
+    </header>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="#one" class="active">About</a></li>
+
+            <li><a href="#three">Posts</a></li>
+            <li><a href="#two">Categories</a></li>
+            <li><a href="#four">Contact</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        {% if blog.owner %}
+            <ul class="icons">
+
+                {% if blog.owner.twitter %}
+                    <li>
+                        <a href="{{ blog.owner.twitter }}" class="icon fa-twitter"><span class="label">Twitter</span></a>
+                    </li>
+                {% endif %}
+
+
+                {% if blog.owner.facebook %}
+                    <li>
+                        <a href="{{ blog.owner.facebook }}" class="icon fa-facebook"><span class="label">Facebook</span></a>
+                    </li>
+                {% endif %}
+
+                {% if blog.owner.instagram %}
+                    <li>
+                        <a href="{{ blog.owner.instagram }}" class="icon fa-instagram"><span class="label">Instagram</span></a>
+                    </li>
+                {% endif %}
+
+                {% if blog.owner.github %}
+                    <li>
+                        <a href="{{ blog.owner.github }}" class="icon fa-github"><span class="label">Github</span></a>
+                    </li>
+                {% endif %}
+
+
+                {% if blog.owner.email %}
+                    <li>
+                        <a href="{{ blog.owner.email }}" class="icon fa-envelope"><span class="label">Email</span></a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        {% endif %}
+    </footer>
+</section>

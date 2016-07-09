@@ -1,0 +1,37 @@
+{% extends "errors/base.html" %}
+{% load static i18n %}
+{% block title %}
+    404
+{% endblock %}
+{% block container %}
+
+    <div class="ui one column stackeable centered grid error block">
+        <div class="column">
+            <div class="ui items">
+                <div class="error item">
+                    <div class="ui small image">
+                        <span class="code">404</span>
+                    </div>
+                    <div class="middle aligned content">
+                        <div class="header">
+                            <h2 class="ui center aligned icon header">
+                                {% trans 'NOT FOUND' %}
+                            </h2>
+                        </div>
+                        <div class="description">
+                            <p>{% trans 'This page is not found' %}</p>
+                        </div>
+                        <div class="extra">
+                            <a href="{% url 'home' %}" class="ui right floated turquoise button">
+                                {% trans 'Go to Home' %}&nbsp;
+                                <i class="right arrow icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

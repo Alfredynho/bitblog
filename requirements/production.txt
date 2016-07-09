@@ -1,0 +1,16 @@
+-r common.txt
+
+
+# ~ MAILING
+# -----------
+django-anymail==0.2
+
+
+# ~ LOGGING
+# -----------
+raven==5.10.2
+
+
+# ~ WSGI
+# ---------
+gunicorn==19.4.5

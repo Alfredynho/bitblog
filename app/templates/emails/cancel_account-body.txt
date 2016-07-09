@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% trans "Hi" %},   {{ user.first_name }} {{ user.last_name }}
+
+
+{% trans "Do you wish cancel your account?" %}
+{% trans "If this is correct please by clicking the button." %}
+
+{{ host}}{{ token }}
+
+{% trans "NOTE: This link can only be used once." %}
+
+
+{% trans "Regards" %}
+
+---
+BitWarp team.
+

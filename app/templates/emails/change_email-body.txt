@@ -1,0 +1,18 @@
+{% load i18n %}
+
+{% trans "Change your email" %}
+
+
+{% trans "Hi" %}   {{ user.first_name }} {{ user.last_name }}
+
+{% trans "You email has been changed, if this isn't  your action please ignore this mail or by clicking the next link." %}
+
+{{ host }}{{ token }}
+
+{% trans "NOTE: This link can only be used once." %}
+
+
+{% trans "Regards" %}
+
+---
+BitWarp team.

@@ -1,0 +1,15 @@
+{% load i18n %}
+
+
+
+
+[WARP] {% trans "Welcome " %}  {{ user.first_name }} {{ user.last_name }} !
+
+
+{% trans "You account has been activated, enjoy our services." %}
+
+
+{% trans "Regards" %}
+
+---
+BitWarp team.

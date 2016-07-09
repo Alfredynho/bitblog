@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% trans "Hi" %},  {{ user.first_name }} {{ user.last_name }}
+
+
+{% trans "Thank you for registering to " %}
+BitWarp
+{% trans "please activate your account by clicking the link." %}
+
+http://{{ host}}{{ token }}
+
+{% trans "Regards" %}
+
+---
+BitWarp team.

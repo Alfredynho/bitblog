@@ -1,0 +1,423 @@
+font/truetype   ttf
+font/opentype   otf
+application/font-woff   woff
+application/vnd.ms-fontobject   eot
+application/activemessage
+application/andrew-inset    ez
+application/annodex anx
+application/applefile
+application/atom+xml    atom
+application/atomcat+xml atomcat
+application/atomicmail
+application/atomserv+xml    atomsrv
+application/batch-SMTP
+application/bbolin  lin
+application/beep+xml
+application/cals-1840
+application/commonground
+application/cu-seeme    cu
+application/cybercash
+application/davmount+xml    davmount
+application/dca-rft
+application/dec-dx
+application/dicom   dcm
+application/docbook+xml
+application/dsptype tsp
+application/dvcs
+application/ecmascript  es
+application/edi-consent
+application/edi-x12
+application/edifact
+application/eshop
+application/font-tdpfr
+application/futuresplash    spl
+application/ghostview
+application/hta hta
+application/http
+application/hyperstudio
+application/iges
+application/index
+application/index.cmd
+application/index.obj
+application/index.response
+application/index.vnd
+application/iotp
+application/ipp
+application/isup
+application/java-archive    jar
+application/java-serialized-object  ser
+application/java-vm class
+application/javascript  js
+application/json    json
+application/m3g m3g
+application/mac-binhex40    hqx
+application/mac-compactpro  cpt
+application/macwriteii
+application/marc
+application/mathematica nb nbp
+application/mbox    mbox
+application/ms-tnef
+application/msaccess    mdb
+application/msword  doc dot
+application/mxf mxf
+application/news-message-id
+application/news-transmission
+application/ocsp-request
+application/ocsp-response
+application/octet-stream    bin
+application/oda oda
+application/ogg ogx
+application/onenote one onetoc2 onetmp onepkg
+application/parityfec
+application/pdf pdf
+application/pgp-encrypted   pgp
+application/pgp-keys    key
+application/pgp-signature   sig
+application/pics-rules  prf
+application/pkcs10
+application/pkcs7-mime
+application/pkcs7-signature
+application/pkix-cert
+application/pkix-crl
+application/pkixcmp
+application/postscript  ps ai eps epsi epsf eps2 eps3
+application/prs.alvestrand.titrax-sheet
+application/prs.cww
+application/prs.nprend
+application/qsig
+application/rar rar
+application/rdf+xml rdf
+application/remote-printing
+application/riscos
+application/rtf rtf
+application/sdp
+application/set-payment
+application/set-payment-initiation
+application/set-registration
+application/set-registration-initiation
+application/sgml
+application/sgml-open-catalog
+application/sieve
+application/sla stl
+application/slate
+application/smil    smi smil
+application/timestamp-query
+application/timestamp-reply
+application/vemmi
+application/whoispp-query
+application/whoispp-response
+application/wita
+application/x400-bp
+application/xhtml+xml   xhtml xht
+application/xml xml xsl xsd
+application/xml-dtd
+application/xml-external-parsed-entity
+application/xspf+xml    xspf
+application/zip zip
+application/x-123   wk
+application/x-7z-compressed 7z
+application/x-abiword   abw
+application/x-apple-diskimage   dmg
+application/x-bcpio bcpio
+application/x-bittorrent    torrent
+application/x-cab   cab
+application/x-cbr   cbr
+application/x-cbz   cbz
+application/x-cdf   cdf cda
+application/x-cdlink    vcd
+application/x-chess-pgn pgn
+application/x-comsol    mph
+application/x-core
+application/x-cpio  cpio
+application/x-csh   csh
+application/x-debian-package    deb udeb
+application/x-director  dcr dir dxr
+application/x-dms   dms
+application/x-doom  wad
+application/x-dvi   dvi
+application/x-executable
+application/x-font  pfa pfb gsf pcf pcf.Z
+application/x-freemind  mm
+application/x-futuresplash  spl
+application/x-ganttproject  gan
+application/x-gnumeric  gnumeric
+application/x-go-sgf    sgf
+application/x-graphing-calculator   gcf
+application/x-gtar  gtar
+application/x-gtar-compressed   tgz taz
+application/x-hdf   hdf
+application/x-hwp   hwp
+application/x-ica   ica
+application/x-info  info
+application/x-internet-signup   ins isp
+application/x-iphone    iii
+application/x-iso9660-image iso
+application/x-jam   jam
+application/x-java-applet
+application/x-java-bean
+application/x-java-jnlp-file    jnlp
+application/x-jmol  jmz
+application/x-kchart    chrt
+application/x-kdelnk
+application/x-killustrator  kil
+application/x-koan  skp skd skt skm
+application/x-kpresenter    kpr kpt
+application/x-kspread   ksp
+application/x-kword kwd kwt
+application/x-latex latex
+application/x-lha   lha
+application/x-lyx   lyx
+application/x-lzh   lzh
+application/x-lzx   lzx
+application/x-maker frm maker frame fm fb book fbdoc
+application/x-md5   md5
+application/x-mif   mif
+application/x-mpegURL   m3u8
+application/x-ms-wmd    wmd
+application/x-ms-wmz    wmz
+application/x-msdos-program com exe bat dll
+application/x-msi   msi
+application/x-netcdf    nc
+application/x-ns-proxy-autoconfig   pac dat
+application/x-nwc   nwc
+application/x-object    o
+application/x-oz-application    oza
+application/x-pkcs7-certreqresp p7r
+application/x-pkcs7-crl crl
+application/x-python-code   pyc pyo
+application/x-qgis  qgs shp shx
+application/x-quicktimeplayer   qtl
+application/x-rdp   rdp
+application/x-redhat-package-manager    rpm
+application/x-rss+xml   rss
+application/x-ruby  rb
+application/x-rx
+application/x-scilab    sci sce
+application/x-scilab-xcos   xcos
+application/x-sh    sh
+application/x-sha1  sha1
+application/x-shar  shar
+application/x-shellscript
+application/x-shockwave-flash   swf swfl
+application/x-silverlight   scr
+application/x-sql   sql
+application/x-stuffit   sit sitx
+application/x-sv4cpio   sv4cpio
+application/x-sv4crc    sv4crc
+application/x-tar   tar
+application/x-tcl   tcl
+application/x-tex-gf    gf
+application/x-tex-pk    pk
+application/x-texinfo   texinfo texi
+application/x-trash ~ % bak old sik
+application/x-troff t tr roff
+application/x-troff-man man
+application/x-troff-me  me
+application/x-troff-ms  ms
+application/x-ustar ustar
+application/x-videolan
+application/x-wais-source   src
+application/x-wingz wz
+application/x-x509-ca-cert  crt
+application/x-xcf   xcf
+application/x-xfig  fig
+application/x-xpinstall xpi
+
+audio/32kadpcm
+audio/3gpp
+audio/amr   amr
+audio/amr-wb    awb
+audio/amr   amr
+audio/amr-wb    awb
+audio/annodex   axa
+audio/basic au snd
+audio/csound    csd orc sco
+audio/flac  flac
+audio/g.722.1
+audio/l16
+audio/midi  mid midi kar
+audio/mp4a-latm
+audio/mpa-robust
+audio/mpeg  mpga mpega mp2 mp3 m4a
+audio/mpegurl   m3u
+audio/ogg   oga ogg spx
+audio/parityfec
+audio/prs.sid   sid
+audio/telephone-event
+audio/tone
+audio/vnd.cisco.nse
+audio/vnd.cns.anp1
+audio/vnd.cns.inf1
+audio/vnd.digital-winds
+audio/vnd.everad.plj
+audio/vnd.lucent.voice
+audio/vnd.nortel.vbk
+audio/vnd.nuera.ecelp4800
+audio/vnd.nuera.ecelp7470
+audio/vnd.nuera.ecelp9600
+audio/vnd.octel.sbc
+audio/vnd.qcelp
+audio/vnd.rhetorex.32kadpcm
+audio/vnd.vmx.cvsd
+audio/x-aiff    aif aiff aifc
+audio/x-gsm gsm
+audio/x-mpegurl m3u
+audio/x-ms-wma  wma
+audio/x-ms-wax  wax
+audio/x-pn-realaudio-plugin
+audio/x-pn-realaudio    ra rm ram
+audio/x-realaudio   ra
+audio/x-scpls   pls
+audio/x-sd2 sd2
+audio/x-wav wav
+image/cgm
+image/g3fax
+image/gif   gif
+image/ief   ief
+image/jpeg  jpeg jpg jpe
+image/naplps
+image/pcx   pcx
+image/png   png
+image/prs.btif
+image/prs.pti
+image/svg+xml   svg svgz
+image/tiff  tiff tif
+image/vnd.cns.inf2
+image/vnd.djvu  djvu djv
+image/vnd.dwg
+image/vnd.dxf
+image/vnd.fastbidsheet
+image/vnd.fpx
+image/vnd.fst
+image/vnd.fujixerox.edmics-mmr
+image/vnd.fujixerox.edmics-rlc
+image/vnd.microsoft.icon    ico
+image/vnd.mix
+image/vnd.net-fpx
+image/vnd.svf
+image/vnd.wap.wbmp  wbmp
+image/vnd.xiff
+image/x-canon-cr2   cr2
+image/x-canon-crw   crw
+image/x-cmu-raster  ras
+image/x-coreldraw   cdr
+image/x-coreldrawpattern    pat
+image/x-coreldrawtemplate   cdt
+image/x-corelphotopaint cpt
+image/x-epson-erf   erf
+image/x-icon
+image/x-jg  art
+image/x-jng jng
+image/x-ms-bmp  bmp
+image/x-nikon-nef   nef
+image/x-olympus-orf orf
+image/x-photoshop   psd
+image/x-portable-anymap pnm
+image/x-portable-bitmap pbm
+image/x-portable-graymap    pgm
+image/x-portable-pixmap ppm
+image/x-rgb rgb
+image/x-xbitmap xbm
+image/x-xpixmap xpm
+image/x-xwindowdump xwd
+multipart/alternative
+multipart/appledouble
+multipart/byteranges
+multipart/digest
+multipart/encrypted
+multipart/form-data
+multipart/header-set
+multipart/mixed
+multipart/parallel
+multipart/related
+multipart/report
+multipart/signed
+multipart/voice-message
+text/cache-manifest appcache
+text/calendar   ics icz
+text/css    css
+text/csv    csv
+text/directory
+text/english
+text/enriched
+text/h323   323
+text/html   html htm shtml
+text/iuls   uls
+text/mathml mml
+text/parityfec
+text/plain  asc txt text pot brf srt
+text/prs.lines.tag
+text/rfc822-headers
+text/richtext   rtx
+text/rtf
+text/scriptlet  sct wsc
+text/t140
+text/texmacs    tm
+text/tab-separated-values   tsv
+text/uri-list
+text/x-bibtex   bib
+text/x-boo  boo
+text/x-c++hdr   h++ hpp hxx hh
+text/x-c++src   c++ cpp cxx cc
+text/x-chdr h
+text/x-component    htc
+text/x-crontab
+text/x-csh  csh
+text/x-csrc c
+text/x-dsrc d
+text/x-diff diff patch
+text/x-haskell  hs
+text/x-java java
+text/x-lilypond ly
+text/x-literate-haskell lhs
+text/x-makefile
+text/x-moc  moc
+text/x-pascal   p pas
+text/x-pcs-gcd  gcd
+text/x-perl pl pm
+text/x-python   py
+text/x-scala    scala
+text/x-server-parsed-html
+text/x-setext   etx
+text/x-sfv  sfv
+text/x-sh   sh
+text/x-tcl  tcl tk
+text/x-tex  tex ltx sty cls
+text/x-vcalendar    vcs
+text/x-vcard    vcf
+video/3gpp  3gp
+video/annodex   axv
+video/dl    dl
+video/dv    dif dv
+video/fli   fli
+video/gl    gl
+video/mpeg  mpeg mpg mpe
+video/MP2T  ts
+video/mp4   mp4
+video/quicktime qt mov
+video/mp4v-es
+video/ogg   ogv
+video/parityfec
+video/pointer
+video/webm  webm
+video/vnd.fvt
+video/vnd.motorola.video
+video/vnd.motorola.videop
+video/vnd.mpegurl   mxu
+video/vnd.mts
+video/vnd.nokia.interleaved-multimedia
+video/vnd.vivo
+video/x-flv flv
+video/x-la-asf  lsf lsx
+video/x-mng mng
+video/x-ms-asf  asf asx
+video/x-ms-wm   wm
+video/x-ms-wmv  wmv
+video/x-ms-wmx  wmx
+video/x-ms-wvx  wvx
+video/x-msvideo avi
+video/x-sgi-movie   movie
+video/x-matroska    mpv mkv
+x-conference/x-cooltalk ice
+x-epoc/x-sisx-app   sisx
+x-world/x-vrml  vrm vrml wrl

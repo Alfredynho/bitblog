@@ -1,0 +1,240 @@
+@import "compass/css3";
+
+
+/* ~ CORE
+---------------------------------*/
+@import "core/fonts";
+@import "core/colors";
+@import "core/mixins";
+
+
+body {
+  margin: 0;
+}
+
+
+#header {
+  background-color: $wet-asphalt;
+  height: 50px;
+  padding: 25px 25px 8px 25px;
+
+  // Temporally
+  form#api_selector {
+    display: none;
+  }
+
+  a#logo {
+    background: none;
+    padding: 0;
+    img {
+      height: 47px;
+    }
+  }
+
+}
+
+.docs-link {
+  text-align: left;
+  a {
+    font-family: "Roboto", sans-serif !important;;
+    font-weight: 300 !important;
+    font-size: 18px;
+    text-space: 5px !important;
+  }
+}
+
+#django-rest-swagger {
+  background: $midnight-blue;
+  padding: 12px;
+}
+
+
+.swagger-ui-wrap a {
+  color: $wet-asphalt;
+
+  @include transition(.25s);
+
+  &:hover {
+    color: $midnight-blue;
+  }
+}
+
+.info {
+  a {
+    font-weight: 600;
+  }
+  // temporally
+  .info_title, .info_contact, .info_license, .info_tos {
+    display: none !important;
+  }
+  .info_description {
+    font-weight: 400;
+  }
+}
+
+
+
+.swagger-ui-wrap {
+    font-family: "Roboto", sans-serif !important;
+    font-weight: 400;
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+    abbr, acronym, address, big, cite, code, del, dfn,
+    em, img, ins, kbd, q, s, samp, small, strike, strong,
+    sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul,
+    li, fieldset, form, label, legend, table, caption, tbody,
+    tfoot, thead, tr, th, td, article, aside, canvas, details,
+    embed, figure, figcaption, footer, header, menu, nav,
+    output, ruby, section, summary, time, mark, audio, video {
+      font-family: "Roboto", sans-serif !important;;
+      font-weight: 500;
+    }
+
+    table tbody tr td {
+      line-height: 2.3em;
+    }
+
+    ul#resources li.resource ul.endpoints li.endpoint ul.operations {
+        li.operation div.content div.sandbox_header {
+            margin-top: 15px;
+        }
+        li.operation.post div.heading {
+            h3 span.http_method a, div.content h4 {
+                background-color: $green-sea;
+            }
+
+            ul.options li a {
+              color: darken($green-sea, 10%);
+              font-weight:600;
+            }
+        }
+
+        li.operation.get div.heading {
+            h3 span.http_method a {
+                background-color: $belize-hole;
+            }
+            ul.options li a {
+                color: darken($belize-hole, 10%);
+                font-weight:600;
+            }
+        }
+
+        li.operation.put div.heading {
+            h3 span.http_method a {
+                background-color: $orange;
+            }
+            ul.options li a {
+                color: darken($orange, 10%);
+                font-weight:600;
+            }
+        }
+
+        li.operation.delete div.heading {
+            h3 span.http_method a {
+               background-color: $pomegranate;
+            }
+            ul.options li a {
+                color: darken($pomegranate, 10%);
+                font-weight:600;
+            }
+        }
+    }
+}
+
+
+.heading h2 a {
+  font-weight: 700;
+}
+
+
+.submit {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  vertical-align: baseline;
+  background: lighten($wet-asphalt, 20%);
+  color: #fff;
+  margin: 0 0.25em 0 0;
+  padding: 12px 20px !important;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: bold;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+          transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: $wet-asphalt;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  }
+
+  &:focus {
+    background: lighten($wet-asphalt, 20%);
+  }
+
+  &:active{
+    background: $midnight-blue;
+  }
+}
+
+.parameter {
+  width: 100%;
+  vertical-align: top;
+  height: 1.2142em;
+  margin: 0;
+  outline: none;
+  -webkit-appearance: none;
+  line-height: 1.2142em;
+  padding: 6px;
+  font-size: 1em;
+  background: #ffffff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 0.28571429rem;
+  box-shadow: 0 0 0 0 transparent inset;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+          transition: color 0.1s ease, border-color 0.1s ease;
+
+  &:focus {
+    color: rgba(0, 0, 0, 0.95);
+    border-color: #85b7d9;
+    border-radius: 0.28571429rem;
+    background: #ffffff;
+    box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  }
+  &.error {
+    background: #fff6f6;
+    border: 1px solid $pomegranate !important;
+    -webkit-appearance: none;
+    box-shadow: none;
+    outline: none !important;
+  }
+}
+
+
+select.parameter {
+    display: block;
+    height: 32px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid gray;
+    border-radius: 0.28571429rem;
+    padding: 6px;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+            transition: color 0.1s ease, border-color 0.1s ease;
+    -webkit-appearance: menulist-button;
+  }
+

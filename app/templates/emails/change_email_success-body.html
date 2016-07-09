@@ -1,0 +1,18 @@
+{% extends "emails/base_email.html" %}
+
+{% load i18n %}
+
+
+{% block title %}
+    {% trans "Email chaged" %}
+{% endblock %}
+
+{% block main_title %} {% trans "Hi, " %} {{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block main_body %}
+    <span>
+        {% trans "Email changed successfully!" %} <br>
+        {% trans "Thanks for trusting us." %}
+    </span>
+ {% endblock %}
+
+

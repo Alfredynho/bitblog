@@ -1,0 +1,94 @@
+django==1.9.7
+
+
+# ~ API
+# ---------
+django-cors-headers==1.1.0
+djangorestframework==3.3.3
+django-rest-swagger==0.3.5
+django-oauth-toolkit==0.10.0
+python-social-auth==0.2.14
+markdown==2.6.6
+
+# ~ MODELS
+# ----------
+
+# https://github.com/brack3t/django-braces
+django-braces==1.8.1
+
+# https://github.com/carljm/django-model-utils
+django-model-utils==2.4
+
+# https://github.com/django-import-export/django-import-export
+django-import-export==0.4.4
+
+
+# ~ ADMIN
+# -------
+django-admin-tools==0.7.2
+
+# ~ IMAGES
+# ----------
+# https://github.com/mariocesar/sorl-thumbnail
+sorl-thumbnail==12.3
+Pillow==3.2.0
+
+
+# ~ DATABASE
+# ------------
+psycopg2==2.6.1
+# mysqlclient==1.3.7
+
+
+# ~ TIMEZONE
+# ------------
+pytz==2015.7
+
+
+# ~ SEARCH
+# ----------
+elasticsearch==2.3.0
+
+
+# ~ TEMPLATES
+# -------------
+# https://github.com/stephenmcd/django-overextends
+django-overextends==0.4.1
+
+
+# ~ OPTIMIZATIONS
+# -----------------
+django_compressor==2.0
+
+
+# ~ BROKER, QUEUES, CACHE
+# -------------------------
+celery==3.1.23
+django-celery==3.1.17
+redis==2.10.5
+django-redis==4.3.0
+
+
+# ~ TESTING
+# -----------
+# http://coverage.readthedocs.org/en/coverage-4.0.3
+coverage==4.1b2
+colour-runner==0.0.4
+coverage-badge==0.1.2
+# https://github.com/rbarrois/factory_boy
+factory_boy==2.6.0
+
+
+# ~ DOCUMENTATION
+# -----------------
+mkdocs==0.15.3
+
+
+# ~ 12 FACTORS APP
+# ------------------
+django-environ==0.4.0
+
+# ~ Blog
+# ------
+django-modelcluster==2.0
+django-taggit==0.18.3

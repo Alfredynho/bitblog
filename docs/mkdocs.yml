@@ -1,0 +1,7 @@
+site_name: Warp
+pages:
+- Project: index.md
+- Endpoints: endpoints.md
+- Clients: clients.md
+- Advanced Topics: topics.md
+theme: readthedocs

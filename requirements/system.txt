@@ -1,0 +1,83 @@
+##  PYTHON DEPS
+#-----------------#
+python3.4
+python3.4-dev
+
+##  PILLOW DEPS
+#-----------------#
+zlib1g-dev
+libtiff4-dev
+libjpeg8-dev
+
+libfreetype6-dev
+liblcms1-dev
+libwebp-dev
+
+
+##  DJANGO DEPS
+#-----------------#
+graphviz-dev
+
+
+##  BUILD TOOLS
+#-----------------#
+build-essential
+wget
+curl
+automake
+libtool
+
+
+##  PYTHON TOOLS
+#-----------------#
+gettext
+python-dev
+python-setuptools
+python-virtualenv
+python-pip
+
+
+##  PYTHON DEPS
+#-----------------#
+libreadline6
+libreadline6-dev
+libreadline-dev
+libsqlite3-dev
+libxml2
+libxml2-dev
+libssl-dev
+libbz2-dev
+llvm
+
+
+##  SYNC
+#-----------------#
+ntp
+htop
+
+
+##  CACHE
+#-----------------#
+redis-server
+redis-tools
+
+
+##  SERVER
+#-----------------#
+nginx
+gunicorn
+supervisor
+
+
+##  DATABASES
+#-----------------#
+mysql-server
+libmysqlclient-dev
+
+postgresql
+postgresql-contrib
+libpq-dev
+
+##  VERSION
+#-----------------#
+git

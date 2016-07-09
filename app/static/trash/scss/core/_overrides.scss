@@ -1,0 +1,25 @@
+
+
+
+.ui.turquoise.button {
+  color: #ffffff;
+  text-shadow: none;
+  background: $turquoise none;
+}
+.ui.turquoise.button {
+    box-shadow: 0 0 0 0 rgba($turquoise, 0.15) inset;
+}
+
+.ui.turquoise.button:hover {
+    background-color: $green-sea;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    background: url("../img/coding.png");
+
+    color: #ffffff;
+
+}

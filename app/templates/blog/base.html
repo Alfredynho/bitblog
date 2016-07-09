@@ -1,0 +1,60 @@
+{% load static i18n wagtailcore_tags wagtailroutablepage_tags wagtailuserbar compress blog_tags %}
+{% wagtailuserbar %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                {{ blog_page.title }}
+                    {% if blog_page.description %} | {{ blog_page.description }}{% endif %}
+            {% endblock title %}
+        </title>
+        <meta name="title" content="{% block meta_title %}{% if blog_page.seo_title %}{{ blog_page.seo_title }}{% else %}{{ blog_page.title }}{% endif %}{% endblock meta_title %}"/>
+        <meta name="description" content="{% block meta_description %}{{ blog_page.search_description }}{% endblock meta_description %}"/>
+        <link rel="canonical" href="{% block canonical %}{% canonical_url %}{% endblock canonical %}"/>
+
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="{% static 'js/ie/html5shiv.js' %}"></script><![endif]-->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+        <!--[if lte IE 8]><link rel="stylesheet" href=" {% static 'css/ie8.css' %}" /><![endif]-->
+    </head>
+    <body>
+
+        <!-- Header -->
+        {% include 'blog/partials/header.html' with blog=blog_page%}
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+
+                        <!-- One -->
+                            {% include 'blog/partials/intro.html' %}
+
+                        <!-- Two -->
+                            {% include 'blog/partials/categories.html' %}
+
+                        <!-- Three -->
+                            {% include 'blog/partials/feeds.html' %}
+
+                        <!-- Four -->
+                            {% include 'blog/partials/contact.html' %}
+                    </div>
+
+                <!-- Footer -->
+                {%  include 'blog/partials/footer.html' %}
+            </div>
+
+        <!-- Scripts -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/jquery.scrollzer.min.js' %}"></script>
+        <script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+        <script src="{% static 'js/skel.min.js' %}"></script>
+        <script src="{% static 'js/util.js' %}"></script>
+        <!--[if lte IE 8]><script src="{% static 'js/ie/respond.min.js' %}"></script><![endif]-->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

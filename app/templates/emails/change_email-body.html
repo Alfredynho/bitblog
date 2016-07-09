@@ -1,0 +1,25 @@
+{% extends "emails/base_email.html" %}
+
+{% load i18n %}
+
+
+{% block title %}
+    {% trans "Change your email" %}
+{% endblock %}
+
+{% block main_title %} {% trans "Hi " %} {{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block main_body %}
+    <span>
+        {% trans "You email has been changed, if this isn't  your action please ignore this mail or by clicking the next button" %}
+    </span>
+ {% endblock %}
+
+{% block main_link %}
+    <a target="_blank" href="{{ host }}{{ token }}" class="btn">{% trans "COMPLETE EMAIL UPDATE" %}</a>
+{% endblock %}
+
+{% block main_note %}
+    <b>{% trans "NOTE:" %}</b>
+    {% trans "This link can only be used once." %}
+{% endblock %}
+
