@@ -24,11 +24,9 @@
 
     <nav id="nav">
         <ul>
-            <li><a href="#one" class="active">About</a></li>
-
-            <li><a href="#three">Posts</a></li>
-            <li><a href="#two">Categories</a></li>
-            <li><a href="#four">Contact</a></li>
+            <li><a href="/" {% if active == "posts" %}class="active"{% endif %}>Posts</a></li>
+            <li><a href="{% url 'blog:about_page' %}" {% if active == "about" %}class="active"{% endif %}>About</a></li>
+            <li><a href="{% url 'blog:contact_page' %}" {% if active == "contact" %}class="active"{% endif %}>Contact</a></li>
         </ul>
     </nav>
 

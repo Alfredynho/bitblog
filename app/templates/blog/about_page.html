@@ -11,10 +11,13 @@
 {% endblock title %}
 
 {% block menu %}
-    {% include 'blog/partials/header.html' with blog=blog_page active="posts"%}
+    {% include 'blog/partials/header.html' with blog=blog_page active="about"%}
 {% endblock %}
 
 {% block content %}
-    {% include 'blog/partials/posts.html' %}
-    {% include 'blog/partials/categories.html' %}
+    <div class="header-image">
+        <img src="{% static 'img/banner.jpg' %}">
+    </div>
+
+    About
 {% endblock %}

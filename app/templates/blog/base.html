@@ -23,25 +23,20 @@
     <body>
 
         <!-- Header -->
-        {% include 'blog/partials/header.html' with blog=blog_page%}
+        {% block menu %}
+            {% include 'blog/partials/header.html' with blog=blog_page active="feed"%}
+        {% endblock %}
+
 
         <!-- Wrapper -->
             <div id="wrapper">
 
                 <!-- Main -->
                     <div id="main">
+                        {% block content %}
 
-                        <!-- One -->
-                            {% include 'blog/partials/intro.html' %}
+                        {% endblock %}
 
-                        <!-- Two -->
-                            {% include 'blog/partials/categories.html' %}
-
-                        <!-- Three -->
-                            {% include 'blog/partials/feeds.html' %}
-
-                        <!-- Four -->
-                            {% include 'blog/partials/contact.html' %}
                     </div>
 
                 <!-- Footer -->

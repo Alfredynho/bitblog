@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import url, include
 from django.core.urlresolvers import reverse
+from django.views.generic import TemplateView
 
 from .feeds import BlogPageFeed
 from .views import EntryPageServe, EntryPageUpdateCommentsView
@@ -31,6 +32,24 @@ urlpatterns = [
         regex=r'^feed/$',
         view=BlogPageFeed(),
         name='blog_page_feed'
+    ),
+
+    url(
+        regex=r'^contact/$',
+        view=TemplateView.as_view(template_name="blog/contact_page.html"),
+        name='contact_page',
+    ),
+
+    url(
+        regex=r'^about/$',
+        view=TemplateView.as_view(template_name="blog/about_page.html"),
+        name='about_page',
+    ),
+
+    url(
+        regex=r'^post/$',
+        view=TemplateView.as_view(template_name="blog/entry_page.html"),
+        name='post_page',
     )
 ]
 
