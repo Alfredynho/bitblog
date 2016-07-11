@@ -4,8 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView
 
 from .feeds import BlogPageFeed
-from .views import EntryPageServe, EntryPageUpdateCommentsView
-
+from .views import EntryPageServe, EntryPageUpdateCommentsView, AboutPage, ContactPage
 
 urlpatterns = [
     url(
@@ -36,13 +35,13 @@ urlpatterns = [
 
     url(
         regex=r'^contact/$',
-        view=TemplateView.as_view(template_name="blog/contact_page.html"),
+        view=ContactPage.as_view(),
         name='contact_page',
     ),
 
     url(
         regex=r'^about/$',
-        view=TemplateView.as_view(template_name="blog/about_page.html"),
+        view=AboutPage.as_view(),
         name='about_page',
     ),
 

@@ -1,11 +1,16 @@
 import operator
+import re
+
 from tapioca.exceptions import ClientError
 from tapioca_disqus import Disqus
 
 from django.http import Http404, HttpResponse
 from django.views.generic import View
+from django.views.generic import TemplateView
+
 
 from wagtail.wagtailcore import hooks
+from wagtail.wagtailcore.models import Site
 
 from .models import EntryPage
 
@@ -55,3 +60,26 @@ class EntryPageUpdateCommentsView(View):
                 raise Http404
         except EntryPage.DoesNotExist:
             raise Http404
+
+class InjectOwnerMixin(object):
+
+    def get_context_data(self, **kwargs):
+        context = super(InjectOwnerMixin, self).get_context_data(**kwargs)
+        dd = self.request.META['HTTP_HOST']
+        pat = r'(?P<domain>.*):.*'
+        m = re.match(pat, dd)
+        context['domain'] = m.group('domain')
+        es = Site.objects.filter(hostname__contains=context['domain']).exists()
+        if es:
+            es = Site.objects.filter(hostname__contains=context['domain']).first()
+            context['blog_page'] = es.root_page
+        return context
+
+
+class AboutPage(InjectOwnerMixin, TemplateView):
+    template_name = "blog/about_page.html"
+
+
+class ContactPage(InjectOwnerMixin, TemplateView):
+    template_name = "blog/contact_page.html"
+
