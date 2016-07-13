@@ -6,7 +6,9 @@
 @import url("http://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400");
 
 
-	@import "libs/skel";
+@import "libs/skel";
+
+@import "components/pagination";
 
 	@include skel-breakpoints((
 		xlarge: '(max-width: 1680px)',
@@ -1575,3 +1577,4 @@
 			}
 
 	}
+

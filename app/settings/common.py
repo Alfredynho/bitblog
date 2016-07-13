@@ -185,7 +185,7 @@ TEMPLATES = [
             join(PROJECT_DIR, 'templates'),
         ],
         'OPTIONS': {
-            'debug': DEBUG,
+            'debug': True,
             'loaders': [
                 'admin_tools.template_loaders.Loader',
                 'django.template.loaders.filesystem.Loader',

@@ -92,3 +92,4 @@ django-environ==0.4.0
 # ------
 django-modelcluster==2.0
 django-taggit==0.18.3
+django-el-pagination==2.1.1

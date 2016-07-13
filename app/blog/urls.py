@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView
 
 from .feeds import BlogPageFeed
-from .views import EntryPageServe, EntryPageUpdateCommentsView, AboutPage, ContactPage
+from .views import EntryPageServe, EntryPageUpdateCommentsView, PortfolioPage, ContactPage
 
 urlpatterns = [
     url(
@@ -40,9 +40,9 @@ urlpatterns = [
     ),
 
     url(
-        regex=r'^about/$',
-        view=AboutPage.as_view(),
-        name='about_page',
+        regex=r'^portfolio/$',
+        view=PortfolioPage.as_view(),
+        name='portfolio_page',
     ),
 
     url(
@@ -89,14 +89,14 @@ def get_entry_url(entry, blog_page, root_page):
     It will use an url or another depending if blog_page is the root page.
     """
     if root_page == blog_page:
-        return reverse('entry_page_serve', kwargs={
+        return reverse('blog:entry_page_serve', kwargs={
             'year': entry.date.strftime('%Y'),
             'month': entry.date.strftime('%m'),
             'day': entry.date.strftime('%d'),
             'slug': entry.slug
         })
     else:
-        return reverse('entry_page_serve_slug', kwargs={
+        return reverse('blog:entry_page_serve_slug', kwargs={
             'blog_slug': blog_page.slug,
             'year': entry.date.strftime('%Y'),
             'month': entry.date.strftime('%m'),

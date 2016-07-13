@@ -1,35 +1,60 @@
-{% load static %}
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
 
 <div class="header-image">
     <img src="{% static 'img/banner.jpg' %}">
 </div>
 
-<section id="three">
-    <div class="container">
-        <h3>A Few Accomplishments</h3>
-        <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-        <div class="features">
-            <article>
-                <a href="#" class="image"><img src="{% static 'img/pic01.jpg' %}" alt="" /></a>
-                <div class="inner">
-                    <h4>Possibly broke spacetime</h4>
-                    <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-                </div>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'img/pic02.jpg' %}" alt="" /></a>
-                <div class="inner">
-                    <h4>Terraformed a small moon</h4>
-                    <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-                </div>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'img/pic03.jpg' %}" alt="" /></a>
-                <div class="inner">
-                    <h4>Snapped dark matter in the wild</h4>
-                    <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-                </div>
-            </article>
+{% with per_page=blog.num_entries_page %}
+    <section id="three">
+        <div class="container">
+            <h3>A Few Accomplishments</h3>
+            <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+            <div class="features">
+                {% paginate per_page entries %}
+
+
+
+                {% for entry in entries %}
+                    <article>
+                        {% if entry.header_image %}
+                            <a href="#" class="image">
+                                <img alt="{{ entry.header_image.title }}" src="{{ header_image.url }}">
+                            </a>
+                        {% else %}
+                            <a href="#" class="image"><img src="{% static 'img/pic01.jpg' %}" alt="" /></a>
+                        {% endif %}
+
+                        <div class="inner">
+                            <h4>Possibly broke spacetime</h4>
+
+                            <div class="post-content">
+                                {% if entry.excerpt %}
+                                    {{ entry.excerpt|richtext }}
+                                {% else %}
+                                    {{ entry.body|richtext|truncatewords_html:70 }}
+                                {% endif %}
+                            </div>
+
+                            <a class="blog_btn continue" href="{% entry_url entry blog_page %}">
+                                {% trans 'Continue reading' %} &raquo;
+                            </a>
+                        </div>
+                    </article>
+
+
+                {% empty %}
+                    <span>{% trans 'No results founds.' %}</span>
+                {% endfor %}
+
+                {% get_pages %}
+
+
+                {% include 'blog/partials/pagination.html' with pages=pages %}
+
+{#                {% include 'blog/sections/concepts.html' %}#}
+
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+{% endwith %}

@@ -1,0 +1,19 @@
+{% load static i18n %}
+
+<ul class="pagination">
+{#            {% if pages.previous %}#}
+{#                <a class="button special disabled" href="?page={{ pages.previous.number }}"></a>#}
+{#            {% endif %}#}
+{#            #}
+        <li>
+            <a class="button alt" href="{{ pages.current.url }}">
+                {{ pages.current }}
+            </a>
+        </li>
+
+        {% if pages.next %}
+            <li>
+                <a class="button special" href="{{ pages.next.url}}">{% trans 'Older Posts' %}</a>
+            </li>
+        {% endif %}
+</ul>

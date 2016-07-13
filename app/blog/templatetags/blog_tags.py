@@ -2,7 +2,7 @@
 from django.template import Library, loader
 from django.core.urlresolvers import resolve
 
-from el_pagination.templatetags.el_pagination_tags import show_pages, paginate
+from el_pagination.templatetags.el_pagination_tags import show_pages, paginate, get_pages
 
 from ..urls import get_entry_url, get_feeds_url
 from ..models import Category, Tag
@@ -86,4 +86,5 @@ def show_comments(context):
 
 # Avoid to import endless_pagination in installed_apps and in the templates
 register.tag('show_paginator', show_pages)
+register.tag('get_pages', get_pages)
 register.tag('paginate', paginate)

@@ -76,8 +76,8 @@ class InjectOwnerMixin(object):
         return context
 
 
-class AboutPage(InjectOwnerMixin, TemplateView):
-    template_name = "blog/about_page.html"
+class PortfolioPage(InjectOwnerMixin, TemplateView):
+    template_name = "blog/portfolio_page.html"
 
 
 class ContactPage(InjectOwnerMixin, TemplateView):
