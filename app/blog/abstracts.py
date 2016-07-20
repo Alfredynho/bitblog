@@ -70,6 +70,8 @@ class EntryAbstract(models.Model):
             FieldPanel('tags'),
             InlinePanel('entry_categories', label=_("Categories")),
             InlinePanel('related_entrypage_from', label=_("Related Entries")),
+            InlinePanel('entry_categories', label=_("Categories")),
+
         ], heading=_("Metadata")),
     ]
 

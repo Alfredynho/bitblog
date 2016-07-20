@@ -23,7 +23,66 @@
     }
 }
 
+.author-box {
+  margin-bottom: 15px;
+  .avatar {
+    height: 36px;
+    width: 36px;
+    display: block;
+    float: left;
+  }
 
+  .avatar img{
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .info {
+    padding-left: 45px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+     color: gray;
+
+    .name {
+      color: _palette(dark);
+      font-family: 'Exo', serif;
+      font-size:0.8em;
+      line-height:0.7em;
+      font-weight: 400;
+      padding-top: 5px;
+    }
+
+    .date {
+
+      font-size: 0.65em;
+      font-weight: 400;
+      color: _palette(darkgray);
+    }
+  }
+  &.detail {
+    margin: 3em 0 1.5em 0;
+    .avatar {
+      height: 3.4em;
+      width: 3.4em;
+    }
+    .info {
+      padding-left: 3.8em;
+    }
+    .info .name {
+      font-weight: 600;
+      font-size:0.9em;
+    }
+    .phrase {
+      font-family: 'Droid Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.8em;
+      line-height: 1.3em;
+      padding-top: 0.6em;
+      color: _palette(fg-light);
+    }
+  }
+}
 .posts {
   .line {
     margin-top: 0;
@@ -38,44 +97,7 @@
       font-weight:500;
       margin: 10px;
     }
-    .author-box {
-      margin-bottom: 15px;
-      .avatar {
-        height: 36px;
-        width: 36px;
-        display: block;
-        float: left;
-      }
 
-      .avatar img{
-        width:100%;
-        height: 100%;
-        border-radius: 50%;
-      }
-
-      .info {
-        padding-left: 45px;
-        font-family: 'Roboto Slab', serif;
-        font-weight: 400;
-         color: gray;
-
-        .name {
-          color: _palette(dark);
-          font-family: 'Exo', serif;
-          font-size:0.8em;
-          line-height:0.7em;
-          font-weight: 400;
-          padding-top: 5px;
-        }
-
-        .date {
-
-          font-size: 0.65em;
-          font-weight: 400;
-          color: _palette(darkgray);
-        }
-       }
-    }
     .header-image {
       margin-bottom: 20px;
       img {
@@ -94,34 +116,7 @@
       }
     }
     .entry-footer {
-      .tags {
-        font-family: 'Exo', sans-serif;
-        padding:0;
-        margin: 0;
-        display: block;
-        float: left;
-        li {
-          list-style: none;
-          display: inline-block;
-          margin: 0;
-          padding:0;
-        }
-        li a {
-          background: #efefef;
-          //color: _palette(accent-one, light);
-          color: #000;
-          padding: 5px 10px;
-          border-radius: 5px;
-          text-transform: uppercase;
-          font-weight:400;
-          font-size:0.7em;
-          transition: all linear 0.2s;
-          &:hover {
-            background: darken(#efefef, 5%);
-            color: _palette(accent-one, dark);
-          }
-        }
-      }
+
       .read-more {
         font-family: 'Exo', serif;
         color: _palette(accent-one, dark);
@@ -143,5 +138,72 @@
     }
 
 
+  }
+}
+
+.tags {
+  font-family: 'Exo', sans-serif;
+  padding:0;
+  margin: 0;
+  display: block;
+  float: left;
+  li {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding:0;
+  }
+  li a {
+    background: #efefef;
+    //color: _palette(accent-one, light);
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight:400;
+    font-size:0.7em;
+    transition: all linear 0.2s;
+    &:hover {
+      background: darken(#efefef, 5%);
+      color: _palette(accent-one, dark);
+    }
+  }
+}
+
+.detail {
+  font-size: 1em;
+  header .title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.9em;
+    font-weight: 600;
+    color: darken(_palette(accent-one, dark), 5%);
+    margin-bottom: 0;
+
+  }
+  .date {
+    display: inline-block;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 0.8em;
+    font-family: 'Exo', sans-serif;
+    color: _palette(darkgray);
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.3em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  p {
+    line-height: 1.4em;
+    margin: 0 0 1.2em 0;
+  }
+  ul, ol {
+    margin-left: 1em;
   }
 }

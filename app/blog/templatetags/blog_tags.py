@@ -37,7 +37,7 @@ def tags_list(context, limit=None, tags_qs=None):
         tags = Tag.objects.most_common(blog_page)
     if limit:
         tags = tags[:limit]
-    return {'blog_page': blog_page, 'request': context['request'], 'tags': tags}
+    return {'blog_page': blog_page, 'request': context['request'], 'tags': tags,}
 
 
 @register.inclusion_tag('blog/tags/categories_list.html', takes_context=True)

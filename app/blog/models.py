@@ -9,8 +9,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
 
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailsearch import index
 from taggit.models import TaggedItemBase, Tag as TaggitTag
@@ -106,6 +107,11 @@ class BlogPage(BlogRoutes, Page):
 
         FieldPanel('description', classname="full"),
         ImageChooserPanel('header_image'),
+
+        MultiFieldPanel([
+            InlinePanel('blog_projects', label=_("Projects")),
+            InlinePanel('blog_speeches', label=_("Speeches")),
+        ], heading=_("Portfolio")),
     ]
 
     settings_panels = Page.settings_panels + [
@@ -176,6 +182,18 @@ class Category(models.Model):
 
     objects = CategoryManager()
 
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('name'),
+                FieldPanel('slug'),
+                SnippetChooserPanel('parent'),
+                FieldPanel('description', classname="full"),
+            ],
+            heading=_("Category"),
+        )
+    ]
+
     def __str__(self):
         return self.name
 
@@ -198,6 +216,144 @@ class Category(models.Model):
         verbose_name_plural = _("Categories")
 
 
+@register_snippet
+class Project(models.Model):
+    name = models.CharField(
+        max_length=80,
+        unique=True,
+        verbose_name=_('Project name'),
+    )
+
+    link = models.URLField(
+        unique=True,
+    )
+
+    description = models.CharField(
+        max_length=500,
+        blank=True,
+        verbose_name=_('Description'),
+    )
+
+    thumb = models.ForeignKey(
+        'wagtailimages.Image',
+        verbose_name=_('Header image'),
+        help_text=_("Small image to previsualization 350 x 350"),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        verbose_name=_('Header image'),
+        help_text=_("Full visualization image"),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('name'),
+                FieldPanel('description', classname="full"),
+                FieldPanel('link'),
+            ],
+            heading=_("Info"),
+        ),
+        MultiFieldPanel(
+            [
+                ImageChooserPanel('thumb'),
+                ImageChooserPanel('image'),
+            ],
+            heading=_("Images"),
+        )
+    ]
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = _("Project")
+        verbose_name_plural = _("Projects")
+
+
+@register_snippet
+class Speech(models.Model):
+    title = models.CharField(
+        max_length=140,
+        unique=True,
+        verbose_name=_('Speech title'),
+    )
+
+    community = models.CharField(
+        max_length=140,
+        unique=True,
+        verbose_name=_('Destiny'),
+    )
+
+    link = models.URLField(
+        verbose_name=_('Link to slides'),
+        unique=True,
+    )
+
+    description = models.CharField(
+        max_length=500,
+        blank=True,
+        verbose_name=_('Description'),
+    )
+
+    thumb = models.ForeignKey(
+        'wagtailimages.Image',
+        verbose_name=_('Header image'),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        verbose_name=_('Header image'),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel('title', classname="title"),
+                FieldPanel('description', classname="full"),
+                FieldPanel('community'),
+                FieldPanel('link'),
+            ],
+            heading=_("Info"),
+        ),
+        MultiFieldPanel(
+            [
+                ImageChooserPanel('thumb'),
+                ImageChooserPanel('image'),
+            ],
+            heading=_("Images"),
+        )
+    ]
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['title']
+        verbose_name = _("Speech")
+        verbose_name_plural = _("Speeches")
+
+
 class CategoryEntryPage(models.Model):
     category = models.ForeignKey(
         'Category',
@@ -212,6 +368,40 @@ class CategoryEntryPage(models.Model):
 
     panels = [
         FieldPanel('category')
+    ]
+
+
+class ProjectBlogPage(models.Model):
+    project = models.ForeignKey(
+        'Project',
+        related_name="+",
+        verbose_name=_('Project'),
+    )
+
+    page = ParentalKey(
+        'BlogPage',
+        related_name='blog_projects',
+    )
+
+    panels = [
+        SnippetChooserPanel('project')
+    ]
+
+
+class SpeechBlogPage(models.Model):
+    speech = models.ForeignKey(
+        'Speech',
+        related_name="+",
+        verbose_name=_('Speech'),
+    )
+
+    page = ParentalKey(
+        'BlogPage',
+        related_name='blog_speeches',
+    )
+
+    panels = [
+        SnippetChooserPanel('speech')
     ]
 
 

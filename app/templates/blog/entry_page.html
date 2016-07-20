@@ -16,21 +16,40 @@
 {% block content %}
 
     <div class="header-image">
-        <img src="{% static 'img/banner.jpg' %}">
+        {% if self.header_image and self.show_header %}
+            {% image self.header_image fill-900x220 as header_image %}
+            <img alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
+        {% else %}
+            <img src="{% static 'img/code.jpg' %}">
+        {% endif %}
     </div>
 
-    <section id="one">
-        <div class="container">
-            <header class="major">
-                <h2>Read Only</h2>
-                <p>Just an incredibly simple responsive site<br />
-                template freebie by <a href="http://html5up.net">HTML5 UP</a>.</p>
-            </header>
-            <p>Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus
-                col. Commodo id in arcu ante lorem ipsum sed accumsan erat praesent faucibus
-                commodo ac mi lacus. Adipiscing mi ac commodo. Vis aliquet tortor ultricies
-                non ante erat nunc integer eu ante ornare amet commetus vestibulum blandit
-                integer in curae ac faucibus integer non. Adipiscing cubilia elementum.</p>
+
+    <div class="container detail">
+
+        <header>
+
+            {% include "blog/partials/author.html" with entry=self mode='detail' %}
+
+            <h2 class="title">
+                {{ self.title }}
+            </h2>
+            <span class="date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{ self.date|date:"DATE_FORMAT" }} </span>
+
+        </header>
+
+        <article>
+            {{ self.body|richtext}}
+        </article>
+
+        <div class="groups">
+            {% if self.tags.count > 0 %}
+                {% tags_list blog_page.num_tags_entry_header entry.tags %}
+            {% endif %}
+            <div style="clear: both"><br></div>
         </div>
-    </section>
+
+
+    </div>
+
 {% endblock %}

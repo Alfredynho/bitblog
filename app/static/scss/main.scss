@@ -78,7 +78,6 @@ a {
     &:hover {
         border-bottom-color: transparent;
         color: _palette(accent-one, dark) !important;
-        font-weight: 500;
     }
 }
 
@@ -96,7 +95,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: _palette(fg-bold);
+    color: _palette(content, fcolor);
     font-weight: _font(weight-bold);
     line-height: 1em;
     margin: 0 0 (_size(element-margin) * 0.25) 0;

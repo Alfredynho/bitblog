@@ -16,8 +16,39 @@
 
 {% block content %}
     <div class="header-image">
-        <img src="{% static 'img/banner.jpg' %}">
+        <img src="{% static 'img/code.jpg' %}">
     </div>
+    <section>
+        <div class="container">
+            <h3 class="title">{% trans 'About Me' %}</h3>
+            <p>Hola mi nombre es Victor Aguilar, tambien conocido como @jvacx, soy desarrollador web y movil con tres años de experiencia
+                me encanta la tecnología, crear y experimentar son de las cosas que mas disfruto.</p>
+            <h3 class="title">{% trans 'Projects' %}</h3>
+            <p>A lo largo de estos años tuve la fortuna de liderar y participar de varios proyectos interesantes</p>
+            <ul class="comunities">
+                <li >
+                    <a href="#">
+                        <img src="" alt="Imagen">
+                        <span class="name">COMUNIDAD GDG LA PAz</span>
+                        <span class="title">Charla X</span>
+                        <span class="date">15 de Junio de 20155</span>
+                    </a>
+                </li>
+            </ul>
+            <h3 class="title">{% trans 'Comunities' %}</h3>
+            <p>Soy firme creyente de que la única manera de aportar un valor real es compartiendo lo aprendido y que mejor forma de hacer que a
+            traves de las comunidades</p>
+            <ul class="comunities">
+                <li >
+                    <a href="#">
+                        <img src="" alt="Imagen">
+                        <span class="name">COMUNIDAD GDG LA PAz</span>
+                        <span class="title">Charla X</span>
+                        <span class="date">15 de Junio de 20155</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-    About
 {% endblock %}
