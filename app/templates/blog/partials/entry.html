@@ -1,0 +1,57 @@
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
+
+<article class="post">
+
+    <h4 class="title">
+        <a href="{% entry_url entry blog_page %}">
+            {{ entry.title }}
+        </a>
+    </h4>
+
+    <div class="author-box">
+        <div class="avatar">
+            {% if entry.owner.photo %}
+                <img src="/media/{{ entry.owner.photo }}"/>
+            {% else %}
+                <img src="{% static 'img/default.png' %}"/>
+            {% endif %}
+        </div>
+        <div class="info">
+            {% if entry.owner and entry.owner.first_name and entry.owner.last_name %}
+                <div class="name">{{ entry.owner.first_name }} {{ entry.owner.last_name }}</div>
+            {% else %}
+                <div class="name">{{ entry.owner.username }}</div>
+            {% endif %}
+
+            {#  TODO: #}
+            <div class="date">{{ entry.date|date:"DATE_FORMAT" }}</div>
+        </div>
+    </div>
+
+
+    {% if entry.header_image and entry.show_header %}
+        {% image entry.header_image fill-800x220 as header_image %}
+        <img class="header-image" alt="{{ self.header_image.title }}" src="{{ header_image.url }}">
+    {% endif %}
+
+
+    <div class="summary">
+        {% if entry.excerpt %}
+            {{ entry.excerpt|richtext }}
+        {% else %}
+            {{ entry.body|richtext|truncatewords_html:70 }}
+        {% endif %}
+    </div>
+
+    <div class="entry-footer">
+        {% if entry.tags.count > 0 %}
+            {% tags_list blog_page.num_tags_entry_header entry.tags %}
+        {% endif %}
+
+
+        <a class="read-more" href="{% entry_url entry blog_page %}">
+            {% trans 'Continue reading' %} &raquo;
+        </a>
+    </div>
+
+</article>

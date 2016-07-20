@@ -4,10 +4,14 @@
 
     <header>
         <span class="image avatar">
-            <img src="/media/{{ blog.owner.photo }}"/>
+            {% if blog.owner.photo %}
+                <img src="/media/{{ blog.owner.photo }}"/>
+            {% else %}
+                <img src="{% static 'img/default.png' %}"/>
+            {% endif %}
         </span>
         <h1 id="logo">
-            <a href="#">
+            <div>
                 {% if blog.owner %}
                     {% if blog.owner.first_name and blog.owner.last_name %}
                         {{ blog.owner.first_name }} {{ blog.owner.last_name }}
@@ -15,7 +19,7 @@
                         {{ blog.owner.username }}
                     {% endif %}
                 {% endif %}
-            </a>
+            </div>
         </h1>
         {% if  blog.owner and blog.owner.bio%}
             <p>{{ blog.owner.bio }}</p>

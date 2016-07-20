@@ -15,6 +15,10 @@
 {% endblock %}
 
 {% block content %}
+    <div class="header-image">
+        <img src="{% static 'img/code.jpg' %}">
+    </div>
+
     {% include 'blog/partials/posts.html' with blog=blog_page %}
     {% include 'blog/partials/categories.html' %}
 

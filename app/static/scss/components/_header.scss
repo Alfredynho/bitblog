@@ -1,0 +1,109 @@
+/* Header */
+
+#header {
+    background: _palette(header, bg);
+    color: _palette(header, fcolor);
+    font-family: 'Exo', sans-serif;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: $size-header;
+
+    @if _misc(header-side) == 'right' {
+        right: 0;
+    }
+    @else {
+        left: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: _palette(header, fcolor);
+
+        a {
+            color: _palette(header, fcolor);
+        }
+    }
+
+    header p {
+        color: _palette(header, fcolor);
+    }
+
+    a {
+        color: _palette(header, fg);
+
+        &:hover {
+            color: _palette(header, fcolor-hover);
+        }
+    }
+
+    > header {
+        padding: 3em;
+
+        .avatar {
+            display: block;
+            margin: 0 auto _size(element-margin) auto;
+            width: 8em;
+        }
+
+        h1 {
+            font-size: 1.75em;
+            margin: 0;
+        }
+
+        p {
+            color: _palette(header, fcolor-two);
+            margin: 0.8em 0 0 0;
+            font-weight: 300;
+        }
+    }
+
+    > footer {
+        bottom: 0;
+        left: 0;
+        padding: 2em;
+        position: absolute;
+        width: 100%;
+
+        .icons {
+            margin: 0;
+
+            li  a {
+                color: _palette(header, fcolor);
+            }
+        }
+    }
+
+    > nav {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                border-top: solid _size(border-width) _palette(header, border);
+                display: block;
+                padding: 0;
+
+                a {
+                    @include vendor('transition', 'none');
+                    border: 0;
+                    color: _palette(header, fcolor);
+                    display: block;
+                    padding: 0.85em 0;
+                    text-decoration: none;
+
+                    &.active {
+                        background: _palette(bg);
+                        color: _palette(header, fcolor-hover) !important;
+                        font-weight: 600;
+                    }
+                }
+
+                &:first-child {
+                    border-top: 0;
+                }
+            }
+        }
+    }
+}

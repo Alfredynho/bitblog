@@ -34,6 +34,12 @@ class EntryAbstract(models.Model):
         related_name='+',
     )
 
+    show_header = models.BooleanField(
+        verbose_name=_('Show header'),
+        help_text=_('Show header image in main list'),
+        default=False,
+    )
+
     categories = models.ManyToManyField(
         'blog.Category',
         through='blog.CategoryEntryPage',
@@ -56,6 +62,7 @@ class EntryAbstract(models.Model):
         MultiFieldPanel([
             FieldPanel('title', classname="title"),
             ImageChooserPanel('header_image'),
+            FieldPanel('show_header', classname="full"),
             FieldPanel('body', classname="full"),
             FieldPanel('excerpt', classname="full"),
         ], heading=_("Content")),

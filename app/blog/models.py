@@ -25,6 +25,7 @@ from .managers import TagManager, CategoryManager
 Entry = EntryAbstract
 
 
+
 class BlogPage(BlogRoutes, Page):
 
     description = models.CharField(
