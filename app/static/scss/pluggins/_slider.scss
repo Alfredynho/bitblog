@@ -1,0 +1,36 @@
+.owl-slider .item{
+  display: block;
+  margin: 5px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-family: 'Exo', sans-serif;
+
+  > img {
+    width: 100%;
+    display: block;
+  }
+  .title, .subtitle {
+    display: block;
+    font-size: 0.8em;
+    font-weight: 400;
+    color: _palette(dark);
+    text-transform: uppercase;
+    text-align: center;
+    background: #efefef;
+    transition: linear all 0.1s;
+  }
+  .subtitle {
+    font-size: 0.6em;
+    margin-top: -1.3em;
+    color: gray;
+    font-weight:300;
+  }
+
+  &:hover {
+    .title {
+      color: _palette(accent-one, dark);
+    }
+  }
+}

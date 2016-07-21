@@ -1,0 +1,169 @@
+/* Medium */
+
+@include breakpoint(medium) {
+
+/* Basic */
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    body, input, select, textarea {
+        font-size: 12pt;
+    }
+
+/* Image */
+
+    .image {
+        &.left,
+        &.right {
+            max-width: 40%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+/* Header */
+
+    #header {
+        @include vendor('backface-visibility', 'hidden');
+        @include vendor('transition', ('transform #{_duration(header)} ease'));
+        display: block;
+        height: 100%;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        width: $size-header;
+        z-index: _misc(z-index-base) + 2;
+
+        @if _misc(header-side) == 'right' {
+            @include vendor('transform', 'translateX(#{$size-header})');
+            right: 0;
+        }
+        @else {
+            @include vendor('transform', 'translateX(#{$size-header * -1})');
+            left: 0;
+        }
+
+        > footer {
+            bottom: auto;
+            left: auto;
+            margin: 1em 0 0 0;
+            position: relative;
+            right: auto;
+            top: auto;
+        }
+    }
+
+/* Wrapper */
+
+    #wrapper {
+        @include vendor('backface-visibility', 'hidden');
+        @include vendor('transition', 'transform #{_duration(header)} ease');
+        padding: 44px 0 1px 0;
+    }
+
+/* One */
+
+    #one {
+        &:before {
+            height: 10em;
+        }
+    }
+
+/* Off-Canvas Navigation */
+
+    #titleBar {
+        @include vendor('backface-visibility', 'hidden');
+        @include vendor('transition', 'transform #{_duration(header)} ease');
+        display: block;
+        height: 44px;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: _misc(z-index-base) + 1;
+        background: #222;
+        color: #fff;
+        min-width: 320px;
+
+        .title {
+            color: #fff;
+            display: block;
+            font-weight: _font(weight-bold);
+            height: 44px;
+            line-height: 44px;
+            padding: 0 1em;
+            width: 100%;
+
+            @if _misc(header-side) == 'right' {
+                text-align: left;
+            }
+            @else {
+                text-align: right;
+            }
+
+            a {
+                border: 0;
+                text-decoration: none;
+            }
+        }
+
+        .toggle {
+            @include icon;
+            height: 4em;
+            position: absolute;
+            top: 0;
+            width: 6em;
+            border: 0;
+            outline: 0;
+
+            @if _misc(header-side) == 'right' {
+                right: 0;
+            }
+            @else {
+                left: 0;
+            }
+
+            &:before {
+                background: _palette(accent-one, light);
+                color: _palette(accent-one, fg-bold);
+                content: '\f0c9';
+                display: block;
+                font-size: 18px;
+                height: 44px;
+                line-height: 44px;
+                position: absolute;
+                text-align: center;
+                top: 0;
+                width: 64px;
+
+                @if _misc(header-side) == 'right' {
+                    right: 0;
+                }
+                @else {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    body {
+        &.header-visible {
+            #wrapper, #titleBar {
+                @if _misc(header-side) == 'right' {
+                    @include vendor('transform', 'translateX(#{$size-header * -1})');
+                }
+                @else {
+                    @include vendor('transform', 'translateX(#{$size-header})');
+                }
+            }
+
+            #header {
+                @include vendor('transform', 'translateX(0)');
+            }
+        }
+    }
+}

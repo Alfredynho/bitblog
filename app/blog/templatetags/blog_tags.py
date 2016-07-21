@@ -40,6 +40,24 @@ def tags_list(context, limit=None, tags_qs=None):
     return {'blog_page': blog_page, 'request': context['request'], 'tags': tags,}
 
 
+@register.inclusion_tag('blog/portfolio/project_list.html', takes_context=True)
+def project_list(context):
+    blog_page = context['blog_page']
+    if hasattr(blog_page.blogpage, 'blog_projects'):
+        projects = blog_page.blogpage.blog_projects.all()
+        return {'blog_page': blog_page, 'request': context['request'], 'projects': projects,}
+    return {'blog_page': blog_page, 'request': context['request']}
+
+
+@register.inclusion_tag('blog/portfolio/speech_list.html', takes_context=True)
+def speech_list(context):
+    blog_page = context['blog_page']
+    if hasattr(blog_page.blogpage, 'blog_speeches'):
+        speeches = blog_page.blogpage.blog_speeches.all()
+        return {'blog_page': blog_page, 'request': context['request'], 'speeches': speeches,}
+    return {'blog_page': blog_page, 'request': context['request']}
+
+
 @register.inclusion_tag('blog/tags/categories_list.html', takes_context=True)
 def categories_list(context, categories_qs=None):
     blog_page = context['blog_page']

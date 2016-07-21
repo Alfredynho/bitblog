@@ -1,0 +1,31 @@
+
+/* Large */
+
+@include breakpoint(large) {
+
+    $size-header: 20em;
+
+    /* Basic */
+
+        body, input, select, textarea {
+            font-size: 11pt;
+        }
+
+    /* Header */
+
+        #header {
+            width: $size-header;
+        }
+
+    /* Wrapper */
+
+        #wrapper {
+            @if _misc(header-side) == 'right' {
+                padding-right: $size-header;
+            }
+            @else {
+                padding-left: $size-header;
+            }
+        }
+
+}

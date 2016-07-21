@@ -236,7 +236,7 @@ class Project(models.Model):
 
     thumb = models.ForeignKey(
         'wagtailimages.Image',
-        verbose_name=_('Header image'),
+        verbose_name=_('Thumb'),
         help_text=_("Small image to previsualization 350 x 350"),
         null=True,
         blank=True,
@@ -246,7 +246,7 @@ class Project(models.Model):
 
     image = models.ForeignKey(
         'wagtailimages.Image',
-        verbose_name=_('Header image'),
+        verbose_name=_('Image'),
         help_text=_("Full visualization image"),
         null=True,
         blank=True,
@@ -293,7 +293,7 @@ class Speech(models.Model):
     community = models.CharField(
         max_length=140,
         unique=True,
-        verbose_name=_('Destiny'),
+        verbose_name=_('Community'),
     )
 
     link = models.URLField(
@@ -309,7 +309,7 @@ class Speech(models.Model):
 
     thumb = models.ForeignKey(
         'wagtailimages.Image',
-        verbose_name=_('Header image'),
+        verbose_name=_('Thumb'),
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
@@ -318,7 +318,7 @@ class Speech(models.Model):
 
     image = models.ForeignKey(
         'wagtailimages.Image',
-        verbose_name=_('Header image'),
+        verbose_name=_('Image'),
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
@@ -346,7 +346,7 @@ class Speech(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.title
 
     class Meta:
         ordering = ['title']

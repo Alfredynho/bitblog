@@ -45,10 +45,27 @@
             </div>
 
         <!-- Scripts -->
-        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.js' %}"></script>
         <script src="{% static 'js/skel.min.js' %}"></script>
         <script src="{% static 'js/util.js' %}"></script>
         <!--[if lte IE 8]><script src="{% static 'js/ie/respond.min.js' %}"></script><![endif]-->
         <script src="{% static 'js/main.js' %}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $(".owl-slider").owlCarousel({
+
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    items : 4,
+                    itemsDesktop : [1199,3],
+                    itemsDesktopSmall : [979,3],
+                    navigation : true,
+                    navigationText:	["ANTERIOR","SIGUIENTE"],
+                    pagination: false
+                });
+            });
+        </script>
+
     </body>
 </html>

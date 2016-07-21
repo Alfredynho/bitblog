@@ -1,0 +1,14 @@
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
+
+<div class="owl-slider">
+    {% for obj in speeches %}
+        <a class="item" href="{{ obj.speech.link }}" target="_blank">
+            {% if obj.speech.thumb %}
+                {% image obj.speech.thumb fill-350x250 as thumb %}
+                <img alt="{{ obj.speech.thumb.title }}" src="{{ thumb.url }}">
+            {% endif %}
+            <span class="title">{{ obj.speech.title }}</span>
+            <span class="subtitle">{{ obj.speech.community }}</span>
+        </a>
+    {% endfor %}
+</div>

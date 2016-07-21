@@ -1,0 +1,13 @@
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
+
+<div class="owl-slider">
+    {% for obj in projects %}
+        <a class="item" href="{{ project.link }}" target="_blank">
+            {% if obj.project.thumb %}
+                {% image obj.project.thumb fill-350x250 as thumb %}
+                <img alt="{{ obj.project.thumb.title }}" src="{{ thumb.url }}">
+            {% endif %}
+            <span class="title">{{ obj.project.name }}</span>
+        </a>
+    {% endfor %}
+</div>
