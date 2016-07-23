@@ -1,0 +1,31 @@
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags wagtailroutablepage_tags %}
+
+<section id="categories">
+    <div class="container">
+        <h3 class="title">{% trans 'Categories' %}</h3>
+        <ul class="category-list">
+            {% for category in categories %}
+                <li>
+                    <a href="{% routablepageurl blog_page "entries_by_category" category.slug %}">
+
+                        <span class="icon">
+                            {% if category.icon %}
+                                {% image category.icon fill-100x100 as icon %}
+                                <img alt="{{ category.icon.title }}" src="{{ icon.url }}">
+                            {% else %}
+                                <img alt="{{ category }}" src="{% static 'img/code.png' %}">
+                            {% endif %}
+                        </span>
+
+                        <span class="name">
+                            {{ category }}
+                        </span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+
+

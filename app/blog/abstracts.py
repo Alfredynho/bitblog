@@ -11,6 +11,7 @@ from wagtail.wagtailcore.fields import RichTextField
 
 
 class EntryAbstract(models.Model):
+
     body = RichTextField(
         verbose_name=_('body'),
     )
@@ -53,6 +54,21 @@ class EntryAbstract(models.Model):
                         "If this field is not filled, a truncate version of body text will be used."),
     )
 
+    author_avatar = models.ForeignKey(
+        'wagtailimages.Image',
+        verbose_name=_('avatar'),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
+    author_phrase = RichTextField(
+        verbose_name=_('phrase'),
+        null=True,
+        blank=True,
+    )
+
     num_comments = models.IntegerField(
         default=0,
         editable=False,
@@ -70,8 +86,6 @@ class EntryAbstract(models.Model):
             FieldPanel('tags'),
             InlinePanel('entry_categories', label=_("Categories")),
             InlinePanel('related_entrypage_from', label=_("Related Entries")),
-            InlinePanel('entry_categories', label=_("Categories")),
-
         ], heading=_("Metadata")),
     ]
 

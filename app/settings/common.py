@@ -78,6 +78,8 @@ THIRD_PARTY_APPS = (
     'rest_framework.authtoken',
     'rest_framework',
     'corsheaders',
+    'wagalytics',
+    'wagtailfontawesome',
 
 )
 
@@ -419,3 +421,6 @@ ACTION_CANCEL_ACCOUNT = env('ACTION_CANCEL_ACCOUNT', default='#/auth/cancel-acco
 WAGTAIL_SITE_NAME = 'jvacx blog'
 PUPUT_ENTRY_MODEL = 'blog.models.BlogEntry'
 
+# Analytics
+GA_KEY_FILEPATH = join(dirname(PROJECT_DIR), 'service.json')
+GA_VIEW_ID = 'ga:126135708'

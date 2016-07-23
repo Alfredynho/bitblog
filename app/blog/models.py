@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import python_2_unicode_compatible
 
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, PageChooserPanel
@@ -162,6 +161,14 @@ class Category(models.Model):
         verbose_name=_('Category name'),
     )
 
+    icon = models.ForeignKey(
+        'wagtailimages.Image',
+        verbose_name=_('Icon'),
+        null=True, blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+
     slug = models.SlugField(
         unique=True,
         max_length=80,
@@ -187,6 +194,7 @@ class Category(models.Model):
             [
                 FieldPanel('name'),
                 FieldPanel('slug'),
+                ImageChooserPanel('icon'),
                 SnippetChooserPanel('parent'),
                 FieldPanel('description', classname="full"),
             ],
@@ -450,7 +458,14 @@ class EntryPage(Page, Entry):
 
     settings_panels = Page.settings_panels + [
         FieldPanel('date'),
-        FieldPanel('owner'),
+        MultiFieldPanel(
+            [
+                FieldPanel('owner'),
+                ImageChooserPanel('author_avatar'),
+                FieldPanel('author_phrase'),
+            ], heading=_("Author")
+        ),
+
     ] + getattr(Entry, 'settings_panels', [])
 
     # Parent and child settings

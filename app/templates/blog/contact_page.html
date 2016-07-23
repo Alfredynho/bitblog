@@ -22,21 +22,30 @@
         <div class="container">
             <h3>{% trans 'Contact Me' %}</h3>
             <p>{% trans 'Hello! My name is Victor vic for the friends, I am a fullstack developer and technology enthusiast, if there is anything I can help you please write me' %}</p>
-            <form method="post" action="#">
+            <form method="post" action=".">
+                {% csrf_token %}
                 <div class="row uniform">
-                    <div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="{% trans 'Name' %}" /></div>
-                    <div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="{% trans 'Email' %}" /></div>
+                    <div class="6u 12u(xsmall)">
+                        <input type="text" name="name" id="name" placeholder="{% trans 'Name' %}" />
+                    </div>
+                    <div class="6u 12u(xsmall)">
+                        <input type="email" name="mail" id="mail" placeholder="{% trans 'Email' %}" />
+                    </div>
                 </div>
                 <div class="row uniform">
-                    <div class="12u"><input type="text" name="subject" id="subject" placeholder="{% trans 'Subject' %}" /></div>
+                    <div class="12u">
+                        <input type="text" name="subject" id="subject" placeholder="{% trans 'Subject' %}" />
+                    </div>
                 </div>
                 <div class="row uniform">
-                    <div class="12u"><textarea name="message" id="message" placeholder="{% trans 'Message' %}" rows="6"></textarea></div>
+                    <div class="12u">
+                        <textarea name="message" id="message" placeholder="{% trans 'Message' %}" rows="6"></textarea>
+                    </div>
                 </div>
                 <div class="row uniform">
                     <div class="12u">
                         <ul class="actions">
-                            <li><input type="submit" class="special" value="{% trans 'Send Message' %}" /></li>
+                            <li><input type="submit" class="button special" value="{% trans 'Send Message' %}" /></li>
                             <li><input type="reset" value="{% trans 'Reset Form' %}" /></li>
                         </ul>
                     </div>

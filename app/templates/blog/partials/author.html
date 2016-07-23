@@ -1,14 +1,20 @@
-{% load static %}
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
 
 <div class="author-box {% if mode = 'detail' %}detail{% endif %}">
 
     <div class="avatar">
-        {% if entry.owner.photo %}
-            <img src="/media/{{ entry.owner.photo }}"/>
+        {% if entry.author_avatar %}
+            {% image if entry.author_avatar fill-150x150 as avatar %}
+            <img alt="{{ entry.author_avatar.title }}" src="{{ avatar.url }}">
         {% else %}
-            <img src="{% static 'img/default.png' %}"/>
+            {% if entry.owner.photo %}
+                <img src="/media/{{ entry.owner.photo }}"/>
+            {% else %}
+                <img src="{% static 'img/default.png' %}"/>
+            {% endif %}
         {% endif %}
     </div>
+
     <div class="info">
         {% if entry.owner and entry.owner.first_name and entry.owner.last_name %}
             <div class="name">{{ entry.owner.first_name }} {{ entry.owner.last_name }}</div>
@@ -17,8 +23,13 @@
         {% endif %}
 
         {% if mode = 'detail' %}
-            <div class="phrase">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempori
-            ncididunt ut labore  et dolore magna aliqua. Ut enim ad mini</div>
+            {% if entry.author_phrase %}
+                <div class="phrase">{{ entry.author_phrase }}</div>
+            {% else %}
+                {% if entry.owner.bio %}
+                    <div class="phrase">{{ entry.owner.bio }}</div>
+                {% endif %}
+            {% endif %}
         {% else %}
             <div class="date">{{ entry.date|date:"DATE_FORMAT" }}</div>
         {% endif %}

@@ -161,3 +161,66 @@ ul {
 dl {
     margin: 0 0 _size(element-margin) 0;
 }
+
+#categories {
+  .title {
+    font-family: 'Exo', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+  }
+}
+
+.category-list {
+  padding: 0;
+  margin: 0;
+  font-family: 'Exo', sans-serif;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    padding:0;
+    margin: 0;
+
+    a {
+      background-color: _palette(light);
+      display: block;
+      padding-right: 0.8em;
+      color: _palette(accent-one, light) !important;
+
+      @include border-radius(1.2em);
+      @include transition(.2s);
+
+      &:hover {
+        background-color: darken(_palette(light), 2%);
+        .icon{
+          background: _palette(accent-one, light);
+        }
+
+      }
+    }
+
+    a .icon{
+      width: 2.5em;
+      height: 2.5em;
+      background: _palette(accent-one, dark);
+      padding: 0.5em;
+      display: block;
+      float: left;
+      @include border-radius(50%);
+      @include transition(.2s);
+
+
+      img {
+        height: 1.5em;
+        width: 1.5em;
+        display: block;
+      }
+
+    }
+    a .name {
+      padding-left: 3em;
+      line-height: 2.5em;
+      display: block;
+    }
+  }
+}

@@ -61,10 +61,9 @@ def speech_list(context):
 @register.inclusion_tag('blog/tags/categories_list.html', takes_context=True)
 def categories_list(context, categories_qs=None):
     blog_page = context['blog_page']
-    if categories_qs:
-        categories = categories_qs.all()
-    else:
-        categories = Category.objects.with_uses(blog_page).filter(parent=None)
+
+    categories = Category.objects.with_uses(blog_page).filter(parent=None)
+
     return {'blog_page': blog_page, 'request': context['request'], 'categories': categories}
 
 
@@ -94,8 +93,10 @@ def feeds_url(context, blog_page):
 
 @register.simple_tag(takes_context=True)
 def show_comments(context):
+
     blog_page = context['blog_page']
     entry = context['self']
+
     if blog_page.display_comments:
         if blog_page.disqus_shortname:
             template = loader.get_template('blog/comments/disqus.html')
