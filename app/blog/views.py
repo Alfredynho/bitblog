@@ -1,6 +1,7 @@
 import operator
 import re
 from django import forms
+from django.conf import settings
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
 from django.template import Context
@@ -69,16 +70,29 @@ class EntryPageUpdateCommentsView(View):
 
 class InjectOwnerMixin(object):
 
-    def get_context_data(self, **kwargs):
-        context = super(InjectOwnerMixin, self).get_context_data(**kwargs)
-        dd = self.request.META['HTTP_HOST']
+    def get_site_domain(self, request):
+
+        dd = request.META['HTTP_HOST']
         pat = r'(?P<domain>.*):.*'
         m = re.match(pat, dd)
-        context['domain'] = m.group('domain')
-        es = Site.objects.filter(hostname__contains=context['domain']).exists()
+        return m.group('domain')
+
+    def get_root_from_domain(self, domain):
+        es = Site.objects.filter(hostname__contains=domain).exists()
         if es:
-            es = Site.objects.filter(hostname__contains=context['domain']).first()
-            context['blog_page'] = es.root_page
+            es = Site.objects.filter(hostname__contains=domain).first()
+            return es.root_page
+        return None
+
+    def get_context_data(self, **kwargs):
+
+        context = super(InjectOwnerMixin, self).get_context_data(**kwargs)
+
+        context['domain'] = self.get_site_domain(self.request)
+        root_page = self.get_root_from_domain(context['domain'])
+
+        if root_page:
+            context['blog_page'] = root_page
         return context
 
 
@@ -86,11 +100,10 @@ class PortfolioPage(InjectOwnerMixin, TemplateView):
     template_name = "blog/portfolio_page.html"
 
 
-
 class ContactForm(forms.Form):
     name = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    subject = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
     message = forms.CharField(
         required=True,
         widget=forms.Textarea
@@ -99,12 +112,12 @@ class ContactForm(forms.Form):
 class ContactPage(InjectOwnerMixin, FormView):
     template_name = "blog/contact_page.html"
     form_class = ContactForm
-    success_url = '/thanks/'
+    success_url = '/contact/thanks/'
 
     def form_valid(self, form):
         name = self.request.POST.get('name', '')
         email = self.request.POST.get('email', '')
-        subject = self.request.POST.get('email', '')
+        subject = self.request.POST.get('subject', '')
         message = self.request.POST.get('message', '')
 
         # Email the profile with the
@@ -119,13 +132,25 @@ class ContactPage(InjectOwnerMixin, FormView):
         })
         content = template.render(context)
 
-        email = EmailMessage(
-            _("New contact form submission"),
-            content,
-            "Personal Blog" + '',
-            ['jvacx.log@gmail.com'],
-            headers={'Reply-To': "jvacx.log@gmail.com"}
+        to_email = settings.BLOG_ADMIN_EMAIL
+        blog_owner = self.get_root_from_domain(self.get_site_domain(self.request)).owner
+        if blog_owner and blog_owner.email:
+            to_email = blog_owner.email
+
+
+
+
+        email_message = EmailMessage(
+            subject=_("New contact form submission"),
+            body=content,
+            from_email=email,
+            to=[to_email],
         )
-        email.send()
+
+        # import ipdb; ipdb.set_trace()
+
+        email_message.send()
         return super(ContactPage, self).form_valid(form)
 
+class ContactSuccessPage(InjectOwnerMixin, TemplateView):
+    template_name = 'blog/contact_thanks.html'

@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView
 
 from .feeds import BlogPageFeed
-from .views import EntryPageServe, EntryPageUpdateCommentsView, PortfolioPage, ContactPage
+from .views import EntryPageServe, EntryPageUpdateCommentsView, PortfolioPage, ContactPage, ContactSuccessPage
 
 urlpatterns = [
     url(
@@ -37,6 +37,10 @@ urlpatterns = [
         regex=r'^contact/$',
         view=ContactPage.as_view(),
         name='contact_page',
+    ),
+
+    url(r'^contact/thanks/$',
+        ContactSuccessPage.as_view()
     ),
 
     url(

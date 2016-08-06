@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+
+{% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
+
+{% block title %}
+    {% if search_term %}
+        {{ search_term }} | {{ blog_page.title }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock title %}
+
+{% block menu %}
+    {% include 'blog/partials/header.html' with blog=blog_page active="contact"%}
+{% endblock %}
+
+{% block content %}
+    <div class="header-image">
+        <img src="{% static 'img/code.jpg' %}">
+    </div>
+    <section id="four">
+        <div class="container">
+            <h3>{% trans 'Thanks! :)' %}</h3>
+            <p>
+                {% trans 'Thank you for your feedback, I will try to answer your message as soon as i can' %}
+                <br><br>
+                <a href="{% url 'blog:contact_page' %}" class="button special">{% trans 'Send another message' %}</a>
+                <a href="/" class="button">{% trans 'Return to Home' %}</a>
+            </p>
+            <br><br><br><br><br>
+
+        </div>
+    </section>
+{% endblock %}

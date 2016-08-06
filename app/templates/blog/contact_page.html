@@ -22,24 +22,29 @@
         <div class="container">
             <h3>{% trans 'Contact Me' %}</h3>
             <p>{% trans 'Hello! My name is Victor vic for the friends, I am a fullstack developer and technology enthusiast, if there is anything I can help you please write me' %}</p>
-            <form method="post" action=".">
+            <form method="post" action="">
                 {% csrf_token %}
-                <div class="row uniform">
+                <div class="row uniform ">
+
                     <div class="6u 12u(xsmall)">
-                        <input type="text" name="name" id="name" placeholder="{% trans 'Name' %}" />
+                        <input type="text" name="name" id="id_name" placeholder="{% trans 'Name' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
+                        {{ form.name.errors }}
                     </div>
                     <div class="6u 12u(xsmall)">
-                        <input type="email" name="mail" id="mail" placeholder="{% trans 'Email' %}" />
+                        <input type="email" name="email" id="id_email" placeholder="{% trans 'Email' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
+                        {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row uniform">
                     <div class="12u">
-                        <input type="text" name="subject" id="subject" placeholder="{% trans 'Subject' %}" />
+                        <input type="text" name="subject" id="id_subject" placeholder="{% trans 'Subject' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
+                        {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row uniform">
                     <div class="12u">
-                        <textarea name="message" id="message" placeholder="{% trans 'Message' %}" rows="6"></textarea>
+                        <textarea name="message" id="id_message" placeholder="{% trans 'Message' %}" rows="6" class="form-field {% if form.name.errors %}error{% endif %}"></textarea>
+                        {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row uniform">
@@ -51,6 +56,16 @@
                     </div>
                 </div>
             </form>
+
+
+            <br>
+            <hr>
+            <br><br>
+
+{#            <form action="" method="post">{% csrf_token %}#}
+{#                {{ form.as_p }}#}
+{#                <input type="submit" value="Send message" />#}
+{#            </form>#}
         </div>
     </section>
 {% endblock %}

@@ -176,3 +176,26 @@ input[type="radio"] {
     font-style: italic;
     opacity: 1.0;
 }
+
+
+
+// Error list
+
+.errorlist {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    font-size: 0.7em;
+    font-weight: 600;
+    font-family: 'Droid Sans', sans-serif;
+    font-style: italic;
+    color: _palette(pomegranate);
+  }
+}
+
+.form-field {
+  &.error {
+    border: solid 2px _palette(pomegranate) !important;
+  }
+}

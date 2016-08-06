@@ -420,6 +420,7 @@ ACTION_CANCEL_ACCOUNT = env('ACTION_CANCEL_ACCOUNT', default='#/auth/cancel-acco
 # Blog
 WAGTAIL_SITE_NAME = 'jvacx blog'
 PUPUT_ENTRY_MODEL = 'blog.models.BlogEntry'
+BLOG_ADMIN_EMAIL = 'jvacx.log@gmail.com'
 
 # Analytics
 GA_KEY_FILEPATH = join(dirname(PROJECT_DIR), 'service.json')
