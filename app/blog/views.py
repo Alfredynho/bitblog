@@ -90,6 +90,8 @@ class InjectOwnerMixin(object):
 
         context['domain'] = self.get_site_domain(self.request)
         root_page = self.get_root_from_domain(context['domain'])
+        context['injected'] = True
+
 
         if root_page:
             context['blog_page'] = root_page
@@ -137,17 +139,12 @@ class ContactPage(InjectOwnerMixin, FormView):
         if blog_owner and blog_owner.email:
             to_email = blog_owner.email
 
-
-
-
         email_message = EmailMessage(
             subject=_("New contact form submission"),
             body=content,
             from_email=email,
             to=[to_email],
         )
-
-        # import ipdb; ipdb.set_trace()
 
         email_message.send()
         return super(ContactPage, self).form_valid(form)

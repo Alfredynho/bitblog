@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static i18n wagtailroutablepage_tags %}
 
 <section id="header">
 
@@ -28,6 +28,14 @@
 
     <nav id="nav">
         <ul>
+            {% if not injected %}
+                <li>
+                    <form name="search_form" class="search-form" method="get" action="{% routablepageurl blog_page "entries_search" %}">
+                        <input type="search" name="q" class="input">
+                        <button class="button" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+            {% endif %}
             <li><a href="/" {% if active == "posts" %}class="active"{% endif %}>{% trans 'Blog' %}</a></li>
             <li><a href="{% url 'blog:portfolio_page' %}" {% if active == "about" %}class="active"{% endif %}>{% trans 'Portfolio' %}</a></li>
             <li><a href="{% url 'blog:contact_page' %}" {% if active == "contact" %}class="active"{% endif %}>{% trans 'Contact' %}</a></li>

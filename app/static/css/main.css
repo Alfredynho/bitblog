@@ -2428,6 +2428,7 @@ input::-moz-focus-inner {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="search"],
 select,
 textarea {
   -moz-appearance: none;
@@ -2444,24 +2445,26 @@ textarea {
   text-decoration: none;
   width: 100%;
 }
-/* line 37, ../scss/components/_form.scss */
+/* line 38, ../scss/components/_form.scss */
 input[type="text"]:invalid,
 input[type="password"]:invalid,
 input[type="email"]:invalid,
+input[type="search"]:invalid,
 select:invalid,
 textarea:invalid {
   box-shadow: none;
 }
-/* line 41, ../scss/components/_form.scss */
+/* line 42, ../scss/components/_form.scss */
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
+input[type="search"]:focus,
 select:focus,
 textarea:focus {
   border-color: #1abc9c;
 }
 
-/* line 46, ../scss/components/_form.scss */
+/* line 47, ../scss/components/_form.scss */
 .select-wrapper {
   text-decoration: none;
   display: block;
@@ -2476,7 +2479,7 @@ textarea:focus {
   font-weight: normal;
   text-transform: none !important;
 }
-/* line 51, ../scss/components/_form.scss */
+/* line 52, ../scss/components/_form.scss */
 .select-wrapper:before {
   color: #e4e4e4;
   content: '\f078';
@@ -2490,25 +2493,26 @@ textarea:focus {
   top: 0;
   width: 2.75em;
 }
-/* line 65, ../scss/components/_form.scss */
+/* line 66, ../scss/components/_form.scss */
 .select-wrapper select::-ms-expand {
   display: none;
 }
 
-/* line 70, ../scss/components/_form.scss */
+/* line 71, ../scss/components/_form.scss */
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="search"],
 select {
   height: 2.75em;
 }
 
-/* line 77, ../scss/components/_form.scss */
+/* line 79, ../scss/components/_form.scss */
 textarea {
   padding: 0.75em 1em;
 }
 
-/* line 81, ../scss/components/_form.scss */
+/* line 83, ../scss/components/_form.scss */
 input[type="checkbox"],
 input[type="radio"] {
   -moz-appearance: none;
@@ -2522,7 +2526,7 @@ input[type="radio"] {
   width: 1em;
   z-index: -1;
 }
-/* line 91, ../scss/components/_form.scss */
+/* line 93, ../scss/components/_form.scss */
 input[type="checkbox"] + label,
 input[type="radio"] + label {
   text-decoration: none;
@@ -2545,7 +2549,7 @@ input[type="radio"] + label:before {
   font-weight: normal;
   text-transform: none !important;
 }
-/* line 102, ../scss/components/_form.scss */
+/* line 104, ../scss/components/_form.scss */
 input[type="checkbox"] + label:before,
 input[type="radio"] + label:before {
   background: #fafafa;
@@ -2561,7 +2565,7 @@ input[type="radio"] + label:before {
   top: 0;
   width: 1.65em;
 }
-/* line 119, ../scss/components/_form.scss */
+/* line 121, ../scss/components/_form.scss */
 input[type="checkbox"]:checked + label:before,
 input[type="radio"]:checked + label:before {
   background: #989898;
@@ -2569,63 +2573,63 @@ input[type="radio"]:checked + label:before {
   color: #ffffff;
   content: '\f00c';
 }
-/* line 128, ../scss/components/_form.scss */
+/* line 130, ../scss/components/_form.scss */
 input[type="checkbox"]:focus + label:before,
 input[type="radio"]:focus + label:before {
   border-color: #1abc9c;
 }
 
-/* line 136, ../scss/components/_form.scss */
+/* line 138, ../scss/components/_form.scss */
 input[type="checkbox"] + label:before {
   border-radius: 5px;
 }
 
-/* line 144, ../scss/components/_form.scss */
+/* line 146, ../scss/components/_form.scss */
 input[type="radio"] + label:before {
   border-radius: 100%;
 }
 
-/* line 150, ../scss/components/_form.scss */
+/* line 152, ../scss/components/_form.scss */
 ::-webkit-input-placeholder {
   color: #AAA !important;
   font-style: italic;
   opacity: 1.0;
 }
 
-/* line 156, ../scss/components/_form.scss */
+/* line 158, ../scss/components/_form.scss */
 :-moz-placeholder {
   color: #AAA !important;
   font-style: italic;
   opacity: 1.0;
 }
 
-/* line 162, ../scss/components/_form.scss */
+/* line 164, ../scss/components/_form.scss */
 ::-moz-placeholder {
   color: #AAA !important;
   font-style: italic;
   opacity: 1.0;
 }
 
-/* line 168, ../scss/components/_form.scss */
+/* line 170, ../scss/components/_form.scss */
 :-ms-input-placeholder {
   color: #AAA !important;
   font-style: italic;
   opacity: 1.0;
 }
 
-/* line 174, ../scss/components/_form.scss */
+/* line 176, ../scss/components/_form.scss */
 .formerize-placeholder {
   color: #AAA !important;
   font-style: italic;
   opacity: 1.0;
 }
 
-/* line 184, ../scss/components/_form.scss */
+/* line 186, ../scss/components/_form.scss */
 .errorlist {
   margin: 0;
   padding: 0;
 }
-/* line 187, ../scss/components/_form.scss */
+/* line 189, ../scss/components/_form.scss */
 .errorlist li {
   list-style: none;
   font-size: 0.7em;
@@ -2635,9 +2639,31 @@ input[type="radio"] + label:before {
   color: #c0392b;
 }
 
-/* line 198, ../scss/components/_form.scss */
+/* line 200, ../scss/components/_form.scss */
 .form-field.error {
   border: solid 2px #c0392b !important;
+}
+
+/* line 205, ../scss/components/_form.scss */
+.search-form .input {
+  display: inline-block;
+  width: auto;
+  border: white;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+}
+/* line 212, ../scss/components/_form.scss */
+.search-form button {
+  background-color: #c9c9c9;
+  font-size: 1em;
+  display: inline-block;
+  height: 2.75em;
+  margin: 0 0 -2px -4px;
+  padding: 0 1em;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 5px 5px 0;
 }
 
 /* Icon */

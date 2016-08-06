@@ -21,6 +21,7 @@ input::-moz-focus-inner {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="search"],
 select,
 textarea {
     @include vendor('appearance', 'none');
@@ -70,6 +71,7 @@ textarea {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="search"],
 select {
     height: _size(element-height);
 }
@@ -197,5 +199,23 @@ input[type="radio"] {
 .form-field {
   &.error {
     border: solid 2px _palette(pomegranate) !important;
+  }
+}
+.search-form {
+  .input {
+    display: inline-block;
+    width: auto;
+    border: white;
+    @include border-radius(5px 0 0 5px);
+  }
+
+  button {
+    background-color: darken(_palette(light), 15%);
+    font-size:1em;
+    display: inline-block;
+    height: 2.75em;
+    margin: 0 0 -2px -4px;
+    padding: 0 1em;
+    @include border-radius(0 5px 5px 0);
   }
 }
