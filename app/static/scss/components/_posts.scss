@@ -39,10 +39,11 @@
   }
 
   .info {
+    position: relative;
     padding-left: 45px;
     font-family: 'Roboto Slab', serif;
     font-weight: 400;
-     color: gray;
+    color: gray;
 
     .name {
       color: _palette(dark);

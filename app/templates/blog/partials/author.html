@@ -33,5 +33,10 @@
         {% else %}
             <div class="date">{{ entry.date|date:"DATE_FORMAT" }}</div>
         {% endif %}
+
+        <div class="social-icons" data-entry-url="{% entry_url entry blog_page %}" data-entry-title="{{ entry.title }}">
+
+        </div>
+
     </div>
 </div>

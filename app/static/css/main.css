@@ -1866,12 +1866,13 @@ body {
 }
 /* line 41, ../scss/components/_posts.scss */
 .author-box .info {
+  position: relative;
   padding-left: 45px;
   font-family: 'Roboto Slab', serif;
   font-weight: 400;
   color: gray;
 }
-/* line 47, ../scss/components/_posts.scss */
+/* line 48, ../scss/components/_posts.scss */
 .author-box .info .name {
   color: #2e2e2e;
   font-family: 'Exo', serif;
@@ -1880,31 +1881,31 @@ body {
   font-weight: 400;
   padding-top: 5px;
 }
-/* line 56, ../scss/components/_posts.scss */
+/* line 57, ../scss/components/_posts.scss */
 .author-box .info .date {
   font-size: 0.65em;
   font-weight: 400;
   color: #7f8c8d;
 }
-/* line 63, ../scss/components/_posts.scss */
+/* line 64, ../scss/components/_posts.scss */
 .author-box.detail {
   margin: 3em 0 1.5em 0;
 }
-/* line 65, ../scss/components/_posts.scss */
+/* line 66, ../scss/components/_posts.scss */
 .author-box.detail .avatar {
   height: 3.4em;
   width: 3.4em;
 }
-/* line 69, ../scss/components/_posts.scss */
+/* line 70, ../scss/components/_posts.scss */
 .author-box.detail .info {
   padding-left: 3.8em;
 }
-/* line 72, ../scss/components/_posts.scss */
+/* line 73, ../scss/components/_posts.scss */
 .author-box.detail .info .name {
   font-weight: 600;
   font-size: 0.9em;
 }
-/* line 76, ../scss/components/_posts.scss */
+/* line 77, ../scss/components/_posts.scss */
 .author-box.detail .phrase {
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
@@ -1914,16 +1915,16 @@ body {
   color: #AAA;
 }
 
-/* line 87, ../scss/components/_posts.scss */
+/* line 88, ../scss/components/_posts.scss */
 .posts .line {
   margin-top: 0;
   margin-bottom: 1em;
 }
-/* line 91, ../scss/components/_posts.scss */
+/* line 92, ../scss/components/_posts.scss */
 .posts .post {
   position: relative;
 }
-/* line 93, ../scss/components/_posts.scss */
+/* line 94, ../scss/components/_posts.scss */
 .posts .post .title {
   color: #2e2e2e;
   font-family: 'Roboto Slab', serif;
@@ -1931,15 +1932,15 @@ body {
   font-weight: 500;
   margin: 10px;
 }
-/* line 101, ../scss/components/_posts.scss */
+/* line 102, ../scss/components/_posts.scss */
 .posts .post .header-image {
   margin-bottom: 20px;
 }
-/* line 103, ../scss/components/_posts.scss */
+/* line 104, ../scss/components/_posts.scss */
 .posts .post .header-image img {
   width: 100%;
 }
-/* line 107, ../scss/components/_posts.scss */
+/* line 108, ../scss/components/_posts.scss */
 .posts .post .summary {
   color: #2e2e2e;
   font-family: 'Droid Sans', serif;
@@ -1947,11 +1948,11 @@ body {
   font-size: 1em;
   line-height: 1.5em;
 }
-/* line 114, ../scss/components/_posts.scss */
+/* line 115, ../scss/components/_posts.scss */
 .posts .post .summary .rich-text > p {
   margin-bottom: 0;
 }
-/* line 120, ../scss/components/_posts.scss */
+/* line 121, ../scss/components/_posts.scss */
 .posts .post .entry-footer .read-more {
   font-family: 'Exo', serif;
   color: #16a085;
@@ -1965,12 +1966,12 @@ body {
   margin-top: 2em;
   margin-bottom: 1em;
 }
-/* line 134, ../scss/components/_posts.scss */
+/* line 135, ../scss/components/_posts.scss */
 .posts .post .entry-footer .read-more:hover {
   color: #1abc9c !important;
 }
 
-/* line 144, ../scss/components/_posts.scss */
+/* line 145, ../scss/components/_posts.scss */
 .tags {
   font-family: 'Exo', sans-serif;
   padding: 0;
@@ -1978,14 +1979,14 @@ body {
   display: block;
   float: left;
 }
-/* line 150, ../scss/components/_posts.scss */
+/* line 151, ../scss/components/_posts.scss */
 .tags li {
   list-style: none;
   display: inline-block;
   margin: 0;
   padding: 0;
 }
-/* line 156, ../scss/components/_posts.scss */
+/* line 157, ../scss/components/_posts.scss */
 .tags li a {
   background: #efefef;
   color: #000;
@@ -1996,17 +1997,17 @@ body {
   font-size: 0.7em;
   transition: all linear 0.2s;
 }
-/* line 166, ../scss/components/_posts.scss */
+/* line 167, ../scss/components/_posts.scss */
 .tags li a:hover {
   background: #e2e2e2;
   color: #16a085;
 }
 
-/* line 173, ../scss/components/_posts.scss */
+/* line 174, ../scss/components/_posts.scss */
 .detail {
   font-size: 1em;
 }
-/* line 175, ../scss/components/_posts.scss */
+/* line 176, ../scss/components/_posts.scss */
 .detail header .title {
   font-family: 'Roboto Slab', serif;
   font-size: 1.9em;
@@ -2014,7 +2015,7 @@ body {
   color: #138a72;
   margin-bottom: 0;
 }
-/* line 183, ../scss/components/_posts.scss */
+/* line 184, ../scss/components/_posts.scss */
 .detail .date {
   display: inline-block;
   padding-left: 10px;
@@ -2024,24 +2025,24 @@ body {
   color: #7f8c8d;
   margin-bottom: 1em;
 }
-/* line 193, ../scss/components/_posts.scss */
+/* line 194, ../scss/components/_posts.scss */
 .detail h2 {
   font-size: 1.6em;
 }
-/* line 196, ../scss/components/_posts.scss */
+/* line 197, ../scss/components/_posts.scss */
 .detail h3 {
   font-size: 1.3em;
 }
-/* line 199, ../scss/components/_posts.scss */
+/* line 200, ../scss/components/_posts.scss */
 .detail h4 {
   font-size: 1em;
 }
-/* line 202, ../scss/components/_posts.scss */
+/* line 203, ../scss/components/_posts.scss */
 .detail p {
   line-height: 1.4em;
   margin: 0 0 1.2em 0;
 }
-/* line 206, ../scss/components/_posts.scss */
+/* line 207, ../scss/components/_posts.scss */
 .detail ul, .detail ol {
   margin-left: 1em;
 }
@@ -4447,4 +4448,306 @@ input[type="button"]:disabled,
 /* line 32, ../scss/pluggins/_slider.scss */
 .owl-slider .item:hover .title {
   color: #16a085;
+}
+
+/* line 1, ../scss/pluggins/_jssocials.scss */
+.jssocials-shares {
+  margin: 0;
+}
+
+/* line 4, ../scss/pluggins/_jssocials.scss */
+.jssocials-shares * {
+  box-sizing: border-box;
+}
+
+/* line 7, ../scss/pluggins/_jssocials.scss */
+.jssocials-share {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.3em;
+}
+
+/* line 12, ../scss/pluggins/_jssocials.scss */
+.jssocials-share:first-child {
+  margin-left: 0;
+}
+
+/* line 15, ../scss/pluggins/_jssocials.scss */
+.jssocials-share:last-child {
+  margin-right: 0;
+}
+
+/* line 18, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-logo {
+  width: 1em;
+  vertical-align: middle;
+  font-size: 1.5em;
+}
+
+/* line 23, ../scss/pluggins/_jssocials.scss */
+img.jssocials-share-logo {
+  width: auto;
+  height: 1em;
+}
+
+/* line 27, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* line 32, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link.jssocials-share-link-count {
+  padding-top: .2em;
+}
+
+/* line 34, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link.jssocials-share-link-count .jssocials-share-count {
+  display: block;
+  font-size: .6em;
+  margin: 0 -.5em -.8em -.5em;
+}
+
+/* line 38, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link.jssocials-share-no-count {
+  padding-top: .5em;
+}
+
+/* line 40, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link.jssocials-share-no-count .jssocials-share-count {
+  height: 1em;
+}
+
+/* line 43, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-label {
+  padding-left: 0.3em;
+  vertical-align: middle;
+}
+
+/* line 47, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box {
+  display: inline-block;
+  height: 1.5em;
+  padding: 0 0.3em;
+  vertical-align: middle;
+  cursor: default;
+}
+
+/* line 53, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box.jssocials-share-no-count {
+  display: none;
+}
+
+/* line 56, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count {
+  line-height: 1.5em;
+  vertical-align: middle;
+}
+
+/* line 64, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-twitter .jssocials-share-link {
+  background: #00aced;
+}
+
+/* line 66, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-twitter .jssocials-share-link:hover {
+  background: #0087ba;
+}
+
+/* line 69, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-facebook .jssocials-share-link {
+  background: #3b5998;
+}
+
+/* line 71, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-facebook .jssocials-share-link:hover {
+  background: #2d4373;
+}
+
+/* line 74, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-googleplus .jssocials-share-link {
+  background: #dd4b39;
+}
+
+/* line 76, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-googleplus .jssocials-share-link:hover {
+  background: #c23321;
+}
+
+/* line 79, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-linkedin .jssocials-share-link {
+  background: #007bb6;
+}
+
+/* line 81, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-linkedin .jssocials-share-link:hover {
+  background: #005983;
+}
+
+/* line 84, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-pinterest .jssocials-share-link {
+  background: #cb2027;
+}
+
+/* line 86, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-pinterest .jssocials-share-link:hover {
+  background: #9f191f;
+}
+
+/* line 89, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-email .jssocials-share-link {
+  background: #3490F3;
+}
+
+/* line 91, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-email .jssocials-share-link:hover {
+  background: #0e76e6;
+}
+
+/* line 94, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-whatsapp .jssocials-share-link {
+  background: #29a628;
+}
+
+/* line 96, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-whatsapp .jssocials-share-link:hover {
+  background: #1f7d1e;
+}
+
+/* line 99, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-line .jssocials-share-link {
+  background: #25af00;
+}
+
+/* line 101, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-line .jssocials-share-link:hover {
+  background: #1a7c00;
+}
+
+/* line 104, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-stumbleupon .jssocials-share-link {
+  background: #eb4823;
+}
+
+/* line 106, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-stumbleupon .jssocials-share-link:hover {
+  background: #c93412;
+}
+
+/* line 109, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link {
+  padding: .5em .6em;
+  color: #fff;
+  -webkit-transition: background 200ms ease-in-out, border-color 200ms ease-in-out;
+  transition: background 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+/* line 114, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-link:hover, .jssocials-share-link:focus, .jssocials-share-link:active {
+  color: #fff;
+}
+
+/* line 117, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box {
+  position: relative;
+  height: 2.5em;
+  padding: 0 .3em;
+  margin-left: 0.3em;
+  background: #f5f5f5;
+  -webkit-transition: background 200ms ease-in-out, border-color 200ms ease-in-out;
+  transition: background 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+/* line 125, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box:hover {
+  background: gainsboro;
+}
+
+/* line 127, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box:hover:after {
+  border-color: transparent gainsboro transparent transparent;
+}
+
+/* line 129, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.85em;
+  left: -0.3em;
+  width: 0;
+  height: 0;
+  border-width: 0.4em 0.4em 0.4em 0;
+  border-style: solid;
+  border-color: transparent #f5f5f5 transparent transparent;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: background 200ms ease-in-out, border-color 200ms ease-in-out;
+  transition: background 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+/* line 145, ../scss/pluggins/_jssocials.scss */
+.jssocials-share-count-box .jssocials-share-count {
+  line-height: 2.5em;
+  color: #444;
+}
+
+/* line 149, ../scss/pluggins/_jssocials.scss */
+.social-icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 153, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-link {
+  font-size: .6em;
+  padding: .5em;
+  background: #efefef;
+  color: #2e2e2e;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 160, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-link:hover {
+  background: #e2e2e2;
+}
+/* line 165, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share {
+  margin: 0 0 0 2px;
+}
+/* line 169, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-facebook .jssocials-share-link {
+  color: #2d4373;
+}
+/* line 171, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-facebook .jssocials-share-link:hover {
+  color: #2a3f6c !important;
+}
+/* line 176, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-twitter .jssocials-share-link {
+  color: #0087ba;
+}
+/* line 178, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-twitter .jssocials-share-link:hover {
+  color: #0080b0 !important;
+}
+/* line 183, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-googleplus .jssocials-share-link {
+  color: #c23321;
+}
+/* line 185, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-googleplus .jssocials-share-link:hover {
+  color: #b93120 !important;
+}
+/* line 190, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-email .jssocials-share-link {
+  color: #2e2e2e;
+}
+/* line 192, ../scss/pluggins/_jssocials.scss */
+.social-icons .jssocials-share-email .jssocials-share-link:hover {
+  color: #292929 !important;
 }

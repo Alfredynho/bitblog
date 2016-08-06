@@ -8,7 +8,7 @@
         </a>
     </h4>
 
-    {% include "blog/partials/author.html" with entry=entry%}
+    {% include "blog/partials/author.html" with entry=entry blog=blog_page%}
 
     {% if entry.header_image and entry.show_header %}
         {% image entry.header_image fill-800x220 as header_image %}
