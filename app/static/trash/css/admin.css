@@ -1,9 +1,0 @@
-/* line 3, ../scss/admin.scss */
-#header #branding h1 {
-  background: transparent url(../img/logob.png) 10px 5px no-repeat;
-  background-size: auto 30px;
-}
-/* line 7, ../scss/admin.scss */
-#header #branding h1 a {
-  color: transparent;
-}

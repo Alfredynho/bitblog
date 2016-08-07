@@ -3529,33 +3529,33 @@ input[type="button"]:disabled,
 /* XLarge */
 @media screen and (max-width: 1680px) {
   /* Basic */
-  /* line 10, ../scss/media/_xlarge.scss */
+  /* line 11, ../scss/media/_xlarge.scss */
   body, input, select, textarea {
     font-size: 13pt;
   }
 
   /* Header */
-  /* line 16, ../scss/media/_xlarge.scss */
+  /* line 17, ../scss/media/_xlarge.scss */
   #header {
     width: 21em;
   }
-  /* line 19, ../scss/media/_xlarge.scss */
+  /* line 20, ../scss/media/_xlarge.scss */
   #header > header {
     padding: 2em;
   }
-  /* line 23, ../scss/media/_xlarge.scss */
+  /* line 24, ../scss/media/_xlarge.scss */
   #header > footer {
     padding: 1.5em;
   }
 
   /* Wrapper */
-  /* line 30, ../scss/media/_xlarge.scss */
+  /* line 31, ../scss/media/_xlarge.scss */
   #wrapper {
     padding-left: 21em;
   }
 
   /* Main */
-  /* line 43, ../scss/media/_xlarge.scss */
+  /* line 44, ../scss/media/_xlarge.scss */
   #main > section > .container {
     padding: 4em 0 2em 0;
   }
@@ -3882,63 +3882,56 @@ input[type="button"]:disabled,
 /* XSmall */
 @media screen and (max-width: 480px) {
   /* Basic */
-  /* line 7, ../scss/media/_xsmall.scss */
+  /* line 8, ../scss/media/_xsmall.scss */
   html, body {
     min-width: 320px;
   }
 
-  /* line 11, ../scss/media/_xsmall.scss */
+  /* line 12, ../scss/media/_xsmall.scss */
   body, input, select, textarea {
     font-size: 12pt;
   }
 
   /* List */
-  /* line 18, ../scss/media/_xsmall.scss */
+  /* line 19, ../scss/media/_xsmall.scss */
   ul.actions {
     margin: 0 0 2.25em 0;
   }
-  /* line 21, ../scss/media/_xsmall.scss */
+  /* line 22, ../scss/media/_xsmall.scss */
   ul.actions li {
     display: block;
     padding: 1.125em 0 0 0;
     text-align: center;
     width: 100%;
   }
-  /* line 27, ../scss/media/_xsmall.scss */
+  /* line 28, ../scss/media/_xsmall.scss */
   ul.actions li:first-child {
     padding-top: 0;
   }
-  /* line 31, ../scss/media/_xsmall.scss */
+  /* line 32, ../scss/media/_xsmall.scss */
   ul.actions li > * {
     width: 100%;
     margin: 0 !important;
   }
-  /* line 36, ../scss/media/_xsmall.scss */
+  /* line 37, ../scss/media/_xsmall.scss */
   ul.actions li > *.icon:before {
     margin-left: -2em;
   }
-  /* line 44, ../scss/media/_xsmall.scss */
+  /* line 45, ../scss/media/_xsmall.scss */
   ul.actions.small li {
     padding: 0.5625em 0 0 0;
   }
-  /* line 47, ../scss/media/_xsmall.scss */
+  /* line 48, ../scss/media/_xsmall.scss */
   ul.actions.small li:first-child {
     padding-top: 0;
   }
-  /* line 55, ../scss/media/_xsmall.scss */
+  /* line 56, ../scss/media/_xsmall.scss */
   ul.feature-icons li {
     display: block;
     width: 100%;
   }
 
   /* Button */
-  /* line 64, ../scss/media/_xsmall.scss */
-  input[type="submit"],
-  input[type="reset"],
-  input[type="button"],
-  .button {
-    padding: 0;
-  }
 }
 /*
  * 	Core Owl Carousel CSS File
