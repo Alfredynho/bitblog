@@ -1,10 +1,10 @@
-django==1.9.7
+django==1.9.9
 
 
 # ~ API
 # ---------
 django-cors-headers==1.1.0
-djangorestframework==3.3.3
+djangorestframework==3.4.3
 django-rest-swagger==0.3.5
 django-oauth-toolkit==0.10.0
 python-social-auth==0.2.14
@@ -31,7 +31,7 @@ django-admin-tools==0.7.2
 # ----------
 # https://github.com/mariocesar/sorl-thumbnail
 sorl-thumbnail==12.3
-Pillow==3.2.0
+Pillow==3.3.0
 
 
 # ~ DATABASE
@@ -42,7 +42,7 @@ psycopg2==2.6.1
 
 # ~ TIMEZONE
 # ------------
-pytz==2015.7
+pytz==2016.6.1
 
 
 # ~ SEARCH
@@ -90,7 +90,7 @@ django-environ==0.4.0
 
 # ~ Blog
 # ------
-wagtail==1.5.2
+wagtail==1.5.3
 wagtailfontawesome==1.0.5
 wagalytics==0.6
 django-modelcluster==2.0
