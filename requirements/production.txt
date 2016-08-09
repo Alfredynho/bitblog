@@ -3,7 +3,8 @@
 
 # ~ MAILING
 # -----------
-django-anymail==0.2
+django-mailgun==0.8.0
+
 
 
 # ~ LOGGING
