@@ -71,8 +71,8 @@ supervisor
 
 ##  DATABASES
 #-----------------#
-mysql-server
-libmysqlclient-dev
+#mysql-server
+#libmysqlclient-dev
 
 postgresql
 postgresql-contrib
