@@ -41,7 +41,7 @@ dump_data:
 	@echo "Fixtures exported"
 
 env:
-	virtualenv -p python3 env
+	virtualenv3 -p python3 env
 
 deps:
 	$(info - Installing all system dependencies using apt-get)
