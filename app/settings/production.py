@@ -9,7 +9,7 @@ env.read_env(join(dirname(PROJECT_DIR), "config/.environment"))
 
 
 DEBUG = False
-INSTALLED_APPS += ("djrill",)
+INSTALLED_APPS += ("anymail",)
 
 
 DATABASES['default'] = env.db("DATABASE_URL")
