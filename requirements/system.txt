@@ -34,9 +34,9 @@ gettext
 
 # python-dev
 
-python3-setuptools
-python3-virtualenv
-python3-pip
+python-setuptools
+python-virtualenv
+python-pip
 
 
 ##  PYTHON DEPS
