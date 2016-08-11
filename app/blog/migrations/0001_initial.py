@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('taggit', '0002_auto_20150616_2121'),
-        ('wagtailcore', '0029_auto_20160811_2011'),
+        ('wagtailcore', '0028_merge'),
         ('wagtailimages', '0013_make_rendition_upload_callable'),
     ]
 
