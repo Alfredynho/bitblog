@@ -76,7 +76,7 @@ class InjectOwnerMixin(object):
 
         shot_domain = request.META['HTTP_HOST']
         return urlparse("http://"+ shot_domain).hostname
-        
+
 
     def get_root_from_domain(self, domain):
         es = Site.objects.filter(hostname__contains=domain).exists()
