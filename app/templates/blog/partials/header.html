@@ -37,8 +37,8 @@
                 </li>
             {% endif %}
             <li><a href="/" {% if active == "posts" %}class="active"{% endif %}>{% trans 'Blog' %}</a></li>
-            <li><a href="{% url 'blog:portfolio_page' %}" {% if active == "about" %}class="active"{% endif %}>{% trans 'Portfolio' %}</a></li>
-            <li><a href="{% url 'blog:contact_page' %}" {% if active == "contact" %}class="active"{% endif %}>{% trans 'Contact' %}</a></li>
+            <li><a href="{% url 'blog:portfolio_page' %}" {% if active == "about" %}class="active"{% endif %}>{% trans 'Portafolio' %}</a></li>
+            <li><a href="{% url 'blog:contact_page' %}" {% if active == "contact" %}class="active"{% endif %}>{% trans 'Contacto' %}</a></li>
         </ul>
     </nav>
 

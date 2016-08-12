@@ -20,38 +20,38 @@
     </div>
     <section id="four">
         <div class="container">
-            <h3>{% trans 'Contact Me' %}</h3>
-            <p>{% trans 'Hello! My name is Victor vic for the friends, I am a fullstack developer and technology enthusiast, if there is anything I can help you please write me' %}</p>
+            <h3>{% trans 'Contáctame' %}</h3>
+            <p>{% trans 'Hola! Mi nombre es Victor, Vic para los amigos, Soy un desarrollador fullstack y entusiasta de la tecnología, si hay algo en que te pueda ayudar, escríbeme.' %}</p>
             <form method="post" action="">
                 {% csrf_token %}
                 <div class="row uniform ">
 
                     <div class="6u 12u(xsmall)">
-                        <input type="text" name="name" id="id_name" placeholder="{% trans 'Name' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
+                        <input type="text" name="name" id="id_name" placeholder="{% trans 'Nombre' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
                         {{ form.name.errors }}
                     </div>
                     <div class="6u 12u(xsmall)">
-                        <input type="email" name="email" id="id_email" placeholder="{% trans 'Email' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
+                        <input type="email" name="email" id="id_email" placeholder="{% trans 'Correo' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
                         {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row uniform">
                     <div class="12u">
-                        <input type="text" name="subject" id="id_subject" placeholder="{% trans 'Subject' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
+                        <input type="text" name="subject" id="id_subject" placeholder="{% trans 'Asunto' %}" class="form-field {% if form.name.errors %}error{% endif %}"/>
                         {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row uniform">
                     <div class="12u">
-                        <textarea name="message" id="id_message" placeholder="{% trans 'Message' %}" rows="6" class="form-field {% if form.name.errors %}error{% endif %}"></textarea>
+                        <textarea name="message" id="id_message" placeholder="{% trans 'Mensaje' %}" rows="6" class="form-field {% if form.name.errors %}error{% endif %}"></textarea>
                         {{ form.name.errors }}
                     </div>
                 </div>
                 <div class="row uniform">
                     <div class="12u">
                         <ul class="actions">
-                            <li><input type="submit" class="button special" value="{% trans 'Send Message' %}" /></li>
-                            <li><input type="reset" value="{% trans 'Reset Form' %}" /></li>
+                            <li><input type="submit" class="button special" value="{% trans 'Enviar Mensaje' %}" /></li>
+                            <li><input type="reset" value="{% trans 'Borrar' %}" /></li>
                         </ul>
                     </div>
                 </div>

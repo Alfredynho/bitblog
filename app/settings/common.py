@@ -166,7 +166,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 # In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'UTC'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'es-BO'
+LANGUAGE_CODE = 'es'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n

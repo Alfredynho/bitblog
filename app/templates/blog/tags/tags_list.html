@@ -5,6 +5,6 @@
     {% for tag in tags %}
         <li><a href="{% routablepageurl blog_page "entries_by_tag" tag.slug %}">{{ tag }}</a></li>
     {% empty %}
-        {% trans 'No tags yet' %}
+        {% trans 'No hay tags aún' %}
     {% endfor %}
 </ul>
