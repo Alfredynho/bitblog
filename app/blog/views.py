@@ -143,7 +143,7 @@ class ContactPage(InjectOwnerMixin, FormView):
         email_message = EmailMessage(
             subject=_("New contact form submission"),
             body=content,
-            from_email=email,
+            from_email=settings.DEFAULT_FROM_EMAIL,
             to=[to_email],
         )
 
