@@ -36,6 +36,7 @@ CACHES["default"] = env.cache('REDIS_URL')
 #     }
 # }
 
+EMAIL_HOST, EMAIL_PORT = 'localhost', 25  # Work with MailHog
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"  # or sendgrid.SendGridBackend, or...
 
