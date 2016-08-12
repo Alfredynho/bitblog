@@ -1,5 +1,7 @@
 import operator
 import re
+from urllib.parse import urlparse
+
 from django import forms
 from django.conf import settings
 from django.core.mail import EmailMessage
@@ -72,10 +74,9 @@ class InjectOwnerMixin(object):
 
     def get_site_domain(self, request):
 
-        dd = request.META['HTTP_HOST']
-        pat = r'(?P<domain>.*):.*'
-        m = re.match(pat, dd)
-        return m.group('domain')
+        shot_domain = request.META['HTTP_HOST']
+        return urlparse("http://"+ shot_domain).hostname
+        
 
     def get_root_from_domain(self, domain):
         es = Site.objects.filter(hostname__contains=domain).exists()
