@@ -3111,10 +3111,11 @@ table.alt tfoot {
 /* line 54, ../scss/components/_header.scss */
 #header > header p {
   color: #6b6b6b;
-  margin: 0.8em 0 0 0;
+  margin: 01em 0 0 0;
   font-weight: 300;
+  line-height: 1.1em;
 }
-/* line 61, ../scss/components/_header.scss */
+/* line 62, ../scss/components/_header.scss */
 #header > footer {
   bottom: 0;
   left: 0;
@@ -3122,27 +3123,27 @@ table.alt tfoot {
   position: absolute;
   width: 100%;
 }
-/* line 68, ../scss/components/_header.scss */
+/* line 69, ../scss/components/_header.scss */
 #header > footer .icons {
   margin: 0;
 }
-/* line 71, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_header.scss */
 #header > footer .icons li a {
   color: #2e2e2e;
 }
-/* line 78, ../scss/components/_header.scss */
+/* line 79, ../scss/components/_header.scss */
 #header > nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 83, ../scss/components/_header.scss */
+/* line 84, ../scss/components/_header.scss */
 #header > nav ul li {
   border-top: solid 2px #f1f1f1;
   display: block;
   padding: 0;
 }
-/* line 88, ../scss/components/_header.scss */
+/* line 89, ../scss/components/_header.scss */
 #header > nav ul li a {
   -moz-transition: none;
   -webkit-transition: none;
@@ -3154,36 +3155,36 @@ table.alt tfoot {
   padding: 0.85em 0;
   text-decoration: none;
 }
-/* line 96, ../scss/components/_header.scss */
+/* line 97, ../scss/components/_header.scss */
 #header > nav ul li a.active {
   background: #fff;
   color: #16a085 !important;
   font-weight: 600;
 }
-/* line 103, ../scss/components/_header.scss */
+/* line 104, ../scss/components/_header.scss */
 #header > nav ul li:first-child {
   border-top: 0;
 }
 
-/* line 113, ../scss/components/_header.scss */
+/* line 114, ../scss/components/_header.scss */
 header p {
   color: #AAA;
   position: relative;
   margin: 0 0 1.6875em 0;
 }
-/* line 119, ../scss/components/_header.scss */
+/* line 120, ../scss/components/_header.scss */
 header h2 + p {
   font-size: 1.25em;
   margin-top: -0.5em;
   line-height: 1.5em;
 }
-/* line 125, ../scss/components/_header.scss */
+/* line 126, ../scss/components/_header.scss */
 header h3 + p {
   font-size: 1.1em;
   margin-top: -0.35em;
   line-height: 1.5em;
 }
-/* line 131, ../scss/components/_header.scss */
+/* line 132, ../scss/components/_header.scss */
 header h4 + p,
 header h5 + p,
 header h6 + p {
@@ -3191,12 +3192,12 @@ header h6 + p {
   margin-top: -0.25em;
   line-height: 1.5em;
 }
-/* line 140, ../scss/components/_header.scss */
+/* line 141, ../scss/components/_header.scss */
 header.major h2 {
   color: #1abc9c;
   font-size: 3.5em;
 }
-/* line 144, ../scss/components/_header.scss */
+/* line 145, ../scss/components/_header.scss */
 header.major h2 + p {
   color: #2e2e2e;
   font-size: 1.75em;
@@ -3251,10 +3252,11 @@ header.major h2 + p {
 /* line 54, ../scss/components/_header.scss */
 #header > header p {
   color: #6b6b6b;
-  margin: 0.8em 0 0 0;
+  margin: 01em 0 0 0;
   font-weight: 300;
+  line-height: 1.1em;
 }
-/* line 61, ../scss/components/_header.scss */
+/* line 62, ../scss/components/_header.scss */
 #header > footer {
   bottom: 0;
   left: 0;
@@ -3262,27 +3264,27 @@ header.major h2 + p {
   position: absolute;
   width: 100%;
 }
-/* line 68, ../scss/components/_header.scss */
+/* line 69, ../scss/components/_header.scss */
 #header > footer .icons {
   margin: 0;
 }
-/* line 71, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_header.scss */
 #header > footer .icons li a {
   color: #2e2e2e;
 }
-/* line 78, ../scss/components/_header.scss */
+/* line 79, ../scss/components/_header.scss */
 #header > nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 83, ../scss/components/_header.scss */
+/* line 84, ../scss/components/_header.scss */
 #header > nav ul li {
   border-top: solid 2px #f1f1f1;
   display: block;
   padding: 0;
 }
-/* line 88, ../scss/components/_header.scss */
+/* line 89, ../scss/components/_header.scss */
 #header > nav ul li a {
   -moz-transition: none;
   -webkit-transition: none;
@@ -3294,36 +3296,36 @@ header.major h2 + p {
   padding: 0.85em 0;
   text-decoration: none;
 }
-/* line 96, ../scss/components/_header.scss */
+/* line 97, ../scss/components/_header.scss */
 #header > nav ul li a.active {
   background: #fff;
   color: #16a085 !important;
   font-weight: 600;
 }
-/* line 103, ../scss/components/_header.scss */
+/* line 104, ../scss/components/_header.scss */
 #header > nav ul li:first-child {
   border-top: 0;
 }
 
-/* line 113, ../scss/components/_header.scss */
+/* line 114, ../scss/components/_header.scss */
 header p {
   color: #AAA;
   position: relative;
   margin: 0 0 1.6875em 0;
 }
-/* line 119, ../scss/components/_header.scss */
+/* line 120, ../scss/components/_header.scss */
 header h2 + p {
   font-size: 1.25em;
   margin-top: -0.5em;
   line-height: 1.5em;
 }
-/* line 125, ../scss/components/_header.scss */
+/* line 126, ../scss/components/_header.scss */
 header h3 + p {
   font-size: 1.1em;
   margin-top: -0.35em;
   line-height: 1.5em;
 }
-/* line 131, ../scss/components/_header.scss */
+/* line 132, ../scss/components/_header.scss */
 header h4 + p,
 header h5 + p,
 header h6 + p {
@@ -3331,12 +3333,12 @@ header h6 + p {
   margin-top: -0.25em;
   line-height: 1.5em;
 }
-/* line 140, ../scss/components/_header.scss */
+/* line 141, ../scss/components/_header.scss */
 header.major h2 {
   color: #1abc9c;
   font-size: 3.5em;
 }
-/* line 144, ../scss/components/_header.scss */
+/* line 145, ../scss/components/_header.scss */
 header.major h2 + p {
   color: #2e2e2e;
   font-size: 1.75em;
