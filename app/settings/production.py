@@ -29,15 +29,17 @@ CACHES["default"] = env.cache('REDIS_URL')
 
 
 # EMAIL CONFIGURATION
-ANYMAIL = {
-    "MAILGUN_API_KEY": env('MAILGUN_API_KEY', default='CHANGEME!!!'),
-    "MAILGUN_SEND_DEFAULTS": {
-        "esp_extra": {"sender_domain": "xiberty.com"}
-    }
-}
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"  # or sendgrid.SendGridBackend, or...
-DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='Warpp <admin@warpp.xyz>')
+# ANYMAIL = {
+#     "MAILGUN_API_KEY": env('MAILGUN_API_KEY', default='CHANGEME!!!'),
+#     "MAILGUN_SEND_DEFAULTS": {
+#         "esp_extra": {"sender_domain": "xiberty.com"}
+#     }
+# }
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"  # or sendgrid.SendGridBackend, or...
+
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='Warpp <hello@victoraguilar.net>')
 
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[
