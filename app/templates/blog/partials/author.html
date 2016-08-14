@@ -24,10 +24,14 @@
 
         {% if mode = 'detail' %}
             {% if entry.author_phrase %}
-                <div class="phrase">{{ entry.author_phrase }}</div>
+                <div class="phrase">
+                    {{ entry.author_phrase|richtext }}
+                </div>
             {% else %}
                 {% if entry.owner.bio %}
-                    <div class="phrase">{{ entry.owner.bio }}</div>
+                    <div class="phrase">
+                        {{ entry.owner.bio }}
+                    </div>
                 {% endif %}
             {% endif %}
         {% else %}
