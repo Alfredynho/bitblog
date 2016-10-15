@@ -115,7 +115,6 @@ mailserver:
 	./tools/mailhog &
 	@echo "MailHog opened ..."
 
-
 tests:
 	@echo "Run TestCases [YOUR_IP]:8000"
 	rm -rf coverage.svg

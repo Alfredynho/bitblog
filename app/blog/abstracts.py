@@ -3,18 +3,25 @@ import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.wagtailcore import blocks
+from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from wagtail.wagtailcore.fields import RichTextField
+from wagtail.wagtailcore.fields import RichTextField, StreamField
+
+from blog.blocks import CodeBlock
 
 
 class EntryAbstract(models.Model):
 
-    body = RichTextField(
-        verbose_name=_('body'),
-    )
+    body = StreamField([
+        ('heading', blocks.CharBlock(classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock()),
+        ('code', CodeBlock()),
+    ])
 
     tags = ClusterTaggableManager(
         through='blog.TagEntryPage',
@@ -79,7 +86,7 @@ class EntryAbstract(models.Model):
             FieldPanel('title', classname="title"),
             ImageChooserPanel('header_image'),
             FieldPanel('show_header', classname="full"),
-            FieldPanel('body', classname="full"),
+            StreamFieldPanel('body'),
             FieldPanel('excerpt', classname="full"),
         ], heading=_("Content")),
         MultiFieldPanel([
@@ -87,6 +94,7 @@ class EntryAbstract(models.Model):
             InlinePanel('entry_categories', label=_("Categories")),
             InlinePanel('related_entrypage_from', label=_("Related Entries")),
         ], heading=_("Metadata")),
+
     ]
 
     class Meta:

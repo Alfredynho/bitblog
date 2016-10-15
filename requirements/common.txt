@@ -82,6 +82,7 @@ factory_boy==2.6.0
 # ~ DOCUMENTATION
 # -----------------
 mkdocs==0.15.3
+docutils==0.12
 
 
 # ~ 12 FACTORS APP
@@ -90,7 +91,7 @@ django-environ==0.4.0
 
 # ~ Blog
 # ------
-wagtail==1.5.3
+wagtail==1.6.3
 wagtailfontawesome==1.0.5
 wagalytics==0.6
 django-modelcluster==2.0

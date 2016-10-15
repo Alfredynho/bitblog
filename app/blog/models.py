@@ -25,7 +25,6 @@ from .managers import TagManager, CategoryManager
 Entry = EntryAbstract
 
 
-
 class BlogPage(BlogRoutes, Page):
 
     description = models.CharField(
@@ -352,7 +351,6 @@ class Speech(models.Model):
         )
     ]
 
-
     def __str__(self):
         return self.title
 
@@ -439,8 +437,6 @@ class EntryPageRelated(models.Model):
         'EntryPage', verbose_name=_("Entry"),
         related_name='related_entrypage_to',
     )
-
-
 
 
 class EntryPage(Page, Entry):
