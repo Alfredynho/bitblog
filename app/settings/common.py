@@ -48,38 +48,40 @@ THIRD_PARTY_APPS = (
     # Admin
     # 'sorl.thumbnail',
 
-    'wagtail.wagtailcore',
-    'wagtail.wagtailadmin',
-    'wagtail.wagtaildocs',
-    'wagtail.wagtailsnippets',
-    'wagtail.wagtailusers',
-    'wagtail.wagtailimages',
-    'wagtail.wagtailembeds',
-    'wagtail.wagtailsearch',
-    'wagtail.wagtailsites',
-    'wagtail.wagtailredirects',
-    'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
     'wagtail.contrib.wagtailroutablepage',
-    'compressor',
-    'taggit',
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+
+
+
+
     'modelcluster',
+    'taggit',
+
 
     # Templating
     'overextends',
+    'compressor',
     'import_export',
 
-    # Authentication
-    'oauth2_provider',
-    'social.apps.django_app.default',
-
     # API Rest
-    'rest_framework_swagger',
     'rest_framework.authtoken',
     'rest_framework',
     'corsheaders',
     'wagalytics',
     'wagtailfontawesome',
+    'wagtailthemes',
+    'wagtail.contrib.settings'
 
 )
 
@@ -87,7 +89,6 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'contrib',
     'users',
-    'oauth',
     'blog',
 )
 
@@ -99,7 +100,6 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ------------------------------------------------------------------------------
 MIDDLEWARE_CLASSES = (
     'corsheaders.middleware.CorsMiddleware',
-    'oauth2_provider.middleware.OAuth2TokenMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -112,6 +112,7 @@ MIDDLEWARE_CLASSES = (
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    'wagtailthemes.middleware.ThemeMiddleware'
 )
 
 # MIGRATIONS CONFIGURATION
@@ -189,6 +190,7 @@ TEMPLATES = [
         'OPTIONS': {
             'debug': True,
             'loaders': [
+                'wagtailthemes.loaders.ThemeLoader',
                 'admin_tools.template_loaders.Loader',
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
@@ -203,12 +205,8 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
 
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
-
                 # Your stuff: custom template context processors go here
                 'contrib.context_processors.website',
-                'django.core.context_processors.request',
             ],
             # To override template from third part apps
             'builtins': ['overextends.templatetags.overextends_tags'],
@@ -304,16 +302,6 @@ LOGGING = {
 # ------------------------------------------------------------------------------
 
 AUTHENTICATION_BACKENDS = (
-    # OpenID
-    'social.backends.open_id.OpenIdAuth',
-
-    # Facebook OAuth2
-    'social.backends.facebook.FacebookAppOAuth2',
-    'social.backends.facebook.FacebookOAuth2',
-
-    # OWN oauth
-    'oauth.backends.DjangoOAuth2',
-
     # Django
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -355,8 +343,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
-        'oauth.authentication.SocialAuthentication',
     ],
 
     'DEFAULT_PARSER_CLASSES': (
@@ -387,8 +373,6 @@ CACHES = {
 
 TEST_RUNNER = 'contrib.runner.WarpTestRunner'
 
-# OAUTH 2
-OAUTH2_PROVIDER_APPLICATION_MODEL = 'oauth.WarpApplication'
 
 # ADMIN TOOLS
 ADMIN_TOOLS_MENU = 'contrib.admin.menu.WarpMenu'
@@ -418,10 +402,17 @@ ACTION_CANCEL_ACCOUNT = env('ACTION_CANCEL_ACCOUNT', default='#/auth/cancel-acco
 
 
 # Blog
-WAGTAIL_SITE_NAME = 'jvacx blog'
+WAGTAIL_SITE_NAME = 'VicoBits blog'
 PUPUT_ENTRY_MODEL = 'blog.models.BlogEntry'
 BLOG_ADMIN_EMAIL = 'jvacx.log@gmail.com'
+WAGTAIL_THEMES = [
+    ('developer', 'Developer Site'),
+    ('designer', 'Designer Site')
+]
+
 
 # Analytics
 GA_KEY_FILEPATH = join(dirname(PROJECT_DIR), 'service.json')
 GA_VIEW_ID = 'ga:126135708'
+
+

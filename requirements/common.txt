@@ -1,37 +1,37 @@
-django==1.9.9
+django==1.10.2
 
 
 # ~ API
 # ---------
-django-cors-headers==1.1.0
-djangorestframework==3.4.3
+django-cors-headers==1.2.2
+djangorestframework==3.5.1
 django-rest-swagger==0.3.5
 django-oauth-toolkit==0.10.0
 python-social-auth==0.2.14
-markdown==2.6.6
+markdown==2.6.7
 
 # ~ MODELS
 # ----------
 
 # https://github.com/brack3t/django-braces
-django-braces==1.8.1
+django-braces==1.10.0
 
 # https://github.com/carljm/django-model-utils
-django-model-utils==2.4
+django-model-utils==2.6
 
 # https://github.com/django-import-export/django-import-export
-django-import-export==0.4.4
+django-import-export==0.5.1
 
 
 # ~ ADMIN
 # -------
-django-admin-tools==0.7.2
+django-admin-tools==0.8.0
 
 # ~ IMAGES
 # ----------
 # https://github.com/mariocesar/sorl-thumbnail
 sorl-thumbnail==12.3
-Pillow==3.3.0
+Pillow==3.4.2
 
 
 # ~ DATABASE
@@ -47,7 +47,7 @@ pytz==2016.6.1
 
 # ~ SEARCH
 # ----------
-elasticsearch==2.3.0
+elasticsearch==5.0.0
 
 
 # ~ TEMPLATES
@@ -72,7 +72,7 @@ django-redis==4.3.0
 # ~ TESTING
 # -----------
 # http://coverage.readthedocs.org/en/coverage-4.0.3
-coverage==4.1b2
+coverage==4.2
 colour-runner==0.0.4
 coverage-badge==0.1.2
 # https://github.com/rbarrois/factory_boy
@@ -91,11 +91,12 @@ django-environ==0.4.0
 
 # ~ Blog
 # ------
-wagtail==1.6.3
+wagtail==1.7
 wagtailfontawesome==1.0.5
+wagtail-themes==0.1.3
 wagalytics==0.6
 django-modelcluster==2.0
-django-taggit==0.18.3
-django-el-pagination==2.1.1
+django-taggit==0.21.3
+django-el-pagination==3.0.1
 tapioca-disqus==0.1.2
 tapioca-wrapper==0.5.3

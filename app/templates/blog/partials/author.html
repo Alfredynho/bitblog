@@ -1,6 +1,6 @@
 {% load static i18n wagtailcore_tags wagtailimages_tags blog_tags %}
 
-<div class="author-box {% if mode = 'detail' %}detail{% endif %}">
+<div class="author-box {% if mode == 'detail' %}detail{% endif %}">
 
     <div class="avatar">
         {% if entry.author_avatar %}
@@ -22,7 +22,7 @@
             <div class="name">{{ entry.owner.username }}</div>
         {% endif %}
 
-        {% if mode = 'detail' %}
+        {% if mode == 'detail' %}
             {% if entry.author_phrase %}
                 <div class="phrase">
                     {{ entry.author_phrase|richtext }}

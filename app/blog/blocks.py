@@ -3,9 +3,10 @@ from pygments.formatters import get_formatter_by_name
 from pygments.lexers import get_lexer_by_name
 from django.utils.safestring import mark_safe
 from markdown import markdown
-from wagtail.wagtailcore import blocks
+
 from docutils.core import publish_parts
 from wagtail.wagtailcore import blocks
+from django.utils.translation import ugettext_lazy as _
 
 
 class CodeBlock(blocks.StructBlock):
@@ -24,8 +25,41 @@ class CodeBlock(blocks.StructBlock):
         ('yaml', 'YAML'),
     )
 
-    language = blocks.ChoiceBlock(choices=LANGUAGE_CHOICES)
-    code = blocks.TextBlock()
+    THEME_CHOICES = (
+        ('autumn', 'Autumn'),
+        ('borland', 'Borland'),
+        ('bw', 'BW'),
+        ('colorful', 'Colorful'),
+        ('default', 'Default'),
+        ('emacs', 'Emacs'),
+        ('friendly', 'Friendly'),
+        ('fruity', 'Fruity'),
+        ('github', 'Github'),
+        ('manni', 'Manni'),
+        ('monokai', 'Monokai'),
+        ('murphy', 'Murphy'),
+        ('native', 'Native'),
+        ('pastie', 'pastie'),
+        ('perldoc', 'PerlDoc'),
+        ('tango', 'Tango'),
+        ('trac', 'Trac'),
+        ('vim', 'Vim'),
+        ('vs', 'VS'),
+        ('zenburn', 'Zenburn'),
+    )
+
+    language = blocks.ChoiceBlock(
+        choices=LANGUAGE_CHOICES,
+    )
+
+    code = blocks.TextBlock(
+        help_text=_("Código"),
+    )
+    theme = blocks.ChoiceBlock(
+        help_text=_("Estilo"),
+        choices=THEME_CHOICES,
+        default="monokai"
+    )
 
     class Meta:
         icon = 'code'
@@ -38,7 +72,7 @@ class CodeBlock(blocks.StructBlock):
         formatter = get_formatter_by_name(
             'html',
             linenos=None,
-            cssclass='codehilite',
+            cssclass='codehilite zenburn',
             style='default',
             noclasses=False,
         )

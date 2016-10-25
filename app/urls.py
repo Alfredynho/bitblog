@@ -34,16 +34,7 @@ urlpatterns = [
     url(r'^documents/', include(wagtaildocs_urls)),
 
 
-    # API
-    url(r'^api/auth/', include('oauth.urls', namespace="auth")),
-    url(r'^api/account/', include('users.urls', namespace="account")),
-
-    # Documentation
-    url(r'^docs/', include('rest_framework_swagger.urls')),
-
-
     # User management
-    # url(r'^users/', include("users.urls", namespace="users")),
     # url(r'^$', TemplateView.as_view(template_name='landing.html'), name="home"),
     url(r'^offline/$', TemplateView.as_view(template_name='offline.html')),
 
@@ -59,7 +50,6 @@ urlpatterns = [
 
     url(r'', include('blog.urls', namespace='blog')),
     url(r'', include(wagtail_urls)),
-    url(r'', include('social.apps.django_app.urls', namespace='social')),
 
 ]
 

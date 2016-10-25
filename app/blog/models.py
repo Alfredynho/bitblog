@@ -17,7 +17,6 @@ from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.fields import ParentalKey
 
 from .abstracts import EntryAbstract
-from .utils import import_model
 from .routes import BlogRoutes
 from .managers import TagManager, CategoryManager
 
@@ -138,7 +137,8 @@ class BlogPage(BlogRoutes, Page):
 
     def get_entries(self):
         field_name = 'owner__%s' % getattr(settings, 'PUPUT_USERNAME_FIELD', 'username')
-        return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related(field_name)
+        return EntryPage.objects.descendant_of(self).live().order_by('-date').select_related('owner')
+
 
     def get_context(self, request, *args, **kwargs):
         context = super(BlogPage, self).get_context(request, *args, **kwargs)
@@ -440,12 +440,13 @@ class EntryPageRelated(models.Model):
 
 
 class EntryPage(Page, Entry):
+
     # Search
-    search_fields = Page.search_fields + (
+    search_fields = Page.search_fields + [
         index.SearchField('body'),
         index.SearchField('excerpt'),
         index.FilterField('page_ptr_id')
-    )
+    ]
 
     # Panels
     content_panels = getattr(Entry, 'content_panels', [])

@@ -70,13 +70,13 @@ class EntryPageUpdateCommentsView(View):
         except EntryPage.DoesNotExist:
             raise Http404
 
+
 class InjectOwnerMixin(object):
 
     def get_site_domain(self, request):
 
         shot_domain = request.META['HTTP_HOST']
         return urlparse("http://"+ shot_domain).hostname
-
 
     def get_root_from_domain(self, domain):
         es = Site.objects.filter(hostname__contains=domain).exists()
@@ -92,7 +92,6 @@ class InjectOwnerMixin(object):
         context['domain'] = self.get_site_domain(self.request)
         root_page = self.get_root_from_domain(context['domain'])
         context['injected'] = True
-
 
         if root_page:
             context['blog_page'] = root_page
@@ -111,6 +110,7 @@ class ContactForm(forms.Form):
         required=True,
         widget=forms.Textarea
     )
+
 
 class ContactPage(InjectOwnerMixin, FormView):
     template_name = "blog/contact_page.html"
@@ -149,6 +149,7 @@ class ContactPage(InjectOwnerMixin, FormView):
 
         email_message.send()
         return super(ContactPage, self).form_valid(form)
+
 
 class ContactSuccessPage(InjectOwnerMixin, TemplateView):
     template_name = 'blog/contact_thanks.html'
