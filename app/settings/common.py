@@ -73,7 +73,7 @@ THIRD_PARTY_APPS = (
     'overextends',
     'compressor',
     'import_export',
-    'wagtailmedia',
+    # 'wagtailmedia',
 
     # API Rest
     'rest_framework.authtoken',
