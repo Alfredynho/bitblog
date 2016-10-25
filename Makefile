@@ -28,7 +28,7 @@ clear_thumbs:
 #	$(PYTHON_ENV) app/manage.py thumbnail clear
 
 db:
-	$(PYTHON_ENV) app/manage.py makemigrations
+	# $(PYTHON_ENV) app/manage.py makemigrations
 	$(PYTHON_ENV) app/manage.py migrate
 	@echo "Migrations in $(SETTINGS) applied..."
 
