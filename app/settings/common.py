@@ -73,6 +73,7 @@ THIRD_PARTY_APPS = (
     'overextends',
     'compressor',
     'import_export',
+    'wagtailmedia',
 
     # API Rest
     'rest_framework.authtoken',
@@ -81,7 +82,9 @@ THIRD_PARTY_APPS = (
     'wagalytics',
     'wagtailfontawesome',
     'wagtailthemes',
-    'wagtail.contrib.settings'
+    'wagtail.contrib.settings',
+    'wagtail.contrib.wagtailstyleguide',
+    "wagtail.contrib.table_block",
 
 )
 
@@ -409,6 +412,9 @@ WAGTAIL_THEMES = [
     ('developer', 'Developer Site'),
     ('designer', 'Designer Site')
 ]
+
+#https://github.com/torchbox/wagtailmedia
+# https://github.com/alexgleason/wagtailfontawesome
 
 
 # Analytics

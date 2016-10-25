@@ -18,3 +18,8 @@
 @import 'vim';
 @import 'vs';
 @import 'zenburn';
+
+.codehilite {
+  padding: 10px 15px;
+  @include border-radius(10px);
+}

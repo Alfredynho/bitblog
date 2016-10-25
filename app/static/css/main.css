@@ -3528,6 +3528,11 @@ input[type="button"]:disabled,
   opacity: 0.25;
 }
 
+/* line 1, ../scss/components/_images.scss */
+.full-width-image {
+  width: 100%;
+}
+
 /* XLarge */
 @media screen and (max-width: 1680px) {
   /* Basic */
@@ -10964,4 +10969,12 @@ img.jssocials-share-logo {
 /* line 70, ../scss/pygments/_zenburn.scss */
 .codehilite.zenburn .il {
   color: #8cd0d3;
+}
+
+/* line 22, ../scss/pygments/_themes.scss */
+.codehilite {
+  padding: 10px 15px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }

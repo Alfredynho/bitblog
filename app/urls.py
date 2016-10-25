@@ -11,10 +11,6 @@ from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
-from oauth.transactions import (
-    ResetPasswordView,
-    confirm_register,
-)
 
 from users.transactions import change_email, cancel_account
 
@@ -42,10 +38,6 @@ urlpatterns = [
     # Transactions
     url(r'^account/change-email/(?P<token>.*)/$', change_email, name="change-email"),
     url(r'^account/cancel-account/(?P<token>.*)/$', cancel_account, name="cancel-account"),
-
-    url(r'^auth/account-activation/(?P<token>.*)/$', confirm_register, name="account-activation"),
-    url(r'^auth/reset-password/(?P<token>.*)/$', ResetPasswordView.as_view(), name="reset-password"),
-
 
 
     url(r'', include('blog.urls', namespace='blog')),

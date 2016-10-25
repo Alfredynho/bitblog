@@ -49,16 +49,21 @@ class CodeBlock(blocks.StructBlock):
     )
 
     language = blocks.ChoiceBlock(
+        label=_("Lenguaje"),
         choices=LANGUAGE_CHOICES,
+        default="python",
     )
 
     code = blocks.TextBlock(
+        classname="full",
+        label=_("Código"),
         help_text=_("Código"),
     )
+
     theme = blocks.ChoiceBlock(
-        help_text=_("Estilo"),
+        label=_("Estilo"),
         choices=THEME_CHOICES,
-        default="monokai"
+        default="monokai",
     )
 
     class Meta:
@@ -72,7 +77,7 @@ class CodeBlock(blocks.StructBlock):
         formatter = get_formatter_by_name(
             'html',
             linenos=None,
-            cssclass='codehilite zenburn',
+            cssclass='codehilite %s' % value["theme"],
             style='default',
             noclasses=False,
         )
