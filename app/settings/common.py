@@ -63,8 +63,6 @@ THIRD_PARTY_APPS = (
     'wagtail.wagtailcore',
 
 
-
-
     'modelcluster',
     'taggit',
 
