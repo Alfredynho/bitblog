@@ -1,0 +1,33 @@
+{% extends 'layouts/base_sign.html' %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Confirmarción de cuenta' %}
+{% endblock %}
+
+{% block container %}
+
+    <div class="app-login-box-logo">
+        <img src="{% static 'img/logo-square.jpg' %}">
+    </div>
+
+    <div class="app-login-box-title ">
+        <div class="title">{% trans 'Confirmación de Cuenta' %}</div>
+        <div class="subtitle">{% trans 'Verifica tu correo electrónico' %}</div>
+    </div>
+
+    <div class="app-login-box-container">
+        <p>
+            {% blocktrans %}
+                Te hemos enviado un <b>Correo de confirmación</b> con un enlace
+                donde podrás finalizar el proceso de registro. Escríbenos a <a href="mailto://admin@warpp.xyz"><b>admin@warpp.xyz</b></a> en
+                caso de que no lo hayas recibido.
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    <div class="app-login-box-container">
+        <a href="{% url 'landing' %}" class="btn btn-primary btn-block">{% trans 'Ir al Inicio' %}</a>
+    </div>
+
+{% endblock %}

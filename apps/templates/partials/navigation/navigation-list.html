@@ -1,0 +1,21 @@
+{% load i18n static %}
+<nav>
+    <ul>
+        <li class="title">{% trans 'ADMINISTRACÍON' %}</li>
+        <li>
+            <a class="{% if menu == "dashboard" %}active{% endif %}"
+            href="{% url 'users:view-dashboard' %}">
+                <span class="fa fa-bar-chart-o"></span>
+                {% trans 'PANEL' %}
+            </a>
+        </li>
+        <li>
+            <a class="{% if menu == "settings" %}active{% endif %}"
+            href="{% url 'users:view-settings' %}">
+                <span class="fa fa-cogs"></span>
+                {% trans 'AJUSTES' %}
+            </a>
+        </li>
+
+    </ul>
+</nav>

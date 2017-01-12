@@ -1,0 +1,55 @@
+{% extends 'layouts/base_sign.html' %}
+{% load static i18n %}
+{% load account %}
+
+{% block title %}
+    {% trans 'Confirmación de Correo Electrónico' %}
+{% endblock %}
+
+{% block container %}
+
+    <div class="app-login-box-title padding-top-40">
+        <div class="title">{% trans 'Confirmación de Correo Electrónico' %}</div>
+    </div>
+
+    <div class="app-login-box-container">
+
+        {% if confirmation %}
+
+            {% user_display confirmation.email_address.user as user_display %}
+
+            <p>
+                {% blocktrans with confirmation.email_address.email as email %}
+                    Por favor confirma que  <a href="mailto:{{ email }}"><b>{{ email }}</b></a>
+                    es un correo electronico para el usuario <span class="label label-primary">{{ user_display }}</span>
+                {% endblocktrans %}
+            </p>
+            <p></p>
+            <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                {% csrf_token %}
+                <button class="btn btn-primary btn-block" type="submit">{% trans 'Confirmar' %}</button>
+            </form>
+
+        {% else %}
+
+            {% url 'account_email' as email_url %}
+
+            <p>
+                {% blocktrans %}
+                    Este enlace de confimación ha expirado o es invalido. Por favor <a href="{{ email_url }}">
+                    <b>agrega un correo nuevamente</b></a>.
+                {% endblocktrans %}
+            </p>
+            <p></p>
+
+            <a href="{% url 'landing' %}" class="btn btn-primary btn-block">{% trans 'Ir al Inicio' %}</a>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}
+
+
+
+

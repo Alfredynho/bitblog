@@ -1,0 +1,26 @@
+{% extends "layouts/base_error.html" %}
+{% load static i18n %}
+{% block title %}
+    403
+{% endblock %}
+{% block container %}
+    <div class="block error-panel">
+        <div class="row">
+            <div class="col-lg-4 code-container">
+                <span class="status-code">
+                    403
+                </span>
+            </div>
+            <div class="col-lg-8">
+                <div class="content">
+                    <h2 class="title">{% trans 'NO AUTORIZADO' %}</h2>
+                    <p class="description">{% trans 'La página no cargo correctamente' %}</p>
+                    <a href="{% url 'landing' %}" class="btn btn-block btn-primary">
+                        {% trans 'Ir al Inicio' %}&nbsp;
+                        <i class="right arrow icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% load i18n %}
+
+{% trans "Actualizar Correo!" %}
+
+
+{% trans "Hola" %}   {{ user.first_name }} {{ user.last_name }}
+
+{% blocktrans %}
+"Cambias te tu correo, por motivos de seguridad, para completar esta acción dale click al
+botón de abajo, de lo contrario simplemente ignora este correo."
+{% endblocktrans %}
+
+{{ host }}{{ token }}
+
+{% trans "NOTA: Este enlace sólo puede utilizarse una vez." %}
+
+
+{% trans "Saludos" %}
+
+---
+El Equipo Warpp

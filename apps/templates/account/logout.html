@@ -1,0 +1,51 @@
+{% extends 'layouts/base_sign.html' %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Cerrar Sesiónn' %}
+{% endblock %}
+
+{% block container %}
+
+    <div class="app-login-box-user">
+        {% if user.photo %}
+            <img src="{{ user.photo.url }}">
+        {% else %}
+            <img src="{% static 'img/anon.png' %}">
+        {% endif %}
+    </div>
+
+    <div class="app-login-box-title ">
+        <div class="title">{% trans 'Cerrar Sesión' %}</div>
+    </div>
+
+    <div class="app-login-box-container">
+        <p>
+            {% blocktrans %}
+                ¿Estas seguro de que quieres <b>Salir</b>?
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    <div class="app-login-box-container">
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                        <a href="{% url 'landing' %}" class="btn btn-primary btn-block">{% trans 'No, Ir al Inicio' %}</a>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <button class="btn btn-danger btn-block" type="submit">{% trans 'Si, estoy seguro' %}</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+{% endblock %}

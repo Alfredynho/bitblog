@@ -1,0 +1,21 @@
+{% load account %}
+{% load i18n %}
+
+
+{% block main_title %}Confirma tu correo electrónico{% endblock %}
+
+{% blocktrans %}
+Este correo fué agregado por el usuario {{ user }}, como parte de su cuenta.
+Por favor  confirmalo usando el siguiente enlace:
+
+
+    {{ activate_url }}
+
+
+de lo contrario simplemente ignora este correo.
+
+---
+El equipo Warpp
+
+{% endblocktrans %}
+

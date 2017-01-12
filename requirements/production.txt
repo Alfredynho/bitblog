@@ -1,17 +1,23 @@
+
 -r common.txt
 
+# WSGI Handler
+# ------------------------------------------------
+gevent==1.1.2
+gunicorn==19.6.0
 
-# ~ MAILING
-# -----------
-django-anymail==0.4.2
+# Static and Media Storage
+# ------------------------------------------------
+boto==2.43.0
+django-storages-redux==1.3.2
 
 
+# Email backends for Mailgun, Postmark, SendGrid and more
+# -------------------------------------------------------
+django-anymail==0.5
 
-# ~ LOGGING
-# -----------
-raven==5.10.2
+# Raven is the Sentry client
+# --------------------------
+raven==5.31.0
 
 
-# ~ WSGI
-# ---------
-gunicorn==19.4.5

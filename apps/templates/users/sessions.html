@@ -1,0 +1,37 @@
+{% extends "users/profile.html" %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Sessiones' %}
+{% endblock %}
+{% block profile_content %}
+    <div class="row">
+        <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="block block-condensed padding-top-20">
+                <div class="contact contact-bordered contact-single">
+                    <img src="{% static 'img/anon.png' %}" alt="">
+                    <div class="contact-container">
+                        <a href="#">SAMSUNG S6</a>
+                        <span>CONECTADO</span>
+
+                    </div>
+
+                </div>
+                <div class="list-group">
+
+                    <div class="list-group-item">
+                        <span class="fa fa-clock-o"></span> Ultima conexión: <b>14:15</b>
+                    </div>
+
+                </div>
+
+                <div class="block-content padding-10">
+                    <button type="button" class="btn btn-block btn-danger">
+                         {% trans 'CERRAR SESIÓN' %}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

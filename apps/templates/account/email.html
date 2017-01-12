@@ -1,0 +1,143 @@
+{% extends "users/profile.html" %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Correo Electrónico' %}
+{% endblock %}
+
+{% block menu_block %}
+    {% include 'users/partials/profile_menu.html' with menu="email"%}
+{% endblock %}
+
+{% block profile_content %}
+    <div class="title">
+        <h2>{% trans 'Correos electrónicos' %}</h2>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% if user.emailaddress_set.all %}
+
+        <p>{% trans 'Estos son los correos asociados a tu cuenta:' %}</p>
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-primary" role="alert">
+                {% for error in form.non_field_errors %}
+                    <span>{{ error | escape }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form action="{% url 'account_email' %}"  method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-8">
+                    <table class="table">
+                    {% for emailaddress in user.emailaddress_set.all %}
+                        <tr>
+                            <td>
+                                <label class="switch switch-sm switch-cube" for="email_{{forloop.counter}}">
+                                <input id="email_{{forloop.counter}}"
+                                   type="radio" name="email"
+                                   {% if emailaddress.primary or user.emailaddress_set.count == 1 %}checked="checked"{%endif %}
+                                   value="{{emailaddress.email}}">
+                                </label>
+                            </td>
+                            <td>{{ emailaddress.email }}</td>
+                            <td>
+                                {% if emailaddress.verified %}
+                                    <span class="label label-info">{% trans "Verificado" %}</span>
+                                    {% else %}
+                                    <span class="label label-danger">{% trans "Sin verificar" %}</span>
+                                {% endif %}
+                                {% if emailaddress.primary %}
+                                    <span class="label label-primary">{% trans "Principal" %}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <br>
+                        <button class="secondaryAction btn btn-block btn-primary" type="submit" name="action_primary" >
+                            <i class="fa fa-star"></i>&nbsp;&nbsp;
+                            {% trans 'Marcar como primario' %}
+                        </button>
+                        <button class="secondaryAction btn btn-block btn-info" type="submit" name="action_send" >
+                            <i class="fa fa-send"></i>&nbsp;&nbsp;
+                            {% trans 'Reenviar Verificación' %}
+                        </button>
+                        <button class="primaryAction btn btn-block btn-danger" type="submit" name="action_remove" >
+                            <i class="fa fa-trash"></i>&nbsp;&nbsp;
+                            {% trans 'Eliminar' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </form>
+    {% else %}
+        <div class="alert alert-info">
+            {% blocktrans %}
+                Usted <b>no cuenta con correo electrónico, </b>debería activar un correo electrónico para
+                poder recibir notificaciones, restaurar su configuración, etc.
+            {% endblocktrans %}
+        </div>
+    {% endif %}
+
+    <div class="title ">
+        <h2 class="margin-top-40">{% trans 'Asociar un nuevo correo electrónico' %}</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post" action="{% url 'account_email' %}" class="add_email">
+                {% csrf_token %}
+
+                <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+
+                    <input type="email" class="form-control" id="id_email"
+                           name="email" placeholder="{% trans 'Correo Electrónico' %}"
+                           value="{% if form.email.value %}{{ form.email.value }}{% endif %}">
+
+                    {% if form.email.errors %}
+                        <span class="help-block">
+                            {% for error in form.email.errors %}
+                                <span>{{ error|escape }}</span>
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+                </div>
+                <button class="btn btn-block btn-primary" name="action_add" type="submit">{% trans "Agregar" %}</button>
+            </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+    <script type="text/javascript">
+        (function() {
+            var message = "{% trans 'Do you really want to remove the selected e-mail address?' %}";
+            var actions = document.getElementsByName('action_remove');
+            if (actions.length) {
+                actions[0].addEventListener("click", function(e) {
+                    if (! confirm(message)) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        })();
+
+        $('.form-group').removeClass('row');
+    </script>
+ {% endblock %}

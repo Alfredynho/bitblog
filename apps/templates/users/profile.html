@@ -1,0 +1,149 @@
+{% extends "layouts/base_fixed.html" %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Perfil' %}
+{% endblock %}
+
+
+{% block container %}
+
+    {% include 'users/partials/user_heading.html' with user=user %}
+
+    <!-- START PAGE SEPARATED CONTAINER -->
+    <div class="app-content-separate app-content-separated-left">
+
+        <div class="app-content-separate-left" data-separate-control-height="true">
+            <div class="app-content-separate-panel padding-20 visible-mobile">
+                <div class="pull-left">
+                    <h4 class="text-sm text-uppercase text-bolder margin-bottom-0">Visible On Mobile</h4>
+                    <p class="subheader">Use this panel to control this sidebar</p>
+                </div>
+                <button class="btn btn-default btn-icon pull-right" data-separate-toggle-panel=".app-content-separate-left"><span class="icon-menu"></span></button>
+            </div>
+            <div class="app-content-separate-content padding-20">
+
+                <div class="list-group list-group-noborder">
+                    {% block menu_block %}
+                        {% include 'users/partials/profile_menu.html' with menu=menu%}
+                    {% endblock %}
+                </div>
+
+            </div>
+        </div>
+        <div class="app-content-separate-content">
+            <!-- CONTENT CONTAINER -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="block  padding-top-30">
+                            {% block profile_content %}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="title">
+                                            <h2>{% trans 'Información de Perfil' %}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="." method="post" class="row" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="col-lg-4">
+                                        <div class="tile-basic tile-profile">
+                                            <a href="#" class="tile-image tile-image-padding preview" data-preview-image="assets/images/large/img-1.jpg" data-preview-size="modal-lg">
+                                                {% if user.photo %}
+                                                    <img id="profile-photo" src="{{ user.photo.url }}">
+                                                {% else %}
+                                                    <img id="profile-photo" src="{% static 'img/img_holder.png' %}">
+                                                {% endif %}
+
+                                            </a>
+                                            <div class="tile-image tile-image-padding" style="padding-top: 0;">
+                                                <input name="photo" id="file-photo" type="file" class="file btn-block btn-default btn-icon-fixed" title="
+                                                    <span class='icon-camera'></span> {% trans 'Subir imagen' %}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+                                            <label>{% trans 'Usuario' %}</label>
+                                            <input class="form-control" type="text" name="username"
+                                                   placeholder="{% trans 'Usuario' %}"
+                                                   value="{% if user.username %}{{ user.username }}{% endif %}">
+                                            {% if form.username.errors %}
+                                                <span class="help-block">
+                                                    {% for error in form.username.errors %}
+                                                        <span>{{ error|escape }}</span>
+                                                    {% endfor %}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="form-group {% if form.first_name.errors %}has-error{% endif %}">
+                                            <label>{% trans 'Nombres' %}</label>
+                                            <input class="form-control" type="text" name="first_name"
+                                                   placeholder="{% trans 'Nombres' %}"
+                                                   value="{% if user.first_name %}{{ user.first_name }}{% endif %}">
+                                            {% if form.first_name.errors %}
+                                                <span class="help-block">
+                                                    {% for error in form.first_name.errors %}
+                                                        <span>{{ error|escape }}</span>
+                                                    {% endfor %}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="form-group {% if form.last_name.errors %}has-error{% endif %}">
+                                            <label>{% trans 'Apellidos' %}</label>
+                                            <input class="form-control" type="text" name="last_name"
+                                                   placeholder="{% trans 'Apellidos' %}"
+                                                    value="{% if user.last_name %}{{ user.last_name }}{% endif %}">
+
+                                            {% if form.last_name.errors %}
+                                                <span class="help-block">
+                                                    {% for error in form.last_name.errors %}
+                                                        <span>{{ error|escape }}</span>
+                                                    {% endfor %}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-5 col-lg-offset-7">
+                                                <button class="btn btn-block btn-primary">
+                                                    <span class="icon-database"></span>
+                                                    {% trans 'Actualizar' %}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT CONTAINER -->
+        </div>
+    </div>
+    <!-- END PAGE SEPARATED CONTAINER -->
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.getElementById('file-photo').onchange = function (evt) {
+        var tgt = evt.target || window.event.srcElement,
+            files = tgt.files;
+
+        // FileReader support
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                document.getElementById("profile-photo").src = fr.result;
+            };
+            fr.readAsDataURL(files[0]);
+        } else {
+            console.log("Unsupported browser")
+        }
+    }
+</script>
+{% endblock %}

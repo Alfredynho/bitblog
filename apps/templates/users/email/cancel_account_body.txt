@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% trans "Cancelar Cuenta" %}!
+
+{% blocktrans %}
+    ¿Realmente quieres cancelar tu cuenta?, si es así entonces dale click al boton
+    de abajo,de lo contrario simplemente ignora este correo
+{% endblocktrans %}
+
+{{ action_url }}
+
+{% trans "Gracias" %}
+
+---
+El Equipo Warpp
+

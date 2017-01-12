@@ -1,0 +1,83 @@
+{% extends 'rest_framework_swagger/base.html' %}
+
+{% load staticfiles i18n %}
+
+
+{% block extra_meta %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'ico/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'ico/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'ico/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'ico/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'ico/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'ico/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'ico/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'ico/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'ico/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'ico/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'ico/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'ico/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'ico/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'ico/manifest.json' %}">
+{% endblock %}
+
+{% block title %}Docs{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/docs.css' %}">
+{% endblock %}
+
+ {% block branding %}
+    <a id="logo" href="http://jvacx.com">
+        <img src="{% static 'img/logo.png' %}" alt="">
+    </a>
+{% endblock %}
+
+
+
+{% block django_rest_swagger %}
+    <div id="django-rest-swagger">
+        <div class="swagger-ui-wrap docs-link">
+            <a href="http://jvacx.com/warp/docs/">{% trans 'DOCUMENTATION' %}</a>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block extra_body %}
+    <script>
+     // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+  </script>
+{% endblock %}
+
+

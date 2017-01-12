@@ -1,0 +1,33 @@
+{% extends "layouts/base_email.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Cambio de Email" %}
+{% endblock %}
+
+
+{% autoescape off %}
+    {% with site_name=current_site.name site_domain=current_site.domain %}
+
+        {% block main_title %}Correo Cambiado{% endblock %}
+
+        {% block main_body %}
+            <p>
+                Cambiaste tu correo con exito!
+            </p>
+        {% endblock %}
+
+        {% block extra_info %} {% endblock %}
+        {% block action %}{% endblock %}
+        {% block extra_password %} {% endblock %}
+        
+
+    {% endwith %}
+{% endautoescape %}
+
+
+
+
+
+
+

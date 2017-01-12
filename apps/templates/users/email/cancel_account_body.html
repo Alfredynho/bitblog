@@ -1,0 +1,44 @@
+{% extends "layouts/base_email.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Cancelar Cuenta" %}
+{% endblock %}
+
+
+{% autoescape off %}
+    {% with site_name=current_site.name site_domain=current_site.domain %}
+
+        {% block main_title %}Cancelar Cuenta!{% endblock %}
+
+        {% block main_body %}
+            <p>
+                ¿Realmente quieres cancelar tu cuenta?, si es así entonces dale click al boton de abajo,
+                de lo contrario simplemente ignora este correo
+            </p>
+        {% endblock %}
+
+        {% block extra_info %}{% endblock %}
+
+
+        {% block main_action %}
+            <a target="_blank" href="{{ action_url }}" class="button button--">
+                {% trans "CANCELAR CUENTA" %}
+            </a>
+        {% endblock %}
+
+        {% block extra_link %}
+            <a href="{{ action_url }}" class="sub">{{ action_url }}</a>
+        {% endblock %}
+
+    {% endwith %}
+{% endautoescape %}
+
+
+
+
+
+
+
+
+

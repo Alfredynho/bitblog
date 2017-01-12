@@ -1,0 +1,95 @@
+.ms-container{
+    //background: transparent url('../img/switch.png') no-repeat 50% 50%;    
+    position: relative;
+    
+    &:before{
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        z-index: 10;
+        content: "\f0ec";
+        font-family: "FontAwesome";
+        font-size: 14px;
+        color: @app-desing-border-color;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -10px 0px 0px -10px;
+    }
+    
+}
+
+.ms-container:after{
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    clear: both;
+    min-height: 0;
+    visibility: hidden;
+}
+
+.ms-container .ms-selectable, .ms-container .ms-selection{
+    background: @app-desing-base-element-bg;
+    color: @app-layout-base-font-color-heading;
+    float: left;  
+}
+.ms-container .ms-selection{
+    float: right;
+}
+
+.ms-container .ms-list{  
+    border: 1px solid @app-desing-border-color;
+    .border-radius();
+    position: relative;
+    height: 200px;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.ms-container .ms-list.ms-focus{
+    border-color: darken(@app-desing-border-color,5%);
+}
+
+.ms-container ul{
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+}
+
+.ms-container .ms-optgroup-container{
+    width: 100%;
+}
+
+.ms-container .ms-optgroup-label{
+    margin: 5px 0px 0px;
+    padding: 10px 10px 5px 10px;
+    line-height: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: @app-layout-base-font-color-heading;    
+}
+
+
+.ms-container .ms-selectable li.ms-elem-selectable,
+.ms-container .ms-selection li.ms-elem-selection{    
+    padding: 10px 20px;
+    color: @app-layout-base-font-color-heading;
+    font-size: @app-layout-base-font-size;
+    line-height: 20px;
+}
+
+.ms-container .ms-selectable li.ms-hover,
+.ms-container .ms-selection li.ms-hover{
+    cursor: pointer;
+    text-decoration: none;
+    background-color: @app-desing-base-element-bg-hover;
+}
+
+.ms-container .ms-selectable li.disabled,
+.ms-container .ms-selection li.disabled{    
+    color: lighten(@app-layout-base-font-color-secondary, 10%);
+    cursor: text;
+}

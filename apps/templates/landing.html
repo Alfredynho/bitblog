@@ -1,0 +1,192 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>                        
+        <title>{% trans 'Inicio' %} | {{ project_name }}</title>
+        
+        <!-- META SECTION -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        {% include 'partials/headers/favicon.html' %}
+        <!-- END META SECTION -->
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+
+        <!-- EOF CSS INCLUDE -->
+    <style type="text/css">
+        
+        .btn-messenger{
+            background-color: #0084FF;
+            padding: 10px;
+            border-radius: 5px;
+            color:#fff;
+        }
+        .btn-telegram{
+            background-color: #497799;
+            padding: 10px;
+            border-radius: 5px;
+            color:#fff;
+        }
+        .centero{
+            background-color: black;
+            opacity: 0.7;
+            border-radius: 10px;
+        }
+    </style>
+    </head>
+    <body>        
+        
+        <!-- APP WRAPPER -->
+
+        <div class="app">            
+            <header id="header" style="background: url('{% static 'img/coding.png' %}')">
+                <div class="header">
+                    <div class="container">
+                        <a href="#" class="logo"></a>
+                        <button class="navigation-toggle"><span class="icon-menu"></span></button>
+                        <ul class="navigation hidden-mobile">
+                            <li><a href="#header">{% trans 'Inicio' %}</a></li>
+                            <li><a href="#features">{% trans 'Caracteristicas' %}</a></li>
+                            <li><a href="{% url 'account_login' %}">{% trans 'Entrar' %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="header-content">
+                    <div class="container text-center invert ">
+                        <h1 class=""><strong>Contruye</strong>, aprende y comparte</h1>
+                        <div class="image-container">
+                            <img src="{% static 'img/mobiles.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="section invert section-condensed">
+                <div class="container text-center">
+                    <p>
+                        <a target="_blank" href="https://m.me/ChuspitaFintech/" class="btn btn-messenger btn-lg btn-shadowed">
+                            <img src="{% static 'img/messenger.png' %}" width="25px">&nbsp;&nbsp; Escríbenos en Messenger</a>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://m.me/ChuspitaFintech/" class="btn btn-telegram btn-lg btn-shadowed">
+                            <img src="{% static  'img/telegram.png' %}" width="25px">&nbsp;&nbsp; Escríbenos en Telegram
+                    </a></p>
+
+                </div>
+            </section>
+            
+        
+              <section class="section section-highlight" id="features">
+                <div class="container">                    
+                    
+                    <div class="heading-wrapper text-center">                                
+                        <h3 class="text-uppercase">{% trans 'CARACTERISTICAS' %}</h3>
+                        <div class="under-heading">que <strong>warpp</strong> tiene para tu proyecto</div>
+                    </div>
+                    
+                    <div class="row">
+                                                
+                        <div class="col-md-4">                            
+                            <div class="feature text-center">                                
+                                <div class="feature-icon feature-icon-sm text-lime-500">
+                                    <img src="{% static 'img/escalable.png' %}" width="100px">
+                                </div>
+                                <h6 class="text-uppercase text-bolder">{% trans 'Escalable' %}</h6>
+                                <div class="under-heading">Contruye para crecer.</div>
+                                <p><b>warpp</b> esta contruido con las mejores prácticas de desarrollo y sobre herramientas solidas que te permitirán escribir y contruir
+                                para crecer.</p>
+                            </div>                                                        
+                        </div>
+                         <div class="col-md-4">                            
+                            <div class="feature text-center">                                
+                                <div class="feature-icon feature-icon-sm text-lime-500">
+                                    <img src="{% static 'img/configurable.png' %}" width="100px">
+                                </div>
+                                <h6 class="text-uppercase text-bolder">{% trans 'Configurable' %}</h6>
+                                <div class="under-heading">Listo para producción</div>
+                                <p>Con <b>warpp</b> cuentas con scripts que automatizan tu despliegue a producción además de imagenes y contenedores preparados para ejecutarlo ya.</p>
+                            </div>                                                        
+                        </div>
+                         <div class="col-md-4">                            
+                            <div class="feature text-center">                                
+                                <div class="feature-icon feature-icon-sm text-lime-500">
+                                    <img src="{% static 'img/modular.png' %}" width="100px">
+                                </div>
+                                <h6 class="text-uppercase text-bolder">{% trans 'Modular' %}</h6>
+                                <div class="under-heading">Cada cosa en su lugar</div>
+                                <p>Con <b>warpp</b> construye de forma ordenada, ya cuentas con la lógica básica y los componentes más usados en una aplicación</p>
+                            </div>                                                        
+                        </div>
+                                               
+                    </div>
+                   
+                    
+                </div>
+            </section>
+
+            <!-- START APP FOOTER -->
+            <div class="app-footer app-footer-default" id="contact">
+                <div class="container">                    
+                    <div class="app-footer-line extended">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="title"> Warpp</h3>
+                                <p>La mejor plantilla para crear proyectos escalables basado en el ecosistema de desarrollo django/python.</p>
+                            </div>
+                           
+                            
+                            <div class="col-md-6 col-sm-6">
+                                <h3 class="title"><span class="icon-thumbs-up"></span> REDES SOCIALES</h3>
+
+                                <a href="https://www.facebook.com/Botmerang" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                &nbsp;
+                                <a href="https://twitter.com/botmerang" class="label-icon label-icon-footer label-icon-bordered label-icon-rounded label-icon-lg">
+                                    
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                                                
+
+                                
+                            </div>                        
+                        </div>                    
+                    </div>
+                </div>
+                <div class="app-footer-line darken">                
+                    <div class="copyright wide text-center">&copy; 2016 Botmerang technologies</div>
+                </div>                
+            </div>
+            <!-- END APP FOOTER -->
+            
+        </div>        
+        <!-- END APP WRAPPER -->                
+        
+        <!-- START SCRIPTS -->
+        <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery-migrate.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/bootstrap/bootstrap.min.js' %}"></script>
+        
+        <script type="text/javascript" src="{% static 'js/app-landing.js' %}"></script>
+        <script src="{% static 'js/jquery.backgroundvideo.min.js' %}"></script>
+        <!--
+        <script>
+          $(document).ready(function() {
+            var videobackground = new $.backgroundVideo($('header'), {
+              "align": "centerXY",
+              "width": 1280,
+              "height": 720,
+              "path": "{% static 'img/' %}",
+              "filename": "video",
+              "types": ["mp4","ogg","webm"],
+              "preload": true,
+              "autoplay": true,
+              "loop": true
+            });
+          });
+        </script>
+        -->
+        <!-- END SCRIPTS -->
+    </body>
+</html>

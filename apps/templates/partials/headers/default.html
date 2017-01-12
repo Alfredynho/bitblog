@@ -1,0 +1,91 @@
+{% load static i18n %}
+<!-- START APP HEADER -->
+<div class="app-header">
+    <ul class="app-header-buttons">
+        <li class="visible-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-toggle=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
+        <li class="hidden-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-minimize=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
+    </ul>
+    <form class="app-header-search" action="" method="post">        
+        <input type="text" name="keyword" placeholder="Search">
+    </form>    
+
+    <ul class="app-header-buttons pull-right">
+        <li>
+            <div class="contact contact-rounded contact-bordered contact-lg contact-ps-controls">
+
+
+                {% if user.is_authenticated %}
+
+                    {% if user.photo %}
+                        <img src="{{ user.photo.url }}" alt="{{ user.username }}">
+                    {% else %}
+                        <img src="{% static 'img/anon.png' %}" alt="{{ user.username }}">
+                    {% endif %}
+
+
+                    <div class="contact-container">
+                        <a href="{% url 'users:view-profile' %}">
+                            {% if user.first_name and user.last_name %}
+                                {{ user.first_name }} {{ user.last_name }}
+                            {% else %}
+                                {{ user.username }}
+                            {% endif %}
+                        </a>
+                        <span>
+                            {% if user.is_superuser %}
+                                {% trans 'Administrator' %}
+                            {% else %}
+                                {% trans 'Usuario' %}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="contact-controls">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="icon-cog"></span></button>
+                            <ul class="dropdown-menu dropdown-left">
+                                <li>
+                                    <a href="{% url 'users:view-profile'%}">
+                                        <span class="icon-user"></span> {% trans "Mi cuenta" %}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'users:view-dashboard' %}">
+                                        <span class="icon-chart-bars"></span> {% trans "Panel de Control" %}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{% url 'users:view-settings'%}">
+                                        <span class="icon-cog"></span> {% trans "Ajustes" %}
+                                    </a>
+                                </li>
+
+{#                                <li>#}
+{#                                    <a href="#">#}
+{#                                        <span class="icon-envelope"></span> Messages <span class="label label-danger pull-right">+24</span>#}
+{#                                    </a>#}
+{#                                </li>#}
+{##}
+{#                                <li>#}
+{#                                    <a href="#">#}
+{#                                        <span class="icon-users"></span> Contacts <span class="label label-default pull-right">76</span>#}
+{#                                    </a>#}
+{#                                </li>#}
+
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{% url 'account_logout' %}">
+                                        <span class="icon-exit"></span> {% trans "Cerrar Sesión" %}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </li>        
+    </ul>
+</div>
+<!-- END APP HEADER  -->

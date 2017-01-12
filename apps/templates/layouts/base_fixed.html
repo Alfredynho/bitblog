@@ -1,0 +1,67 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title %}{% endblock %} | {{ project_name }}</title>
+        {% include 'partials/meta-section.html' %}
+        {% include 'partials/styles-include.html' %}
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+
+        <!-- APP WRAPPER -->
+        <div class="app">
+
+            <!-- START APP CONTAINER -->
+            <div class="app-container">
+                {% include 'partials/sidebars/default-fixed.html' %}
+
+
+                <!-- START APP CONTENT -->
+                <div class="app-content app-sidebar-left">
+                    {% include 'partials/headers/default.html' %}
+
+                    <!-- START PAGE CONTAINER -->
+                    <div class="app-container">
+                        {% block heading %}
+
+                        {% endblock %}
+                        {% block container %}
+
+                        {% endblock %}
+                    </div>
+                    <!-- END PAGE CONTAINER -->
+
+                </div>
+                <!-- END APP CONTENT -->
+
+            </div>
+            <!-- END APP CONTAINER -->
+
+            {% include 'partials/sidepanels/default.html' %}
+        </div>
+        <!-- END APP WRAPPER -->
+
+        {% include 'partials/scripts-important-include.html' %}
+        <!-- THIS PAGE SCRIPTS -->
+        <script type="text/javascript" src="{% static 'js/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/vendor/jvectormap/jquery-jvectormap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jvectormap/jquery-jvectormap-world-mill-en.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jvectormap/jquery-jvectormap-us-aea-en.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/vendor/rickshaw/d3.v3.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/rickshaw/rickshaw.min.js' %}"></script>
+        <!-- END THIS PAGE SCRIPTS -->
+
+        {% include 'partials/scripts-app-include.html' %}
+        <script type="text/javascript" src="{% static 'js/app_demo_dashboard.js' %}"></script>
+        {% block extra_scripts %}{% endblock %}
+    </body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+{% load static i18n %}
+<!-- START PAGE HEADING -->
+<div class="app-heading app-heading-background app-heading-light"
+     style="background: url({% static 'img/header.jpg' %}) center center no-repeat;">
+    <div class="contact contact-rounded contact-bordered contact-xlg status-online margin-bottom-0">
+        {% if user.photo %}
+            <img src="{{ user.photo.url }}">
+        {% else %}
+            <img src="{% static 'img/anon.png' %}" alt="{{ user.username }}">
+        {% endif %}
+
+        <div class="contact-container">
+            <b>{{ user.first_name }} {{ user.last_name }}</b>
+            <span>{{ user.email }}</span>
+            <p>@{{ user.username}}</p>
+        </div>
+    </div>
+    {% include 'partials/heading-elements.html' %}
+</div>

@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% trans 'Bienvenido {{ user }}!' %}
+
+{% blocktrans %}
+        Hola Usuario Warpp
+        Hemos cambiado tu Email con Exito!.
+
+    {{ action_url }}
+
+---
+El Equipo Warpp.
+{% endblocktrans %}
+chuspita123

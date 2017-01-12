@@ -1,0 +1,51 @@
+{% extends "layouts/base_email.html" %}
+{% load account i18n %}
+
+{% user_display user as user_display %}
+
+{% block title %}
+    {% trans "Confirmación de Correo Electrónico" %}
+{% endblock %}
+
+
+{% autoescape off %}
+    {% with site_name=current_site.name site_domain=current_site.domain %}
+
+        {% block main_title %}Confirma tu correo electrónico{% endblock %}
+
+        {% block main_body %}
+            <p>
+            {% blocktrans %}
+                Este correo fué agregado por el usuario <b>{{ user }}</b>, como
+                parte de su cuenta en nuestro sitio <b><a href="{{ current_site }}">{{ current_site }}</a></b>.
+                Por favor  confirmalo dando click en el botón de abajo, de lo contrario simplemente ignora este correo.
+            {% endblocktrans %}
+            </p>
+        {% endblock %}
+
+        {% block extra_info %}{% endblock %}
+
+        {% block main_action %}
+            <a target="_blank" href="{{ activate_url }}" class="button button--">
+                {% trans "Confirmar Correo Electrónico" %}
+            </a>
+        {% endblock %}
+
+        {% block extra_link %}
+            <a href="{{ activate_url }}" class="sub">{{ activate_url }}</a>
+        {% endblock %}
+
+    {% endwith %}
+{% endautoescape %}
+
+
+
+
+
+
+
+
+
+
+
+

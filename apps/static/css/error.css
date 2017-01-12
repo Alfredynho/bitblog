@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.error-panel .code-container {
+  position: relative;
+  height: 150px;
+  display: block;
+}
+.error-panel .status-code {
+  display: block;
+  font-size: 3.8em;
+  text-align: center;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.error-panel .content .title {
+  margin-top: 25px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 16px;
+  font-weight: 200;
+}
+.error-panel .content .description {
+  line-height: 1.2em;
+  margin-bottom: 15px;
+}

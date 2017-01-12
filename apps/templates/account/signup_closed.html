@@ -1,0 +1,32 @@
+{% extends 'layouts/base_sign.html' %}
+{% load static i18n %}
+{% block title %}
+    {% trans 'Registro Cerrado' %}
+{% endblock %}
+
+
+{% block container %}
+
+    <div class="app-login-box-user">
+        <img src="{% static 'img/user/no-image.png' %}">
+    </div>
+
+    <div class="app-login-box-title ">
+        <div class="title">{% trans 'Registro Cerrado' %}</div>
+        <div class="subtitle">{% trans 'Temporalmente' %}</div>
+    </div>
+
+    <div class="app-login-box-container">
+        <p>
+            {% blocktrans %}
+                Lo sentimos mucho pero el registro
+                <b>esta cerrado temporalment</b>
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    <div class="app-login-box-container">
+        <a href="{% url 'landing' %}" class="btn btn-primary btn-block">{% trans 'Ir al Inicio' %}</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends 'layouts/base_sign.html' %}
+{% load static i18n %}
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+
+{% block title %}
+    {% trans 'Iniciar Sesión' %} | Chuspita
+{% endblock %}
+
+{% block extra_head %}
+    <script src="{% static 'js/hello.js' %}"></script>
+{% endblock %}
+
+
+
+{% block container %}
+
+    <div class="app-login-box-user">
+        <img src="{% static 'img/anon.png' %}">
+    </div>
+
+    <div class="app-login-box-title">
+        <div class="title">{% trans '¿Ya tienes Cuenta?' %}</div>
+        <div class="subtitle">{% trans 'Inicia Sesión' %}</div>
+    </div>
+    <div class="app-login-box-container">
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-primary" role="alert">
+                {% for error in form.non_field_errors %}
+                    <span>{{ error | escape }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="{% url 'account_login' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group {% if form.login.errors %}has-error{% endif %}">
+
+                <input type="text" class="form-control" id="id_login"
+                       name="login" placeholder="{% trans 'Usuario  o Correo Electrónico' %}"
+                       value="{% if form.login.value %}{{ form.login.value }}{% endif %}">
+                {% if form.login.errors %}
+                    <span class="help-block">
+                        {% for error in form.login.errors %}
+                            <span>{{ error|escape }}</span>
+                        {% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+
+            <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+                <input type="password" class="form-control" id="id_password"
+                       name="password" placeholder="{% trans 'Contraseña' %}"
+                       value="{% if form.password.value %}{{ form.password.value }}{% endif %}">
+                {% if form.password.errors %}
+                    <span class="help-block">
+                        {% for error in form.password.errors %}
+                            <span>{{ error|escape }}</span>
+                        {% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                        <div class="app-checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" value="0"> {% trans 'Recordarme' %}
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <button class="btn btn-success btn-block" type="submit">
+                            {% trans 'Entrar' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="app-login-box-container">
+
+        <button id="facebook-sign" class="btn btn-facebook btn-block">
+            {% trans 'Conectar con Facebook' %}
+        </button>
+
+        <a class="btn btn-google btn-block" href="{% provider_login_url "google" method="oauth2" %}">
+            {% trans 'Conectar con Google' %}
+        </a>
+
+    </div>
+    <div class="app-login-box-footer">
+        <a href="{% url 'account_reset_password' %}">{% trans '¿Olvidaste tu contraseña?' %}</a><br>
+        <a href="{% url 'account_signup' %}">{% trans '¿No tienes cuenta?, Crear cuenta' %}</a><br>
+
+    </div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $fb = $('#facebook-sign');
+        $fb.click(function(){
+            console.log("mensaje");
+            hello('facebook').login();
+        });
+
+        hello.init({
+            facebook: "1116903005090333"
+        });
+
+        hello.on('auth.login', function(auth) {
+            console.log(auth);
+            var access_token = auth.authResponse.access_token;
+
+            console.log(access_token);
+
+            var request = {
+                client_id: "3BC5dFyxPYTDcdu2WPktCp7aH3VL2HBUvTdtnOkt",
+                client_secret: "Lwcx8fxuryXmp0xzIvZEkRnwnVbhMrp4e0CaHIhnWo1Op4gPgHBoDBqgLhSbAQSraIH6oMoZI12SikaveclJdbHwKy9LVh9IxfNjmciPGhNFQDwSBqwbA6xihe3kcQ7Z",
+                backend: "facebook",
+                token: access_token
+            };
+
+            $.ajax({
+                url: "/api/credentials/convert-token/",
+                method: "POST",
+                contentType: "application/x-www-form-urlencoded",
+                data: request,
+                success: function(response){
+                    console.log(response);
+                },
+                error: function(respError){
+                    console.log(response);
+                }
+            });
+
+            // Call user information, for the given network
+            hello(auth.network).api('me').then(function(r) {
+                // Inject it into the container
+                console.log("Hola")
+                // var label = document.getElementById('profile_' + auth.network);
+                // if (!label) {
+                //     label = document.createElement('div');
+                //     label.id = 'profile_' + auth.network;
+                //     document.getElementById('profile').appendChild(label);
+                // }
+                // label.innerHTML = '<img src="' + r.thumbnail + '" /> Hey ' + r.name;
+            });
+        });
+    });
+</script>
+{% endblock %}

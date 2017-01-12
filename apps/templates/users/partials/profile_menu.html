@@ -1,0 +1,32 @@
+{% load i18n static %}
+<div class="list-group-title">
+    {% trans 'Información basica' %}
+</div>
+
+<a href="{% url 'users:view-profile' %}" class="list-group-item {% if menu == "profile" %}active{% endif %}">
+    {% trans 'Mi cuenta' %}
+</a>
+
+{#<a href="{% url 'users:view-profile-messages' %}" class="list-group-item {% if menu == "messages" %}active{% endif %}">#}
+{#    {% trans 'Mensajes' %} <span class="badge badge-success">+3</span>#}
+{#</a>#}
+
+{#<a href="{% url 'users:view-profile-devices' %}" class="list-group-item {% if menu == "devices" %}active{% endif %}">#}
+{#    {% trans 'Dispositivos' %}#}
+{#</a>#}
+
+<div class="list-group-title">
+    {% trans 'Seguridad' %}
+</div>
+
+<a href="{% url 'account_change_password' %}" class="list-group-item {% if menu == "password" %}active{% endif %}">
+    {% trans 'Contraseña' %}
+</a>
+
+<a href="{% url 'account_email' %}" class="list-group-item {% if menu == "email" %}active{% endif %}">
+    {% trans 'Correo electrónico' %}
+</a>
+
+<a href="{% url 'users:view-profile-sessions' %}" class="list-group-item {% if menu == "sessions" %}active{% endif %}">
+    {% trans 'Sesiones' %}
+</a>

@@ -1,8 +1,9 @@
 .PHONY: requirements
-.SILENT: deps static clear_thumbs tests coverage
+.SILENT: deps env static clear_thumbs tests coverage
 
-SETTINGS=settings.local
+SETTINGS=config.settings.local
 PYTHON_ENV := DJANGO_SETTINGS_MODULE=$(SETTINGS) ./env/bin/python
+PIP_ENV := DJANGO_SETTINGS_MODULE=$(SETTINGS) ./env/bin/pip
 COVERAGE_ENV := DJANGO_SETTINGS_MODULE=$(SETTINGS) ./env/bin/coverage
 DEPS := grep -vE '^\s*\#' $(CURDIR)/requirements/system.txt  | tr '\n' ' '
 
@@ -21,46 +22,50 @@ help:
 	@echo
 	@echo ----------------------------------------------------------------------
 
-# COMPOSABLE TASKS
+
+# COMPOSABLE COMMANDS
 # ------------------------------------------------------------------------------
 
 clear_thumbs:
-#	$(PYTHON_ENV) app/manage.py thumbnail clear
+#	$(PYTHON_ENV) manage.py thumbnail clear
 
-db:
-	# $(PYTHON_ENV) app/manage.py makemigrations
-	$(PYTHON_ENV) app/manage.py migrate
+migrations:
+	$(PYTHON_ENV) manage.py migrate
 	@echo "Migrations in $(SETTINGS) applied..."
 
 load_data:
-	$(PYTHON_ENV) app/manage.py load_initial_data
+	$(PYTHON_ENV) manage.py load_initial_data
 	@echo "Initial data loaded..."
 
+load_corpus:
+	$(PYTHON_ENV) -m textblob.download_corpora
+	@echo "Corpus loaded..."
+
 dump_data:
-	$(PYTHON_ENV) app/manage.py dumpdata --indent 4 > all.json
+	$(PYTHON_ENV) manage.py dumpdata --indent 4 > all.json
 	@echo "Fixtures exported"
 
 env:
-	virtualenv -p python3 env
+	virtualenv -p python3 env --always-copy --no-site-packages
 
-deps:
-	$(info - Installing all system dependencies using apt-get)
-	$(DEPS) | xargs sudo apt-get --no-upgrade install -y --force-yes
+pip:
+	$(PIP_ENV) install pip --upgrade
+	$(PIP_ENV) install setuptools --upgrade
 
 requirements:
-ifeq ($(SETTINGS),settings.local)
-	./env/bin/pip install -r requirements/local.txt
+ifeq ($(SETTINGS),config.settings.local)
+	$(PIP_ENV) install -r requirements/local.txt
 else
-	./env/bin/pip install -r requirements/production.txt
+	$(PIP_ENV) install -r requirements/production.txt
 endif
 
 static:
-ifneq ($(SETTINGS),settings.local)
+ifeq ($(SETTINGS),config.settings.production)
 	@echo "Collect static start..."
 	mkdir -p public/static
 	mkdir -p public/media
 
-	$(PYTHON_ENV) app/manage.py collectstatic \
+	$(PYTHON_ENV) manage.py collectstatic \
 	    -v 0 \
 	    --noinput \
 	    --traceback \
@@ -73,18 +78,14 @@ ifneq ($(SETTINGS),settings.local)
 endif
 
 var:
-ifneq ($(SETTINGS),settings.local)
 	mkdir -p var/cache
 	mkdir -p var/log
 	mkdir -p var/db
 	mkdir -p var/run
 	mkdir -p var/bin
-else
-	mkdir -p cache
-endif
 
 clean_cache:
-ifneq ($(SETTINGS),settings.local)
+ifneq ($(SETTINGS),config.settings.local)
 	rm -rf var/cache/*
 	rm -rf public/media/cache/*
 else
@@ -92,44 +93,63 @@ else
 endif
 
 
-# COMMANDS
+# DEV COMMANDS
 # ------------------------------------------------------------------------------
-install: env requirements var db static clean_cache clear_thumbs
+mailserver:
+	./tools/bin/mailhog &
+	@echo "MailHog opened ..."
 
-reload: env requirements var db static clean_cache clear_thumbs
+deps:
+	$(info - Installing all system dependencies using apt-get)
+	sudo ./tools/scripts/system.sh install
+
+database:
+	sudo ./tools/scripts/database.sh reset
+	@echo "---"
+	@echo "Database has been reseted"
+
+
+
+# BOTH COMMANDS
+# ------------------------------------------------------------------------------
+install: env requirements var migrations static clean_cache clear_thumbs
+
+reload: env requirements var migrations static clean_cache clear_thumbs
 
 superuser:
-	$(PYTHON_ENV) app/manage.py createsuperuser
+	$(PYTHON_ENV) manage.py createsuperuser
+
+corpora:
+	$(PYTHON_ENV) -m textblob.download_corpora
 
 diffsettings:
-	$(PYTHON_ENV) app/manage.py diffsettings
+	$(PYTHON_ENV) manage.py diffsettings
 
 shell:
-	$(PYTHON_ENV) app/manage.py shell_plus
+	$(PYTHON_ENV) manage.py shell_plus
 
 server:
 	@echo "Open your browser at [YOUR_IP]:8000"
-	$(PYTHON_ENV) app/manage.py runserver 0.0.0.0:8000
+	$(PYTHON_ENV) manage.py runserver 0.0.0.0:8000
 
-mailserver:
-	./tools/mailhog &
-	@echo "MailHog opened ..."
+tunnel:
+	@echo "Open a tunnel to [YOUR_IP]:8000"
+	./ngrok http 8000
 
 tests:
 	@echo "Run TestCases [YOUR_IP]:8000"
-	rm -rf coverage.svg
-	$(COVERAGE_ENV) run app/manage.py test oauth -v 2
-	$(COVERAGE_ENV) run app/manage.py test users -v 2
-	$(COVERAGE_ENV) report
-	$(COVERAGE_ENV)-badge -o coverage.svg
+	#rm -rf coverage.svg
+	$(COVERAGE_ENV) run manage.py test apps.credentials -v 2
+	#$(COVERAGE_ENV) run manage.py test users -v 2
+	#$(COVERAGE_ENV) report
+	#$(COVERAGE_ENV)-badge -o coverage.svg
 
 coverage: tests
 	$(COVERAGE_ENV) html
 	cd coverage &&	../env/bin/python -m http.server  7500
 
-serve_docs:
+docs:
 	cd docs && mkdocs serve --dev-addr=0.0.0.0:8100 --livereload
 
 build_docs:
 	cd docs && mkdocs build --clean
-

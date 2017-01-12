@@ -1,0 +1,48 @@
+{% load i18n static %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title %}{% endblock %} | {{ project_name }}</title>
+
+        {% include 'partials/meta-section.html' %}
+        {% include 'partials/styles-include.html' %}
+        {% block extra_meta  %}{% endblock %}
+        {% block extra_head %}{% endblock %}
+
+    </head>
+    <body>
+
+        <!-- APP WRAPPER -->
+        <div class="app app-fh">
+
+            <!-- START APP CONTAINER -->
+            <div class="app-container" style="background: url({% static 'img/bg.jpg' %}) center center no-repeat fixed;">
+
+                <div class="app-login-box">
+                    {% block container %}
+
+                    {% endblock %}
+                </div>
+
+            </div>
+            <!-- END APP CONTAINER -->
+
+        </div>
+        <!-- END APP WRAPPER -->
+
+        {% include 'partials/scripts-important-include.html' %}
+        {% include 'partials/scripts-app-include.html' %}
+
+        {% block extra_scripts %}{% endblock %}
+
+    </body>
+</html>
+
+
+
+
+
+

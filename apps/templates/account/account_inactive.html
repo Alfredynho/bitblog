@@ -1,0 +1,30 @@
+{% extends 'layouts/base_sign.html' %}
+{% load static i18n %}
+
+{% block title %}
+    {% trans 'Cuenta Inactiva' %}
+{% endblock %}
+
+{% block container %}
+
+    <div class="app-login-box-user">
+        <img src="{% static 'img/logo-swuare.jpg' %}">
+    </div>
+
+    <div class="app-login-box-title ">
+        <div class="title">{% trans 'Cuenta Inactiva' %}</div>
+    </div>
+
+    <div class="app-login-box-container">
+        <p>
+            {% blocktrans %}
+                Esta cuenta esta <span class="label label-danger">INACTIVA</span>
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    <div class="app-login-box-container">
+        <a href="{% url 'landing' %}" class="btn btn-primary btn-block">{% trans 'Volver al Inicio' %}</a>
+    </div>
+
+{% endblock %}

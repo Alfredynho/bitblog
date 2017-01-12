@@ -1,0 +1,269 @@
+/* ~ CORE
+---------------------------------*/
+
+@-ms-viewport {
+  width: device-width;
+}
+/* line 11, ../scss/docs.scss */
+body {
+  margin: 0;
+}
+
+/* line 16, ../scss/docs.scss */
+#header {
+  background-color: #34495e;
+  height: 50px;
+  padding: 25px 25px 8px 25px;
+}
+/* line 26, ../scss/docs.scss */
+#header a#logo {
+  background: none;
+  padding: 0;
+}
+/* line 29, ../scss/docs.scss */
+#header a#logo img {
+  height: 47px;
+}
+
+/* line 36, ../scss/docs.scss */
+.docs-link {
+  text-align: left;
+}
+/* line 38, ../scss/docs.scss */
+.docs-link a {
+  font-family:  sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 18px;
+  text-space: 5px !important;
+}
+
+/* line 46, ../scss/docs.scss */
+#django-rest-swagger {
+  background: #2c3e50;
+  padding: 12px;
+}
+
+/* line 52, ../scss/docs.scss */
+.swagger-ui-wrap a {
+  color: #34495e;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+/* line 57, ../scss/docs.scss */
+.swagger-ui-wrap a:hover {
+  color: #2c3e50;
+}
+
+/* line 63, ../scss/docs.scss */
+.info a {
+  font-weight: 600;
+}
+/* line 67, ../scss/docs.scss */
+.info .info_title, .info .info_contact, .info .info_license, .info .info_tos {
+  display: none !important;
+}
+/* line 70, ../scss/docs.scss */
+.info .info_description {
+  font-weight: 400;
+}
+
+/* line 77, ../scss/docs.scss */
+.swagger-ui-wrap {
+  font-family:  sans-serif !important;
+  font-weight: 400;
+}
+/* line 80, ../scss/docs.scss */
+.swagger-ui-wrap html, .swagger-ui-wrap body, .swagger-ui-wrap div, .swagger-ui-wrap span, .swagger-ui-wrap applet, .swagger-ui-wrap object, .swagger-ui-wrap iframe,
+.swagger-ui-wrap h1, .swagger-ui-wrap h2, .swagger-ui-wrap h3, .swagger-ui-wrap h4, .swagger-ui-wrap h5, .swagger-ui-wrap h6, .swagger-ui-wrap p, .swagger-ui-wrap blockquote, .swagger-ui-wrap pre, .swagger-ui-wrap a,
+.swagger-ui-wrap abbr, .swagger-ui-wrap acronym, .swagger-ui-wrap address, .swagger-ui-wrap big, .swagger-ui-wrap cite, .swagger-ui-wrap code, .swagger-ui-wrap del, .swagger-ui-wrap dfn,
+.swagger-ui-wrap em, .swagger-ui-wrap img, .swagger-ui-wrap ins, .swagger-ui-wrap kbd, .swagger-ui-wrap q, .swagger-ui-wrap s, .swagger-ui-wrap samp, .swagger-ui-wrap small, .swagger-ui-wrap strike, .swagger-ui-wrap strong,
+.swagger-ui-wrap sub, .swagger-ui-wrap sup, .swagger-ui-wrap tt, .swagger-ui-wrap var, .swagger-ui-wrap b, .swagger-ui-wrap u, .swagger-ui-wrap i, .swagger-ui-wrap center, .swagger-ui-wrap dl, .swagger-ui-wrap dt, .swagger-ui-wrap dd, .swagger-ui-wrap ol, .swagger-ui-wrap ul,
+.swagger-ui-wrap li, .swagger-ui-wrap fieldset, .swagger-ui-wrap form, .swagger-ui-wrap label, .swagger-ui-wrap legend, .swagger-ui-wrap table, .swagger-ui-wrap caption, .swagger-ui-wrap tbody,
+.swagger-ui-wrap tfoot, .swagger-ui-wrap thead, .swagger-ui-wrap tr, .swagger-ui-wrap th, .swagger-ui-wrap td, .swagger-ui-wrap article, .swagger-ui-wrap aside, .swagger-ui-wrap canvas, .swagger-ui-wrap details,
+.swagger-ui-wrap embed, .swagger-ui-wrap figure, .swagger-ui-wrap figcaption, .swagger-ui-wrap footer, .swagger-ui-wrap header, .swagger-ui-wrap menu, .swagger-ui-wrap nav,
+.swagger-ui-wrap output, .swagger-ui-wrap ruby, .swagger-ui-wrap section, .swagger-ui-wrap summary, .swagger-ui-wrap time, .swagger-ui-wrap mark, .swagger-ui-wrap audio, .swagger-ui-wrap video {
+  font-family:  sans-serif !important;
+  font-weight: 500;
+}
+/* line 93, ../scss/docs.scss */
+.swagger-ui-wrap table tbody tr td {
+  line-height: 2.3em;
+}
+/* line 98, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content div.sandbox_header {
+  margin-top: 15px;
+}
+/* line 102, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading h3 span.http_method a, .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading div.content h4 {
+  background-color: #16a085;
+}
+/* line 106, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading ul.options li a {
+  color: #107360;
+  font-weight: 600;
+}
+/* line 113, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a {
+  background-color: #2980b9;
+}
+/* line 116, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading ul.options li a {
+  color: #20638f;
+  font-weight: 600;
+}
+/* line 123, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading h3 span.http_method a {
+  background-color: #f39c12;
+}
+/* line 126, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading ul.options li a {
+  color: #c87f0a;
+  font-weight: 600;
+}
+/* line 133, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading h3 span.http_method a {
+  background-color: #c0392b;
+}
+/* line 136, ../scss/docs.scss */
+.swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading ul.options li a {
+  color: #962d22;
+  font-weight: 600;
+}
+
+/* line 145, ../scss/docs.scss */
+.heading h2 a {
+  font-weight: 700;
+}
+
+/* line 150, ../scss/docs.scss */
+.submit {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  vertical-align: baseline;
+  background: #587ca0;
+  color: #fff;
+  margin: 0 0.25em 0 0;
+  padding: 12px 20px !important;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: bold;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+/* line 178, ../scss/docs.scss */
+.submit:hover {
+  background: #34495e;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+}
+/* line 183, ../scss/docs.scss */
+.submit:focus {
+  background: #587ca0;
+}
+/* line 187, ../scss/docs.scss */
+.submit:active {
+  background: #2c3e50;
+}
+
+/* line 192, ../scss/docs.scss */
+.parameter {
+  width: 100%;
+  vertical-align: top;
+  height: 1.2142em;
+  margin: 0;
+  outline: none;
+  -webkit-appearance: none;
+  line-height: 1.2142em;
+  padding: 6px;
+  font-size: 1em;
+  background: #ffffff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 0.28571429rem;
+  box-shadow: 0 0 0 0 transparent inset;
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
+}
+/* line 210, ../scss/docs.scss */
+.parameter.api-key {
+  font-weight: 400;
+  font-size: 12px !important;
+  background: #2c3e50;
+  color: #fff;
+  border: 1px solid #1a252f !important;
+}
+/* line 217, ../scss/docs.scss */
+.parameter.api-key:focus {
+  color: #fff;
+  border: 1px solid #1a252f !important;
+  background: #354b60;
+}
+/* line 224, ../scss/docs.scss */
+.parameter:focus {
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #85b7d9;
+  border-radius: 0.28571429rem;
+  background: #ffffff;
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+}
+/* line 231, ../scss/docs.scss */
+.parameter.error {
+  background: #fff6f6;
+  border: 1px solid #c0392b !important;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: none !important;
+}
+
+/* line 241, ../scss/docs.scss */
+select.parameter {
+  display: block;
+  height: 32px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid gray;
+  border-radius: 0.28571429rem;
+  padding: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
+  -webkit-appearance: menulist-button;
+}
+
+@font-face {
+  font-family: 'Consolas';
+  src: url("../font/consolas.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+/* line 265, ../scss/docs.scss */
+.block pre, .block code * {
+  font-family: "Consolas", sans-serif, Serif !important;
+  font-weight: 400 !important;
+}
+
+/* line 270, ../scss/docs.scss */
+.label-key {
+  margin-top: 0;
+  display: inline-block;
+  padding: 8px 10px !important;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #efefef;
+  font-size: 12px !important;
+}

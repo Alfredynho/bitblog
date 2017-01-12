@@ -1,0 +1,130 @@
+body{
+    font-size: @landing-font-size;
+    font-weight: @landing-font-weight;
+    font-family: @landing-font-family;
+    line-height: @landing-line-height;
+    color: @landing-base-font-color;
+    background: @landing-theme-bg;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+
+.app{
+    h1,h2,h3,h4,h5,h6{
+        float: left;
+        width: 100%;
+        padding: 0px;
+        font-weight: 300;
+        margin: 0px 0px 10px;
+        color: @landing-base-font-color-heading;
+    }
+    h1{
+        font-size: 36px;
+        line-height: 50px;        
+    }
+    h2{
+        font-size: 32px;
+        line-height: 40px;        
+    }
+    h3{
+        font-size: 28px;
+        line-height: 40px;        
+    }
+    h4{
+        font-size: 24px;
+        line-height: 40px;        
+    }
+    h5{
+        font-size: 18px;
+        line-height: 30px;        
+    }
+    h6{
+        font-size: 16px;
+        line-height: 25px;        
+    }
+    
+    .under-heading,.above-heading{
+        float: left;
+        width: 100%;
+        color: @landing-base-font-color-secondary;
+        font-size: 15px;
+        line-height: 30px;
+        margin-top: -10px;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+    .above-heading{
+        text-transform: uppercase;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    
+    h1 + .under-heading{
+        font-size: 17px;
+        margin-top: 0px;
+    }
+    
+    .invert{
+        color: @landing-invert-font-color;
+        
+        h1,h2,h3,h4,h5,h6{
+            color: @landing-invert-font-color-heading;            
+        }
+        
+        .under-heading{color: @landing-invert-font-color-secondary;}
+    }
+    
+    .section{
+        float: left;
+        width: 100%;
+        background: @landing-section-bg;
+        padding: 100px 0px;
+
+        &.section-highlight{
+            background: @landing-section-bg-highlight;
+        }
+        &.invert{
+            background: @landing-section-bg-invert;
+        }        
+        &.section-condensed{
+            padding: 50px 0px;
+        }
+    }
+    
+    .heading-wrapper{
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+    }        
+    
+}
+
+@media (max-width: @screen-md) {
+    .app{            
+        .section{
+            padding: 50px 0px;
+            
+            .btn{
+                margin-bottom: 10px;                
+            }
+            
+            img{
+                width: 100%;
+                
+                &.dont-resize{
+                    width: auto;
+                }
+            }
+            .row{
+                div[class^='col-md']{
+                    float: left;
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}

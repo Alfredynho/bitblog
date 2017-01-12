@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans %}Conjunto de direcciones de correo electrónico principal.{% endblocktrans %}

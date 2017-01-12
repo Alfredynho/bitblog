@@ -1,0 +1,128 @@
+.irs {
+    height: 55px;
+}
+.irs-with-grid {
+    height: 75px;
+}
+.irs-line {
+    height: 5px; top: 33px;
+    background: @app-desing-base-element-bg;
+    border: 1px solid @app-desing-border-color;
+    .border-radius(3px);
+}
+    .irs-line-left {
+        height: 8px;
+    }
+    .irs-line-mid {
+        height: 8px;
+    }
+    .irs-line-right {
+        height: 8px;
+    }
+
+.irs-bar {
+    height: 5px; top: 33px;
+    border-top: 1px solid @app-desing-base-element-bg-active;
+    border-bottom: 1px solid @app-desing-base-element-bg-active;
+    background: @app-desing-base-element-bg-active;    
+}
+    .irs-bar-edge {
+        height: 5px; top: 33px;
+        width: 14px;
+        border: 1px solid @app-desing-base-element-bg-active;
+        border-right: 0;
+        background: @app-desing-base-element-bg-active;
+        .border-radiuses(3px,0px,0px,3px);
+    }
+
+.irs-shadow {
+    height: 5px;
+    top: 33px;
+    background: #CCC;
+    opacity: 0.5;       
+}
+.lt-ie9 .irs-shadow {
+    filter: alpha(opacity=30);
+}
+
+.irs-slider {
+    top: 26px;
+    width: 19px; 
+    height: 19px;
+    border: 3px solid @app-desing-base-element-bg-active;
+    background: @app-desing-base-element-bg;            
+    cursor: pointer;
+    .border-radius(50%);    
+    
+    &:after {
+        top: -10px;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;        
+        border-bottom-color: @app-desing-base-element-bg-active;
+        border-width: 4px;
+        margin-left: -5px;
+    }
+    
+    &.to{
+        &:after{margin-left: -4px;}
+    }
+}
+
+.irs-slider.state_hover, .irs-slider:hover {
+    background: @app-desing-base-element-bg-hover;
+}
+
+.irs-min, .irs-max {
+    color: @app-layout-base-font-color-heading;
+    font-size: @app-layout-base-font-size - 2; 
+    line-height: 16px;
+    text-shadow: none;
+    top: 0;
+    padding: 3px 10px;
+    background: @app-desing-base-element-bg-hover;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.lt-ie9 .irs-min, .lt-ie9 .irs-max {
+    background: #ccc;
+}
+
+.irs-from, .irs-to, .irs-single {
+    color: #fff;
+    font-size: @app-layout-base-font-size - 2; 
+    font-weight: 400;
+    line-height: 14px;
+    text-shadow: none;
+    padding: 3px 10px;
+    background: @app-desing-base-element-bg-active;
+    .box-shadow(0px 0px 0px 2px fade(@app-desing-base-element-bg-active,25%));
+    .border-radius(3px);    
+}
+.lt-ie9 .irs-from, .lt-ie9 .irs-to, .lt-ie9 .irs-single {
+    background: @app-desing-base-element-bg-hover;
+}
+
+.irs-grid {
+    height: 27px;
+}
+.irs-grid-pol {
+    opacity: 0.5;
+    background: #428bca;
+}
+.irs-grid-pol.small {
+    background: #999;
+}
+
+.irs-grid-text {
+    bottom: 5px;
+    color: #99a4ac;
+}
+
+.irs-disabled {
+}
