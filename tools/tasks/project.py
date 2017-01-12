@@ -100,6 +100,12 @@ class Project(object):
                 run("rm -rf env/")
 
     @staticmethod
+    def makemigrations():
+        with settings(user=make_user(env.project), password=env.passwd):
+            with cd(get_project_src(env.stage)):
+                run("make migrations SETTINGS=config.settings.production")
+
+    @staticmethod
     def backup_logs():
         pass
 

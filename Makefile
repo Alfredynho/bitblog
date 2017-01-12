@@ -30,8 +30,13 @@ clear_thumbs:
 #	$(PYTHON_ENV) manage.py thumbnail clear
 
 migrations:
-	$(PYTHON_ENV) manage.py migrate
+	$(PYTHON_ENV) manage.py makemigrations
 	@echo "Migrations in $(SETTINGS) applied..."
+
+
+migrate:
+		$(PYTHON_ENV) manage.py migrate
+		@echo "Migrate in applied..."
 
 load_data:
 	$(PYTHON_ENV) manage.py load_initial_data
@@ -112,9 +117,9 @@ database:
 
 # BOTH COMMANDS
 # ------------------------------------------------------------------------------
-install: env requirements var migrations static clean_cache clear_thumbs
+install: env requirements var migrate static clean_cache clear_thumbs
 
-reload: env requirements var migrations static clean_cache clear_thumbs
+reload: env requirements var migrate static clean_cache clear_thumbs
 
 superuser:
 	$(PYTHON_ENV) manage.py createsuperuser

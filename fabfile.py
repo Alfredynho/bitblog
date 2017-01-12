@@ -157,6 +157,15 @@ def reset_env():
         with settings(hide('warnings'), warn_only=True, ):
             execute(Project.reset_env, hosts=env.hosts)
 
+@task
+def makemigrations():
+    """
+    Reset the python env
+    """
+    set_user(superuser=True)
+    with settings(hide('warnings'), warn_only=True, ):
+        execute(Project.makemigrations, hosts=env.hosts)
+
 
 @task
 def list_droplets():
