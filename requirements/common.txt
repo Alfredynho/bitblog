@@ -78,6 +78,7 @@ django-el-pagination==3.0.1
 tapioca-disqus==0.1.2
 tapioca-wrapper==0.5.3
 docutils==0.12
+pygments==2.1.3
 
 # ~ MODELS
 # ----------
